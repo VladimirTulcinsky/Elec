@@ -19,7 +19,10 @@ int main(void)
 
     for(;;)
     {
-        /* Place your application code here. */
+      Led_1_Write( SW1_Read() );
+      Led_2_Write( SW1_Read() );
+      Led_3_Write( SW1_Read() );
+      Led_4_Write( SW1_Read() );
     }
 }
 

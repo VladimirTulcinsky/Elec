@@ -1,0 +1,23 @@
+(DELAYFILE
+ (SDFVERSION "IEEE 1497 4.0")
+ (DATE "2020-03-26T11:13:20Z")
+ (DESIGN "Project_Final")
+ (VENDOR "Cypress Semiconductor")
+ (PROGRAM "PSoC Creator")
+ (VERSION " 4.3")
+ (DIVIDER .)
+ (TIMESCALE 1 ns)
+ (CELL
+  (CELLTYPE "Project_Final")
+  (INSTANCE *)
+  (DELAY
+   (ABSOLUTE
+    (INTERCONNECT Led_1\(0\)_PAD Led_1\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT Led_2\(0\)_PAD Led_2\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT Led_3\(0\)_PAD Led_3\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT Led_4\(0\)_PAD Led_4\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT SW1\(0\)_PAD SW1\(0\).pad_in (0.000:0.000:0.000))
+   )
+  )
+ )
+)
