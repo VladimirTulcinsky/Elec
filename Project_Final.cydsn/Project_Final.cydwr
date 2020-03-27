@@ -253,6 +253,7 @@
     <Group key="Pin">
       <Data key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba" value="SW1" />
       <Data key="361601e7-d95a-47ac-9494-68de769203ab" value="Led_3" />
+      <Data key="77715107-f8d5-47e5-a629-0fb83101ac6b" value="Analog_Output_Pin" />
       <Data key="e851a3b9-efb8-48be-bbb8-b303b216c393" value="Led_1" />
       <Data key="ed6820d8-6ae7-4f87-b3ac-63c4dda37ff2" value="Led_2" />
       <Data key="eeabc79b-b9d7-45d5-a883-610d817e28e5" value="Led_4" />
@@ -3350,6 +3351,11 @@
     <Group key="361601e7-d95a-47ac-9494-68de769203ab">
       <Group key="0">
         <Data key="Port Format" value="0,5" />
+      </Group>
+    </Group>
+    <Group key="77715107-f8d5-47e5-a629-0fb83101ac6b">
+      <Group key="0">
+        <Data key="Port Format" value="15,5" />
       </Group>
     </Group>
     <Group key="e851a3b9-efb8-48be-bbb8-b303b216c393">

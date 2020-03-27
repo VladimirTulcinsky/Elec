@@ -10,27 +10,69 @@
  * ========================================
 */
 #include "project.h"
+#include <math.h>
+
+int static i;
+float static signal[100];
+int32 volatile static adc_value;
+
+CY_ISR(Timer_1_Handler) {
+   float val = signal[i] * (float)adc_value / 3311 + 128;
+   VDAC_SetValue(val);
+    VDAC_SetValue(signal[i] * 50 + 128);
+    i++;
+    if (i == 100) i = 0;
+    Timer_ReadStatusRegister();
+}
+
 
   // Function to turn on all LEDs when you press on SW1
  void appuiSW1()
     {
-      Led_1_Write( SW1_Read() );
-      Led_2_Write( SW1_Read() );
-      Led_3_Write( SW1_Read() );
-      Led_4_Write( SW1_Read() );
+        
+        if( SW1_Read() != 0)
+        { // When the SW1 is press
+            Led_1_Write(SW1_Read());
+            Led_2_Write(SW1_Read());
+            Led_3_Write(SW1_Read());
+            Led_4_Write(SW1_Read());
+            Analog_Output_Pin_Write(50);
+        }
+        else
+        { //  When the SW1 isn't press
+            Led_1_Write(SW1_Read());
+            Led_2_Write(SW1_Read());
+            Led_3_Write(SW1_Read());
+            Led_4_Write(SW1_Read());
+            VDAC_SetValue(signal[i] * 50 + 128);
+            
+        }
+    
+    
+    
     }
+ 
 
 int main(void)
 {
     CyGlobalIntEnable; /* Enable global interrupts. */
+    for (i = 0; i < 100; i++) {
+        signal[i] = sin((i * 2 * M_PI) / 100);
+    }
+    
+    i = 0;
+  //  isr_StartEx(Timer_1_Handler);
+    Timer_Start();
+    
+    VDAC_Start();
+    VDAC_SetValue(0);
 
-    /* Place your initialization/startup code here (e.g. MyInst_Start()) */
-
-  
-   
+    
     
     for(;;)
     {
+        
+
         appuiSW1();
       
     }
