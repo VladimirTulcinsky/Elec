@@ -37,6 +37,8 @@ CY_ISR(Timer_1_Handler) {
             Led_2_Write(SW1_Read());
             Led_3_Write(SW1_Read());
             Led_4_Write(SW1_Read());
+            Timer_Start();
+            
         }
         else
         { //  When the SW1 isn't press
@@ -44,6 +46,7 @@ CY_ISR(Timer_1_Handler) {
             Led_2_Write(SW1_Read());
             Led_3_Write(SW1_Read());
             Led_4_Write(SW1_Read());
+            Timer_Stop();
             
         }
     
@@ -61,18 +64,17 @@ int main(void)
     
     i = 0;
     isr_StartEx(Timer_1_Handler);
-    Timer_Start();
+    Timer_Stop();
     
     VDAC_Start();
     VDAC_SetValue(0);
 
     
-    
     for(;;)
     {
         
-        //float val = signal[i] * (float)adc_value / 3311 + 128;
-        //appuiSW1();
+       
+        appuiSW1();
       
     }
 }
