@@ -1,6 +1,6 @@
 (DELAYFILE
  (SDFVERSION "IEEE 1497 4.0")
- (DATE "2020-03-27T13:48:31Z")
+ (DATE "2020-04-01T08:34:04Z")
  (DESIGN "Project_Final")
  (VENDOR "Cypress Semiconductor")
  (PROGRAM "PSoC Creator")
@@ -12,6 +12,8 @@
   (INSTANCE *)
   (DELAY
    (ABSOLUTE
+    (INTERCONNECT ClockBlock.clk_bus_glb isr.clock (0.000:0.000:0.000))
+    (INTERCONNECT \\Timer\:TimerHW\\.irq isr.interrupt (1.000:1.000:1.000))
     (INTERCONNECT __ONE__.q \\Timer\:TimerHW\\.enable (0.000:0.000:0.000))
     (INTERCONNECT ClockBlock.clk_bus_glb_ff \\Timer\:TimerHW\\.clock (0.000:0.000:0.000))
     (INTERCONNECT Led_1\(0\)_PAD Led_1\(0\).pad_in (0.000:0.000:0.000))
@@ -19,7 +21,6 @@
     (INTERCONNECT Led_3\(0\)_PAD Led_3\(0\).pad_in (0.000:0.000:0.000))
     (INTERCONNECT Led_4\(0\)_PAD Led_4\(0\).pad_in (0.000:0.000:0.000))
     (INTERCONNECT SW1\(0\)_PAD SW1\(0\).pad_in (0.000:0.000:0.000))
-    (INTERCONNECT Analog_Output_Pin\(0\)_PAD Analog_Output_Pin\(0\).pad_in (0.000:0.000:0.000))
    )
   )
  )

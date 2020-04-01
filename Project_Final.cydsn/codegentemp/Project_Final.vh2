@@ -2,7 +2,7 @@
 --	Conversion of Project_Final.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Fri Mar 27 14:48:27 2020
+--	Wed Apr 01 10:33:59 2020
 --
 
 USE cypress.cypress.all;
@@ -51,17 +51,16 @@ SIGNAL \Timer:Net_266\ : bit;
 SIGNAL \Timer:Net_51\ : bit;
 SIGNAL \Timer:Net_261\ : bit;
 SIGNAL \Timer:Net_57\ : bit;
-SIGNAL Net_9 : bit;
+SIGNAL Net_102 : bit;
 SIGNAL Net_16 : bit;
 SIGNAL \Timer:Net_102\ : bit;
 SIGNAL \VDAC:Net_83\ : bit;
 SIGNAL \VDAC:Net_81\ : bit;
 SIGNAL \VDAC:Net_82\ : bit;
-TERMINAL Net_36 : bit;
+TERMINAL Net_29 : bit;
 TERMINAL \VDAC:Net_77\ : bit;
 SIGNAL tmpOE__Analog_Output_Pin_net_0 : bit;
 SIGNAL tmpFB_0__Analog_Output_Pin_net_0 : bit;
-TERMINAL Net_29 : bit;
 SIGNAL tmpIO_0__Analog_Output_Pin_net_0 : bit;
 TERMINAL tmpSIOVREF__Analog_Output_Pin_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__Analog_Output_Pin_net_0 : bit;
@@ -440,7 +439,7 @@ timer_clock:cy_clock_v1_0
 		timer_reset=>zero,
 		tc=>\Timer:Net_51\,
 		compare=>\Timer:Net_261\,
-		interrupt=>\Timer:Net_57\);
+		interrupt=>Net_102);
 \VDAC:viDAC8\:cy_psoc3_vidac8_v1_0
 	GENERIC MAP(cy_registers=>"",
 		reg_data=>'0',
@@ -452,7 +451,7 @@ timer_clock:cy_clock_v1_0
 			zero, zero, zero, zero),
 		strobe=>zero,
 		strobe_udb=>zero,
-		vout=>Net_36,
+		vout=>Net_29,
 		iout=>\VDAC:Net_77\);
 \VDAC:cy_analog_noconnect_1\:cy_analog_noconnect_v1_0
 	PORT MAP(noconnect=>\VDAC:Net_77\);
@@ -526,5 +525,9 @@ Analog_Output_Pin:cy_psoc3_pins_v1_10
 		out_clock_en=>tmpOE__Led_1_net_0,
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__Analog_Output_Pin_net_0);
+isr:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_102);
 
 END R_T_L;

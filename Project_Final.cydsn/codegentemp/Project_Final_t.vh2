@@ -1,5 +1,5 @@
 -- Project:   C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\Project_Final.cyprj
--- Generated: 03/27/2020 14:48:31
+-- Generated: 04/01/2020 10:34:04
 -- PSoC Creator  4.3
 
 ENTITY Project_Final IS
@@ -8,8 +8,7 @@ ENTITY Project_Final IS
         Led_2(0)_PAD : OUT std_ulogic;
         Led_3(0)_PAD : OUT std_ulogic;
         Led_4(0)_PAD : OUT std_ulogic;
-        SW1(0)_PAD : IN std_ulogic;
-        Analog_Output_Pin(0)_PAD : INOUT std_ulogic);
+        SW1(0)_PAD : IN std_ulogic);
     ATTRIBUTE voltage_VDDABUF OF __DEFAULT__ : ENTITY IS 5e0;
     ATTRIBUTE voltage_VDDA OF __DEFAULT__ : ENTITY IS 5e0;
     ATTRIBUTE voltage_VUSB OF __DEFAULT__ : ENTITY IS 5e0;
@@ -38,10 +37,10 @@ ARCHITECTURE __DEFAULT__ OF Project_Final IS
     SIGNAL Led_2(0)__PA : bit;
     SIGNAL Led_3(0)__PA : bit;
     SIGNAL Led_4(0)__PA : bit;
+    SIGNAL Net_102 : bit;
     SIGNAL SW1(0)__PA : bit;
     SIGNAL \Timer:Net_261\ : bit;
     SIGNAL \Timer:Net_51\ : bit;
-    SIGNAL \Timer:Net_57\ : bit;
     SIGNAL __ONE__ : bit;
     ATTRIBUTE placement_force OF __ONE__ : SIGNAL IS "U(1,3,A)0";
     ATTRIBUTE POWER OF __ONE__ : SIGNAL IS true;
@@ -68,7 +67,8 @@ ARCHITECTURE __DEFAULT__ OF Project_Final IS
     ATTRIBUTE Location OF \Timer:TimerHW\ : LABEL IS "F(Timer,0)";
     ATTRIBUTE lib_model OF __ONE__ : LABEL IS "macrocell1";
     ATTRIBUTE Location OF __ONE__ : LABEL IS "U(1,3)";
-    ATTRIBUTE Location OF \VDAC:viDAC8\ : LABEL IS "F(VIDAC,3)";
+    ATTRIBUTE Location OF \VDAC:viDAC8\ : LABEL IS "F(VIDAC,0)";
+    ATTRIBUTE Location OF isr : LABEL IS "[IntrContainer=(0)][IntrId=(17)]";
     COMPONENT clockblockcell
         PORT (
             dclk_0 : OUT std_ulogic;
@@ -148,6 +148,11 @@ ARCHITECTURE __DEFAULT__ OF Project_Final IS
             dclk_glb_ff_5 : OUT std_ulogic;
             dclk_glb_ff_6 : OUT std_ulogic;
             dclk_glb_ff_7 : OUT std_ulogic);
+    END COMPONENT;
+    COMPONENT interrupt
+        PORT (
+            interrupt : IN std_ulogic;
+            clock : IN std_ulogic);
     END COMPONENT;
     COMPONENT iocell
         PORT (
@@ -802,7 +807,6 @@ BEGIN
         PORT MAP(
             pa_out => Analog_Output_Pin(0)__PA,
             oe => open,
-            pad_in => Analog_Output_Pin(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
             in_reset => '0',
@@ -821,7 +825,7 @@ BEGIN
             timer_reset => open,
             tc => \Timer:Net_51\,
             cmp => \Timer:Net_261\,
-            irq => \Timer:Net_57\);
+            irq => Net_102);
 
     __ONE__:macrocell
         GENERIC MAP(
@@ -840,5 +844,13 @@ BEGIN
             reset => open,
             idir => open,
             ioff => open);
+
+    isr:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => Net_102,
+            clock => ClockBlock_BUS_CLK);
 
 END __DEFAULT__;

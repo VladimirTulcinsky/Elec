@@ -1,6 +1,6 @@
 // ======================================================================
 // Project_Final.v generated from TopDesign.cysch
-// 03/27/2020 at 14:48
+// 04/01/2020 at 10:33
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -294,8 +294,6 @@ endmodule
 // top
 module top ;
 
-    electrical  Net_29;
-    electrical  Net_36;
           wire [7:0] Net_35;
           wire  Net_34;
           wire  Net_16;
@@ -303,14 +301,15 @@ module top ;
           wire  Net_14;
           wire  Net_13;
           wire  Net_11;
-          wire  Net_9;
-          wire  Net_78;
+          wire  Net_101;
           wire  Net_10;
     electrical  Net_7;
     electrical  Net_5;
     electrical  Net_4;
     electrical  Net_3;
     electrical  Net_2;
+          wire  Net_102;
+    electrical  Net_29;
           wire  Net_12;
 
 	wire [0:0] tmpOE__Led_1_net;
@@ -710,7 +709,7 @@ module top ;
 
     Timer_v2_80_0 Timer (
         .reset(Net_12),
-        .interrupt(Net_9),
+        .interrupt(Net_102),
         .enable(1'b1),
         .trigger(1'b1),
         .capture(1'b0),
@@ -728,7 +727,7 @@ module top ;
     VDAC8_v1_90_1 VDAC (
         .strobe(1'b0),
         .data(8'b00000000),
-        .vOut(Net_36));
+        .vOut(Net_29));
     defparam VDAC.Data_Source = 0;
     defparam VDAC.Initial_Value = 100;
     defparam VDAC.Strobe_Mode = 0;
@@ -808,6 +807,13 @@ module top ;
 		  .out_reset({1'b0}));
 
 	assign tmpOE__Analog_Output_Pin_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
+
+
+	cy_isr_v1_0
+		#(.int_type(2'b10))
+		isr
+		 (.int_signal(Net_102));
+
 
 
 
