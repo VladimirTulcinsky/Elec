@@ -1,5 +1,5 @@
 # Project_Final
-# 2020-04-01 08:34:01Z
+# 2020-04-01 10:05:28Z
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0
@@ -13,4 +13,7 @@ set_io "Led_3(0)" iocell 0 5
 set_io "Led_4(0)" iocell 0 6
 set_io "SW1(0)" iocell 12 5
 set_io "Analog_Output_Pin(0)" iocell 15 5
+set_io "SW2(0)" iocell 12 4
+set_io "SW3(0)" iocell 12 3
+set_io "SW4(0)" iocell 12 2
 set_location "\VDAC:viDAC8\" vidaccell -1 -1 0

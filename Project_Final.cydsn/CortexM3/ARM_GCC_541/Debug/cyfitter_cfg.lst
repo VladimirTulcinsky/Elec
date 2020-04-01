@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
   29:Generated_Source\PSoC5/cyfitter_cfg.c **** 
   30:Generated_Source\PSoC5/cyfitter_cfg.c **** #if defined(__GNUC__) || defined(__ARMCC_VERSION)
   31:Generated_Source\PSoC5/cyfitter_cfg.c ****     #define CYPACKED 
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 2
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 2
 
 
   32:Generated_Source\PSoC5/cyfitter_cfg.c ****     #define CYPACKED_ATTR __attribute__ ((packed))
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
   86:Generated_Source\PSoC5/cyfitter_cfg.c **** 	(void)memcpy(dest, src, n);
   87:Generated_Source\PSoC5/cyfitter_cfg.c **** }
   88:Generated_Source\PSoC5/cyfitter_cfg.c **** CY_CFG_UNUSED
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 3
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 3
 
 
   89:Generated_Source\PSoC5/cyfitter_cfg.c **** static void CYCONFIGCPYCODE(void *dest, const void *src, size_t n);
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
   41              		.thumb
   42              		.thumb_func
   43              		.type	cfg_write_bytes32, %function
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 4
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 4
 
 
   44              	cfg_write_bytes32:
@@ -216,16 +216,16 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  159:Generated_Source\PSoC5/cyfitter_cfg.c **** #define cy_cfg_data_table ((const cy_cfg_addrvalue_t CYFAR *)0x4800001Cu)
  160:Generated_Source\PSoC5/cyfitter_cfg.c **** 
  161:Generated_Source\PSoC5/cyfitter_cfg.c **** /* IOPINS0_0 Address: CYREG_PRT0_DR Size (bytes): 10 */
- 162:Generated_Source\PSoC5/cyfitter_cfg.c **** #define BS_IOPINS0_0_VAL ((const uint8 CYFAR *)0x48000038u)
+ 162:Generated_Source\PSoC5/cyfitter_cfg.c **** #define BS_IOPINS0_0_VAL ((const uint8 CYFAR *)0x48000040u)
  163:Generated_Source\PSoC5/cyfitter_cfg.c **** 
  164:Generated_Source\PSoC5/cyfitter_cfg.c **** /* IOPINS0_7 Address: CYREG_PRT12_DR Size (bytes): 10 */
- 165:Generated_Source\PSoC5/cyfitter_cfg.c **** #define BS_IOPINS0_7_VAL ((const uint8 CYFAR *)0x48000044u)
+ 165:Generated_Source\PSoC5/cyfitter_cfg.c **** #define BS_IOPINS0_7_VAL ((const uint8 CYFAR *)0x4800004Cu)
  166:Generated_Source\PSoC5/cyfitter_cfg.c **** 
  167:Generated_Source\PSoC5/cyfitter_cfg.c **** /* IOPINS0_8 Address: CYREG_PRT15_DM0 Size (bytes): 8 */
- 168:Generated_Source\PSoC5/cyfitter_cfg.c **** #define BS_IOPINS0_8_VAL ((const uint8 CYFAR *)0x48000050u)
+ 168:Generated_Source\PSoC5/cyfitter_cfg.c **** #define BS_IOPINS0_8_VAL ((const uint8 CYFAR *)0x48000058u)
  169:Generated_Source\PSoC5/cyfitter_cfg.c **** 
  170:Generated_Source\PSoC5/cyfitter_cfg.c **** /* IOPINS0_1 Address: CYREG_PRT1_DM0 Size (bytes): 8 */
- 171:Generated_Source\PSoC5/cyfitter_cfg.c **** #define BS_IOPINS0_1_VAL ((const uint8 CYFAR *)0x48000058u)
+ 171:Generated_Source\PSoC5/cyfitter_cfg.c **** #define BS_IOPINS0_1_VAL ((const uint8 CYFAR *)0x48000060u)
  172:Generated_Source\PSoC5/cyfitter_cfg.c **** 
  173:Generated_Source\PSoC5/cyfitter_cfg.c **** 
  174:Generated_Source\PSoC5/cyfitter_cfg.c **** /*******************************************************************************
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  181:Generated_Source\PSoC5/cyfitter_cfg.c **** * Parameters:
  182:Generated_Source\PSoC5/cyfitter_cfg.c **** *   void
  183:Generated_Source\PSoC5/cyfitter_cfg.c **** *
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 5
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 5
 
 
  184:Generated_Source\PSoC5/cyfitter_cfg.c **** * Return:
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
   83 001c 6D78     		ldrb	r5, [r5, #1]	@ zero_extendqisi2
   84 001e A555     		strb	r5, [r4, r6]
  201:Generated_Source\PSoC5/cyfitter_cfg.c **** 			j++;
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 6
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 6
 
 
   85              		.loc 1 201 0
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  214:Generated_Source\PSoC5/cyfitter_cfg.c **** *  clocks and setting the necessary dividers to produce the desired frequency. 
  215:Generated_Source\PSoC5/cyfitter_cfg.c **** *
  216:Generated_Source\PSoC5/cyfitter_cfg.c **** * Parameters:
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 7
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 7
 
 
  217:Generated_Source\PSoC5/cyfitter_cfg.c **** *  void
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  271:Generated_Source\PSoC5/cyfitter_cfg.c **** * Summary:
  272:Generated_Source\PSoC5/cyfitter_cfg.c **** *  Sets up the analog portions of the chip to default values based on chip
  273:Generated_Source\PSoC5/cyfitter_cfg.c **** *  configuration options from the project.
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 8
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 8
 
 
  274:Generated_Source\PSoC5/cyfitter_cfg.c **** *
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  161 0034 FD510040 		.word	1073762813
  162              		.cfi_endproc
  163              	.LFE6:
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 9
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 9
 
 
  164              		.size	AnalogSetDefault, .-AnalogSetDefault
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  213 0008 0822     		movs	r2, #8
  214 000a 4FF04023 		mov	r3, #1073758208
  215 000e 1A70     		strb	r2, [r3]
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 10
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 10
 
 
  235:Generated_Source\PSoC5/cyfitter_cfg.c **** 	CY_SET_XTND_REG8((void CYFAR *)(CYREG_IMO_TR1), (CY_GET_XTND_REG8((void CYFAR *)CYREG_FLSHID_CUST_
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  259              		.loc 1 243 0 discriminator 3
  260 0050 032C     		cmp	r4, #3
  261 0052 EFD1     		bne	.L17
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 11
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 11
 
 
  262              	.L16:
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  308              		.thumb
  309              		.thumb_func
  310              		.type	CYCONFIGCPY, %function
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 12
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 12
 
 
  311              	CYCONFIGCPY:
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  341              		@ link register save eliminated.
  342              	.LVL27:
  313:Generated_Source\PSoC5/cyfitter_cfg.c **** 	uint8 regValue = CY_GET_XTND_REG8((void CYFAR *)CYREG_PUMP_CR0);
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 13
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 13
 
 
  343              		.loc 1 313 0
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  333:Generated_Source\PSoC5/cyfitter_cfg.c **** *  performs all of the necessary device configuration based on the design
  334:Generated_Source\PSoC5/cyfitter_cfg.c **** *  settings.  This includes settings from the Design Wide Resources (DWR) such
  335:Generated_Source\PSoC5/cyfitter_cfg.c **** *  as Clocks and Pins as well as any component configuration that is necessary.
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 14
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 14
 
 
  336:Generated_Source\PSoC5/cyfitter_cfg.c **** *
@@ -833,12 +833,12 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  361:Generated_Source\PSoC5/cyfitter_cfg.c **** 
  362:Generated_Source\PSoC5/cyfitter_cfg.c **** 		static const cfg_memset_t CYCODE cfg_memset_list[] = {
  363:Generated_Source\PSoC5/cyfitter_cfg.c **** 			/* address, size */
- 364:Generated_Source\PSoC5/cyfitter_cfg.c **** 			{(void CYFAR *)(CYREG_TMR0_CFG0), 12u},
+ 364:Generated_Source\PSoC5/cyfitter_cfg.c **** 			{(void CYFAR *)(CYREG_TMR0_CFG0), 24u},
  365:Generated_Source\PSoC5/cyfitter_cfg.c **** 			{(void CYFAR *)(CYREG_PRT2_DR), 80u},
  366:Generated_Source\PSoC5/cyfitter_cfg.c **** 			{(void CYFAR *)(CYDEV_UCFG_B0_P0_U0_BASE), 4096u},
  367:Generated_Source\PSoC5/cyfitter_cfg.c **** 			{(void CYFAR *)(CYDEV_UCFG_B1_P2_U0_BASE), 2048u},
  368:Generated_Source\PSoC5/cyfitter_cfg.c **** 			{(void CYFAR *)(CYDEV_UCFG_DSI0_BASE), 2560u},
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 15
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 15
 
 
  369:Generated_Source\PSoC5/cyfitter_cfg.c **** 			{(void CYFAR *)(CYDEV_UCFG_DSI12_BASE), 512u},
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  437 003c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
  438 003e 43F00203 		orr	r3, r3, #2
  439 0042 1370     		strb	r3, [r2]
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 16
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 16
 
 
  386:Generated_Source\PSoC5/cyfitter_cfg.c **** 		CY_SET_XTND_REG8((void CYFAR *)CYREG_BCTL1_BANK_CTL, CY_GET_XTND_REG8((void CYFAR *)CYREG_BCTL1_B
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  481              	.LVL41:
  399:Generated_Source\PSoC5/cyfitter_cfg.c **** 	/* Switch Boost to the precision bandgap reference from its internal reference */
  400:Generated_Source\PSoC5/cyfitter_cfg.c **** 	CY_SET_REG8((void CYXDATA *)CYREG_BOOST_CR2, (CY_GET_REG8((void CYXDATA *)CYREG_BOOST_CR2) | 0x08u
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 17
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 17
 
 
  482              		.loc 1 400 0
@@ -1012,16 +1012,16 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  516 00c4 1C000048 		.word	1207959580
  517 00c8 03500140 		.word	1073827843
  518 00cc A0430040 		.word	1073759136
- 519 00d0 38000048 		.word	1207959608
+ 519 00d0 40000048 		.word	1207959616
  520 00d4 00510040 		.word	1073762560
- 521 00d8 44000048 		.word	1207959620
+ 521 00d8 4C000048 		.word	1207959628
  522 00dc C0510040 		.word	1073762752
- 523 00e0 50000048 		.word	1207959632
+ 523 00e0 58000048 		.word	1207959640
  524 00e4 F2510040 		.word	1073762802
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 18
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 18
 
 
- 525 00e8 58000048 		.word	1207959640
+ 525 00e8 60000048 		.word	1207959648
  526 00ec 12510040 		.word	1073762578
  527 00f0 22430040 		.word	1073759010
  528 00f4 00480040 		.word	1073760256
@@ -1037,7 +1037,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  538              		.size	cfg_memset_list.5013, 42
  539              	cfg_memset_list.5013:
  540 0000 004F0040 		.word	1073762048
- 541 0004 0C00     		.short	12
+ 541 0004 1800     		.short	24
  542 0006 20510040 		.4byte	1073762592
  543 000a 5000     		.short	80
  544 000c 00000140 		.word	1073807360
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  579 0031 02       		.byte	0x2
  580 0032 D8       		.byte	0xd8
  581 0033 37000000 		.4byte	0x37
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 19
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 19
 
 
  582 0037 04       		.uleb128 0x4
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  636 0095 53000000 		.4byte	0x53
  637 0099 06       		.uleb128 0x6
  638 009a AB010000 		.4byte	.LASF14
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 20
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 20
 
 
  639 009e 03       		.byte	0x3
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  693 010e 6C000000 		.4byte	.LASF50
  694 0112 01       		.byte	0x1
  695 0113 7F       		.byte	0x7f
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 21
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 21
 
 
  696 0114 00000000 		.4byte	.LFB3
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  750 0188 C3       		.byte	0xc3
  751 0189 A5000000 		.4byte	0xa5
  752 018d 3E000000 		.4byte	.LLST2
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 22
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 22
 
 
  753 0191 0F       		.uleb128 0xf
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  807 020a A3000000 		.4byte	.LLST6
  808 020e 15       		.uleb128 0x15
  809 020f 0A000000 		.4byte	.LVL16
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 23
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 23
 
 
  810 0213 D0040000 		.4byte	0x4d0
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  864 0274 15       		.uleb128 0x15
  865 0275 5C000000 		.4byte	.LVL23
  866 0279 0D010000 		.4byte	0x10d
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 24
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 24
 
 
  867 027d 16       		.uleb128 0x16
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  921 02de 03       		.uleb128 0x3
  922 02df F3       		.byte	0xf3
  923 02e0 01       		.uleb128 0x1
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 25
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 25
 
 
  924 02e1 52       		.byte	0x52
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  978 0356 00       		.byte	0
  979 0357 1F       		.uleb128 0x1f
  980 0358 95000000 		.4byte	.LASF42
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 26
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 26
 
 
  981 035c 01       		.byte	0x1
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  1035 03d9 14       		.uleb128 0x14
  1036 03da 74       		.byte	0x74
  1037 03db 00       		.sleb128 0
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 27
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 27
 
 
  1038 03dc 31       		.byte	0x31
@@ -1613,12 +1613,12 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  1087 0423 51       		.byte	0x51
  1088 0424 05       		.uleb128 0x5
  1089 0425 0C       		.byte	0xc
- 1090 0426 38000048 		.4byte	0x48000038
+ 1090 0426 40000048 		.4byte	0x48000040
  1091 042a 16       		.uleb128 0x16
  1092 042b 01       		.uleb128 0x1
  1093 042c 52       		.byte	0x52
  1094 042d 01       		.uleb128 0x1
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 28
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 28
 
 
  1095 042e 3A       		.byte	0x3a
@@ -1638,7 +1638,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  1109 0448 51       		.byte	0x51
  1110 0449 05       		.uleb128 0x5
  1111 044a 0C       		.byte	0xc
- 1112 044b 44000048 		.4byte	0x48000044
+ 1112 044b 4C000048 		.4byte	0x4800004c
  1113 044f 16       		.uleb128 0x16
  1114 0450 01       		.uleb128 0x1
  1115 0451 52       		.byte	0x52
@@ -1660,7 +1660,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  1131 046d 51       		.byte	0x51
  1132 046e 05       		.uleb128 0x5
  1133 046f 0C       		.byte	0xc
- 1134 0470 50000048 		.4byte	0x48000050
+ 1134 0470 58000048 		.4byte	0x48000058
  1135 0474 16       		.uleb128 0x16
  1136 0475 01       		.uleb128 0x1
  1137 0476 52       		.byte	0x52
@@ -1678,14 +1678,14 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  1149 048b 0C       		.byte	0xc
  1150 048c 12510040 		.4byte	0x40005112
  1151 0490 16       		.uleb128 0x16
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 29
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 29
 
 
  1152 0491 01       		.uleb128 0x1
  1153 0492 51       		.byte	0x51
  1154 0493 05       		.uleb128 0x5
  1155 0494 0C       		.byte	0xc
- 1156 0495 58000048 		.4byte	0x48000058
+ 1156 0495 60000048 		.4byte	0x48000060
  1157 0499 16       		.uleb128 0x16
  1158 049a 01       		.uleb128 0x1
  1159 049b 52       		.byte	0x52
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  1206 0001 11       		.uleb128 0x11
  1207 0002 01       		.byte	0x1
  1208 0003 25       		.uleb128 0x25
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 30
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 30
 
 
  1209 0004 0E       		.uleb128 0xe
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  1263 003a 0B       		.uleb128 0xb
  1264 003b 00       		.byte	0
  1265 003c 00       		.byte	0
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 31
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 31
 
 
  1266 003d 06       		.uleb128 0x6
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  1320 0073 0B       		.uleb128 0xb
  1321 0074 3B       		.uleb128 0x3b
  1322 0075 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 32
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 32
 
 
  1323 0076 27       		.uleb128 0x27
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  1377 00af 0D       		.uleb128 0xd
  1378 00b0 34       		.uleb128 0x34
  1379 00b1 00       		.byte	0
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 33
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 33
 
 
  1380 00b2 03       		.uleb128 0x3
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  1434 00e8 01       		.byte	0x1
  1435 00e9 03       		.uleb128 0x3
  1436 00ea 0E       		.uleb128 0xe
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 34
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 34
 
 
  1437 00eb 3A       		.uleb128 0x3a
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  1491 0124 13       		.uleb128 0x13
  1492 0125 00       		.byte	0
  1493 0126 00       		.byte	0
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 35
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 35
 
 
  1494 0127 16       		.uleb128 0x16
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  1548 0162 01       		.uleb128 0x1
  1549 0163 12       		.uleb128 0x12
  1550 0164 06       		.uleb128 0x6
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 36
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 36
 
 
  1551 0165 40       		.uleb128 0x40
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  1605 019c 3A       		.uleb128 0x3a
  1606 019d 0B       		.uleb128 0xb
  1607 019e 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 37
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 37
 
 
  1608 019f 05       		.uleb128 0x5
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  1662 01d5 898201   		.uleb128 0x4109
  1663 01d8 00       		.byte	0
  1664 01d9 11       		.uleb128 0x11
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 38
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 38
 
 
  1665 01da 01       		.uleb128 0x1
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  1719 0029 30       		.byte	0x30
  1720 002a 9F       		.byte	0x9f
  1721 002b 08000000 		.4byte	.LVL3
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 39
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 39
 
 
  1722 002f 34000000 		.4byte	.LFE4
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  1776 00bd 0C000000 		.4byte	.LFE0
  1777 00c1 0400     		.2byte	0x4
  1778 00c3 F3       		.byte	0xf3
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 40
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 40
 
 
  1779 00c4 01       		.uleb128 0x1
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  1833 014c 0400     		.2byte	0x4
  1834 014e F3       		.byte	0xf3
  1835 014f 01       		.uleb128 0x1
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 41
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 41
 
 
  1836 0150 51       		.byte	0x51
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  1890 01c9 00000000 		.4byte	cfg_memset_list.5013
  1891 01cd 22       		.byte	0x22
  1892 01ce 9F       		.byte	0x9f
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 42
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 42
 
 
  1893 01cf 00000000 		.4byte	0
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  1943      01010101 
  1944              	.LASF19:
  1945 0000 72656731 		.ascii	"reg16\000"
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 43
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 43
 
 
  1945      3600
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  1972              	.LASF42:
  1973 0095 73697A65 		.ascii	"size\000"
  1973      00
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 44
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 44
 
 
  1974              	.LASF47:
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  1995      3200
  1996              	.LASF40:
  1997 0193 63796669 		.ascii	"cyfitter_cfg\000"
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 45
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 45
 
 
  1997      74746572 
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  2023 0227 47656E65 		.ascii	"Generated_Source\\PSoC5\\cyfitter_cfg.c\000"
  2023      72617465 
  2023      645F536F 
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 46
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 46
 
 
  2023      75726365 
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 1
  2048 0300 72656756 		.ascii	"regValue\000"
  2048      616C7565 
  2048      00
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccnffxCz.s 			page 47
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccV76je1.s 			page 47
 
 
  2049              	.LASF35:
