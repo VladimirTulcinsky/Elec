@@ -69,6 +69,7 @@
 <ExpandedNodeIds>
 <v>Project_Elec</v>
 <v>Project_Elec\Project_Final</v>
+<<<<<<< Updated upstream
 <v>Project_Elec\Project_Final\CortexM3</v>
 <v>Project_Elec\Project_Final\CortexM3\ARM_GCC_541</v>
 <v>Project_Elec\Project_Final\CortexM3\ARM_GCC_541\Debug</v>
@@ -99,6 +100,8 @@
 <v>Project_Elec\Project_Final\CortexM3\ARM_GCC_541\Debug\Project_Final.elf</v>
 <v>Project_Elec\Project_Final\CortexM3\ARM_GCC_541\Debug\Project_Final.hex</v>
 <v>Project_Elec\Project_Final\CortexM3\ARM_GCC_541\Debug\Project_Final.map</v>
+=======
+>>>>>>> Stashed changes
 <v>Project_Elec\Project_Final\Project_Final.gpdsc</v>
 <v>Project_Elec\Project_Final\Project_Final.rpt</v>
 <v>Project_Elec\Project_Final\Project_Final_timing.html</v>
@@ -106,6 +109,7 @@
 <VisibleNodeIds>
 <v>Project_Elec</v>
 <v>Project_Elec\Project_Final</v>
+<<<<<<< Updated upstream
 <v>Project_Elec\Project_Final\CortexM3</v>
 <v>Project_Elec\Project_Final\CortexM3\ARM_GCC_541</v>
 <v>Project_Elec\Project_Final\CortexM3\ARM_GCC_541\Debug</v>
@@ -136,6 +140,8 @@
 <v>Project_Elec\Project_Final\CortexM3\ARM_GCC_541\Debug\Project_Final.elf</v>
 <v>Project_Elec\Project_Final\CortexM3\ARM_GCC_541\Debug\Project_Final.hex</v>
 <v>Project_Elec\Project_Final\CortexM3\ARM_GCC_541\Debug\Project_Final.map</v>
+=======
+>>>>>>> Stashed changes
 <v>Project_Elec\Project_Final\Project_Final.gpdsc</v>
 <v>Project_Elec\Project_Final\Project_Final.rpt</v>
 <v>Project_Elec\Project_Final\Project_Final_timing.html</v>
