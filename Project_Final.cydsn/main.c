@@ -32,18 +32,15 @@ CY_ISR(Timer_Handler) {
 
 
   // Function to turn on all LEDs when you press on SW1
- void appuiSW1()
-    {
-        if( SW1_Read() != 0)
-        { // When the SW1 is press
+ void appuiSW1() {
+        
+        if( SW1_Read() != 0) { // When the SW1 is press
             Led_1_Write(SW1_Read());
             Led_2_Write(SW1_Read());
             Led_3_Write(SW1_Read());
             Led_4_Write(SW1_Read());
-            Timer_Start();
-        }
-        else
-        { //  When the SW1 isn't press
+            Timer_Start();   
+        } else { //  When the SW1 isn't press
             Led_1_Write(SW1_Read());
             Led_2_Write(SW1_Read());
             Led_3_Write(SW1_Read());
@@ -59,46 +56,90 @@ CY_ISR(Timer_Handler) {
         Led_3_Write(0);
         Led_4_Write(0);
 }
+
+void pointAllume()
+{
+    int actualClock = clock;
+    do{
+    Timer_Start();
+    if(Timer_1_ReadStatusRegister() & Timer_1_STATUS_TC) clock++;
+    
+    Led_1_Write(1);
+    Led_2_Write(1);
+    Led_3_Write(1);
+    Led_4_Write(1);   
+    }while(clock - actualClock < 250);
+}
+
+void pointEteint()
+{
+    int actualClock = clock;
+    do{
+    if(Timer_1_ReadStatusRegister() & Timer_1_STATUS_TC) clock++;  
+    Timer_Stop();
+    Led_1_Write(0);
+    Led_2_Write(0);
+    Led_3_Write(0);
+    Led_4_Write(0);   
+    }while(clock - actualClock < 250);
+}
+void barre()
+{
+    pointAllume();
+    pointAllume();
+    pointAllume();
+}
+
+void espacementLettre()
+{
+   pointEteint(); 
+   pointEteint(); 
+   pointEteint(); 
+}
+
+void espacementElement()
+{
+    pointEteint();   
+}
+
+void selectSignal(int value)
+{   
+   if(value == 0){
+        pointAllume();    
+    }else if(value == 1){
+        barre();
+    }else if(value == 2){
+        espacementElement();
+    }else if(value == 3){
+        espacementLettre();
+    }
+
+}
  
     
      // Function to turn on all LEDs when you press on SW2
   void appuiSW2()
     {
+        // 0 = point
+        // 1 = barre
+        // 2 = espace entre deux éléments d'une même lettre (1 point)
+        // 3 = espace entre deux lettres (3 points)
+      
+    int arr[17] = {0,2,0,2,0,3,1,2,1,2,1,3,0,2,0,2,0};
+    int f;
     if( SW2_Read() != 0){
         do{
-            Timer_1_Start();
-        
+        Timer_1_Start();
+       
         if(Timer_1_ReadStatusRegister() & Timer_1_STATUS_TC) clock++;
-        if(clock>0){
-            Led_1_Write(1);
-            Led_2_Write(1);
-            Led_3_Write(1);
-            Led_4_Write(1);
+        
+        for(f = 0; f < 17; f ++)
+        {
+            selectSignal(arr[f]);
+            
         }
-        if(clock>500){
-            Led_1_Write(0);
-            Led_2_Write(0);
-            Led_3_Write(0);
-            Led_4_Write(0);
-        }
-        if(clock>1000){
-            Led_1_Write(1);
-            Led_2_Write(1);
-            Led_3_Write(1);
-            Led_4_Write(1);
-        }
-        if(clock>1500){
-            Led_1_Write(0);
-            Led_2_Write(0);
-            Led_3_Write(0);
-            Led_4_Write(0);
-        }
-        if(clock>2000){
-            Led_1_Write(1);
-            Led_2_Write(1);
-            Led_3_Write(1);
-            Led_4_Write(1);
-        }
+        
+        
         
         if(clock > 4998){
             resetLed();
@@ -128,7 +169,7 @@ int main(void)
     
     for(;;)
     {
-       
+        
         appuiSW1();
         appuiSW2();
         if(clock > 5000){
