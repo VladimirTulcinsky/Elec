@@ -177,20 +177,35 @@ void signalBEAMS()
             clock = 0;
         }
     }
+    
+ void displayMessage(char** message)
+{
+    LCD_Position(0,0);
+    LCD_PrintString(*message);
+}
   
   void keyboard() // Keyboard function used to read 1,2 or *
 {
     uint8_t  value = keypadScan();
+    char* message;
     while (value == '1' || value == '*' || value == '2') 
     {
         uint8_t value2 = keypadScan();
 
         if ((value == '1' && value2 == '*') || (value == '*' && value2 == '1')) {
+            message = (char*) malloc(strlen("SOS"));
+            sprintf(message,"SOS");
+            displayMessage(&message);
             signalSOS();
+            
             break;
         }
          if ((value == '2' && value2 == '*') || (value == '*' && value2 == '2')) {
+            message = (char*) malloc(strlen("BEAMS"));
+            sprintf(message,"BEAMS");
+            displayMessage(&message);
             signalBEAMS();
+            
             break;
         }
     }
@@ -213,20 +228,11 @@ int main(void)
     Led_3_Write(0);
     Led_4_Write(0);
     LCD_Start();
-    char test[15];
     LCD_ClearDisplay();
     for(;;)
     {  
         
-        LCD_Position(0,0);
-        sprintf(test,"Tanguy Wo");
-        LCD_PrintString(test);
-        
-        LCD_Position(1,0);
-        sprintf(test,"rld") ;
-        
-        LCD_PrintString(test);
-        
+                
         appuiSW1();
         appuiSW2();
         appuiSW3();   
