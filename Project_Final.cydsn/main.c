@@ -113,25 +113,41 @@ void selectSignal(int value)
  
 void signalSOS()
 {
-     // 0 = point
+        // ... --- ...
+        // 0 = point
         // 1 = barre
         // 2 = espace entre deux éléments d'une même lettre (1 point)
         // 3 = espace entre deux lettres (3 points)  
     int arr[17] = {0,2,0,2,0,3,1,2,1,2,1,3,0,2,0,2,0};
     int f;
-        if( SW4_Read() != 0)
-        {
-            Timer_1_Start();
-           
-            if(Timer_1_ReadStatusRegister() & Timer_1_STATUS_TC) clock++;
-            
-            for(f = 0; f < 17; f ++)
-            {
-                selectSignal(arr[f]);
-            }
-            resetLed();
-            clock = 0;
-        }
+    Timer_1_Start();
+   
+    if(Timer_1_ReadStatusRegister() & Timer_1_STATUS_TC) clock++;
+    
+    for(f = 0; f < 17; f ++)
+    {
+        selectSignal(arr[f]);
+    }
+    resetLed();
+    clock = 0;
+}
+
+void signalBEAMS()
+{
+    //-... . .- -- ... 
+    int arr[23] = {1,2,0,2,0,2,0,3,0,3,0,2,1,3,1,2,1,3,0,2,0,2,0};
+    int f;
+    Timer_1_Start();
+   
+    if(Timer_1_ReadStatusRegister() & Timer_1_STATUS_TC) clock++;
+    
+    for(f = 0; f < 23; f ++)
+    {
+        selectSignal(arr[f]);
+    }
+    resetLed();
+    clock = 0;
+    
 }
      // Function to turn on all LEDs when you press on SW2
   void appuiSW2()
@@ -148,7 +164,7 @@ void signalSOS()
         }
     }
     
- void appuiSW3()
+ void appuiSW3() /// When you press on SW3
     {
        if( SW3_Read() != 0)
         {
@@ -161,22 +177,23 @@ void signalSOS()
             clock = 0;
         }
     }
-    
-_Bool checkifStarIsPressed()
+  
+  void keyboard() // Keyboard function used to read 1,2 or *
 {
-    int actualClock = clock2;
-    _Bool pressed = 0;
-    do{
-        if(Timer_2_ReadStatusRegister() & Timer_2_STATUS_TC) clock2++;  
-        uint8_t value = keypadScan();
-        if( value == '*')
-        {
-            pressed = 1;
+    uint8_t  value = keypadScan();
+    while (value == '1' || value == '*' || value == '2') 
+    {
+        uint8_t value2 = keypadScan();
+
+        if ((value == '1' && value2 == '*') || (value == '*' && value2 == '1')) {
+            signalSOS();
+            break;
         }
-        
-        
-    }while(clock2 - actualClock < 500);
-    return pressed;
+         if ((value == '2' && value2 == '*') || (value == '*' && value2 == '2')) {
+            signalBEAMS();
+            break;
+        }
+    }
 }
 
 
@@ -186,7 +203,6 @@ int main(void)
     for (i = 0; i < 100; i++) {
         signal[i] = sin((i * 2 * M_PI) / 100);
     }
-    _Bool next;
     i = 0;
     isr_StartEx(Timer_Handler);
     Timer_Stop();
@@ -196,36 +212,13 @@ int main(void)
     Led_2_Write(0);
     Led_3_Write(0);
     Led_4_Write(0);
-
+    
     for(;;)
-    {
-        if(Timer_2_ReadStatusRegister() & Timer_1_STATUS_TC) clock2++;
-        int actualClock = clock2;
-        Timer_2_Start();
-   
-        do{
-            if(Timer_2_ReadStatusRegister() & Timer_1_STATUS_TC) clock2++;
-            uint8_t value = keypadScan();
-            
-             if( value == '1')
-            {
-               
-                Led_1_Write(1);
-            }
-            
-            appuiSW1();
-            appuiSW2();
-            appuiSW3();
-            signalSOS();
-            
-        }while(clock2 - actualClock < 100);
-           
-  
-       
-        
-        
-        
-              
+    {  
+        appuiSW1();
+        appuiSW2();
+        appuiSW3();   
+        keyboard();
     }
 }
 

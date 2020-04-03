@@ -1,5 +1,5 @@
 -- Project:   Project_Final
--- Generated: 04/03/2020 11:51:49
+-- Generated: 04/03/2020 14:03:45
 -- PSoC Creator  4.3
 
 ENTITY Project_Final IS
@@ -64,9 +64,6 @@ ARCHITECTURE __DEFAULT__ OF Project_Final IS
     SIGNAL \Timer_1:Net_261\ : bit;
     SIGNAL \Timer_1:Net_51\ : bit;
     SIGNAL \Timer_1:Net_57\ : bit;
-    SIGNAL \Timer_2:Net_261\ : bit;
-    SIGNAL \Timer_2:Net_51\ : bit;
-    SIGNAL \Timer_2:Net_57\ : bit;
     SIGNAL __ONE__ : bit;
     ATTRIBUTE placement_force OF __ONE__ : SIGNAL IS "U(1,3,A)0";
     ATTRIBUTE POWER OF __ONE__ : SIGNAL IS true;
@@ -116,7 +113,6 @@ ARCHITECTURE __DEFAULT__ OF Project_Final IS
     ATTRIBUTE Location OF \VDAC:viDAC8\ : LABEL IS "F(VIDAC,0)";
     ATTRIBUTE Location OF isr : LABEL IS "[IntrContainer=(0)][IntrId=(17)]";
     ATTRIBUTE Location OF \Timer_1:TimerHW\ : LABEL IS "F(Timer,1)";
-    ATTRIBUTE Location OF \Timer_2:TimerHW\ : LABEL IS "F(Timer,2)";
     COMPONENT clockblockcell
         PORT (
             dclk_0 : OUT std_ulogic;
@@ -1813,18 +1809,5 @@ BEGIN
             tc => \Timer_1:Net_51\,
             cmp => \Timer_1:Net_261\,
             irq => \Timer_1:Net_57\);
-
-    \Timer_2:TimerHW\:timercell
-        GENERIC MAP(
-            cy_registers => "")
-        PORT MAP(
-            clock => \ClockBlock.clk_bus_glb_ff__sig\,
-            kill => open,
-            enable => __ONE__,
-            capture => open,
-            timer_reset => open,
-            tc => \Timer_2:Net_51\,
-            cmp => \Timer_2:Net_261\,
-            irq => \Timer_2:Net_57\);
 
 END __DEFAULT__;

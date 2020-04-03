@@ -2,7 +2,7 @@
 --	Conversion of Project_Final.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Fri Apr 03 11:51:47 2020
+--	Fri Apr 03 14:03:42 2020
 --
 
 USE cypress.cypress.all;
@@ -127,16 +127,6 @@ SIGNAL tmpFB_0__ROW3_net_0 : bit;
 SIGNAL tmpIO_0__ROW3_net_0 : bit;
 TERMINAL tmpSIOVREF__ROW3_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__ROW3_net_0 : bit;
-SIGNAL Net_184 : bit;
-SIGNAL \Timer_2:Net_260\ : bit;
-SIGNAL \Timer_2:Net_266\ : bit;
-SIGNAL Net_177 : bit;
-SIGNAL \Timer_2:Net_51\ : bit;
-SIGNAL \Timer_2:Net_261\ : bit;
-SIGNAL \Timer_2:Net_57\ : bit;
-SIGNAL Net_178 : bit;
-SIGNAL Net_183 : bit;
-SIGNAL \Timer_2:Net_102\ : bit;
 BEGIN
 
 zero <=  ('0') ;
@@ -1322,25 +1312,5 @@ ROW3:cy_psoc3_pins_v1_10
 		out_clock_en=>tmpOE__Led_1_net_0,
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__ROW3_net_0);
-\Timer_2:TimerHW\:cy_psoc3_timer_v1_0
-	GENERIC MAP(cy_registers=>"")
-	PORT MAP(clock=>Net_184,
-		kill=>zero,
-		enable=>tmpOE__Led_1_net_0,
-		capture=>zero,
-		timer_reset=>zero,
-		tc=>\Timer_2:Net_51\,
-		compare=>\Timer_2:Net_261\,
-		interrupt=>\Timer_2:Net_57\);
-timer_clock_2:cy_clock_v1_0
-	GENERIC MAP(cy_registers=>"",
-		id=>"a1474e0e-d41a-430b-9596-49e945fe9ea0",
-		source_clock_id=>"75C2148C-3656-4d8a-846D-0CAE99AB6FF7",
-		divisor=>0,
-		period=>"0",
-		is_direct=>'1',
-		is_digital=>'1')
-	PORT MAP(clock_out=>Net_184,
-		dig_domain_out=>open);
 
 END R_T_L;

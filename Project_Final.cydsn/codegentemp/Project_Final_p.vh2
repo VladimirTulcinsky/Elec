@@ -1,5 +1,5 @@
 -- Project:   Project_Final
--- Generated: 04/03/2020 11:51:47
+-- Generated: 04/03/2020 14:03:44
 -- PSoC Creator  4.3
 
 ENTITY Project_Final IS
@@ -64,9 +64,6 @@ ARCHITECTURE __DEFAULT__ OF Project_Final IS
     SIGNAL \Timer_1:Net_261\ : bit;
     SIGNAL \Timer_1:Net_51\ : bit;
     SIGNAL \Timer_1:Net_57\ : bit;
-    SIGNAL \Timer_2:Net_261\ : bit;
-    SIGNAL \Timer_2:Net_51\ : bit;
-    SIGNAL \Timer_2:Net_57\ : bit;
     SIGNAL __ONE__ : bit;
     ATTRIBUTE POWER OF __ONE__ : SIGNAL IS true;
     SIGNAL __ZERO__ : bit;
@@ -1813,18 +1810,5 @@ BEGIN
             tc => \Timer_1:Net_51\,
             cmp => \Timer_1:Net_261\,
             irq => \Timer_1:Net_57\);
-
-    \Timer_2:TimerHW\:timercell
-        GENERIC MAP(
-            cy_registers => "")
-        PORT MAP(
-            clock => \ClockBlock.clk_bus_glb_ff__sig\,
-            kill => open,
-            enable => __ONE__,
-            capture => open,
-            timer_reset => open,
-            tc => \Timer_2:Net_51\,
-            cmp => \Timer_2:Net_261\,
-            irq => \Timer_2:Net_57\);
 
 END __DEFAULT__;

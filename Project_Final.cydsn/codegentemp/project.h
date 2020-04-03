@@ -55,7 +55,6 @@
 #include "ROW2.h"
 #include "ROW3_aliases.h"
 #include "ROW3.h"
-#include "Timer_2.h"
 #include "core_cm3_psoc5.h"
 #include "CyDmac.h"
 #include "CyFlash.h"
