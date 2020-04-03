@@ -10,6 +10,7 @@
  * ========================================
 */
 #include "project.h"
+#include "keypad.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -18,6 +19,7 @@ int static i;
 float static signal[100];
 int32 volatile static adc_value;
 int clock=0;
+int clock2=0;
 
 CY_ISR(Timer_Handler) 
 {
@@ -56,7 +58,7 @@ CY_ISR(Timer_Handler)
         Led_4_Write(0);
 }
 
-void pointAllume()
+void pointAllume(int length)
 {
     int actualClock = clock;
     do{
@@ -66,10 +68,10 @@ void pointAllume()
         Led_2_Write(1);
         Led_3_Write(1);
         Led_4_Write(1);   
-    }while(clock - actualClock < 250);
+    }while(clock - actualClock < length);
 }
 
-void pointEteint()
+void pointEteint(int length)
 {
     int actualClock = clock;
     do{
@@ -79,31 +81,27 @@ void pointEteint()
         Led_2_Write(0);
         Led_3_Write(0);
         Led_4_Write(0);   
-    }while(clock - actualClock < 250);
+    }while(clock - actualClock < length);
 }
 void barre()
 {
-    pointAllume();
-    pointAllume();
-    pointAllume();
+    pointAllume(750);
 }
 
 void espacementLettre()
 {
-   pointEteint(); 
-   pointEteint(); 
-   pointEteint(); 
+   pointEteint(750); 
 }
 
 void espacementElement()
 {
-    pointEteint();   
+    pointEteint(250);   
 }
 
 void selectSignal(int value)
 {   
    if(value == 0){
-        pointAllume();    
+        pointAllume(250);    
     }else if(value == 1){
         barre();
     }else if(value == 2){
@@ -113,17 +111,15 @@ void selectSignal(int value)
     }
 }
  
-    
-     // Function to turn on all LEDs when you press on SW2
-  void appuiSW2()
-    {
-        // 0 = point
+void signalSOS()
+{
+     // 0 = point
         // 1 = barre
         // 2 = espace entre deux éléments d'une même lettre (1 point)
         // 3 = espace entre deux lettres (3 points)  
     int arr[17] = {0,2,0,2,0,3,1,2,1,2,1,3,0,2,0,2,0};
     int f;
-        if( SW2_Read() != 0)
+        if( SW4_Read() != 0)
         {
             Timer_1_Start();
            
@@ -134,8 +130,54 @@ void selectSignal(int value)
                 selectSignal(arr[f]);
             }
             resetLed();
+            clock = 0;
+        }
+}
+     // Function to turn on all LEDs when you press on SW2
+  void appuiSW2()
+    {
+       if( SW2_Read() != 0)
+        {
+            Timer_1_Start();
+           
+            if(Timer_1_ReadStatusRegister() & Timer_1_STATUS_TC) clock++;
+            
+            pointAllume(250);
+            resetLed();
+            clock = 0;
         }
     }
+    
+ void appuiSW3()
+    {
+       if( SW3_Read() != 0)
+        {
+            Timer_1_Start();
+           
+            if(Timer_1_ReadStatusRegister() & Timer_1_STATUS_TC) clock++;
+            
+            pointAllume(750);
+            resetLed();
+            clock = 0;
+        }
+    }
+    
+_Bool checkifStarIsPressed()
+{
+    int actualClock = clock2;
+    _Bool pressed = 0;
+    do{
+        if(Timer_2_ReadStatusRegister() & Timer_2_STATUS_TC) clock2++;  
+        uint8_t value = keypadScan();
+        if( value == '*')
+        {
+            pressed = 1;
+        }
+        
+        
+    }while(clock2 - actualClock < 500);
+    return pressed;
+}
 
 
 int main(void)
@@ -144,6 +186,7 @@ int main(void)
     for (i = 0; i < 100; i++) {
         signal[i] = sin((i * 2 * M_PI) / 100);
     }
+    _Bool next;
     i = 0;
     isr_StartEx(Timer_Handler);
     Timer_Stop();
@@ -156,10 +199,32 @@ int main(void)
 
     for(;;)
     {
+        if(Timer_2_ReadStatusRegister() & Timer_1_STATUS_TC) clock2++;
+        int actualClock = clock2;
+        Timer_2_Start();
+   
+        do{
+            if(Timer_2_ReadStatusRegister() & Timer_1_STATUS_TC) clock2++;
+            uint8_t value = keypadScan();
+            
+             if( value == '1')
+            {
+               
+                Led_1_Write(1);
+            }
+            
+            appuiSW1();
+            appuiSW2();
+            appuiSW3();
+            signalSOS();
+            
+        }while(clock2 - actualClock < 100);
+           
+  
+       
         
-        appuiSW1();
-        appuiSW2();
-        clock = 0;
+        
+        
               
     }
 }
