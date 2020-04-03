@@ -212,9 +212,21 @@ int main(void)
     Led_2_Write(0);
     Led_3_Write(0);
     Led_4_Write(0);
-    
+    LCD_Start();
+    char test[15];
+    LCD_ClearDisplay();
     for(;;)
     {  
+        
+        LCD_Position(0,0);
+        sprintf(test,"Tanguy Wo");
+        LCD_PrintString(test);
+        
+        LCD_Position(1,0);
+        sprintf(test,"rld") ;
+        
+        LCD_PrintString(test);
+        
         appuiSW1();
         appuiSW2();
         appuiSW3();   

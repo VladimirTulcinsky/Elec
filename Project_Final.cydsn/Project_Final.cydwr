@@ -253,6 +253,7 @@
     <Group key="Pin">
       <Data key="0c3af12b-8c1e-4100-a05d-c595ef141504" value="SW2" />
       <Data key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba" value="SW1" />
+      <Data key="9d2d5d60-58b4-4136-99df-53470a1d4ca6/ed092b9b-d398-4703-be89-cebf998501f6" value="LCD_LCDPort" />
       <Data key="9f39c030-0294-4af5-9d8c-5da8396d263a" value="COL3" />
       <Data key="09ff8cd3-b344-47b4-9043-d7ed14af0c05" value="ROW0" />
       <Data key="42afe877-bb79-402f-a719-5ae522162598" value="SW4" />
@@ -3363,6 +3364,29 @@
         <Data key="Port Format" value="12,5" />
       </Group>
     </Group>
+    <Group key="9d2d5d60-58b4-4136-99df-53470a1d4ca6/ed092b9b-d398-4703-be89-cebf998501f6">
+      <Group key="0">
+        <Data key="Port Format" value="2,0" />
+      </Group>
+      <Group key="1">
+        <Data key="Port Format" value="2,1" />
+      </Group>
+      <Group key="2">
+        <Data key="Port Format" value="2,2" />
+      </Group>
+      <Group key="3">
+        <Data key="Port Format" value="2,3" />
+      </Group>
+      <Group key="4">
+        <Data key="Port Format" value="2,4" />
+      </Group>
+      <Group key="5">
+        <Data key="Port Format" value="2,5" />
+      </Group>
+      <Group key="6">
+        <Data key="Port Format" value="2,6" />
+      </Group>
+    </Group>
     <Group key="9f39c030-0294-4af5-9d8c-5da8396d263a">
       <Group key="0">
         <Data key="Port Format" value="3,4" />
@@ -3433,6 +3457,7 @@
         <Data key="Port Format" value="12,3" />
       </Group>
     </Group>
+    <Group key="UnAssigned Pins" />
   </Group>
   <Group key="PlaceDir">
     <Data key="count" value="0" />
