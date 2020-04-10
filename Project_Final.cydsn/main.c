@@ -17,9 +17,14 @@
 
 int static i;
 float static signal[100];
-int32 volatile static adc_value;
 int clock=0;
 int clock2=0;
+_Bool flag = 0;
+_Bool pressSW4 = 0;
+
+//adc potentiometer
+int32 volatile static adc_value;
+float adc_value_float;
 
 CY_ISR(Timer_Handler) 
 {
@@ -29,6 +34,12 @@ CY_ISR(Timer_Handler)
     i++;
     if (i == 100) i = 0;
     Timer_ReadStatusRegister();
+}
+
+CY_ISR( SW4_Handler)
+{
+ flag =!flag;   
+ SW4_ClearInterrupt();
 }
 
 
@@ -197,6 +208,8 @@ void signalBEAMS()
             sprintf(message,"SOS");
             displayMessage(&message);
             signalSOS();
+            LCD_ClearDisplay();
+            
             
             break;
         }
@@ -205,10 +218,51 @@ void signalBEAMS()
             sprintf(message,"BEAMS");
             displayMessage(&message);
             signalBEAMS();
+            LCD_ClearDisplay();
+            
             
             break;
         }
     }
+}
+
+void potentiometer()
+{
+    if (ADC_IsEndConversion(ADC_RETURN_STATUS) > 0) {
+            adc_value = ADC_GetResult32();
+            adc_value_float = adc_value/7.9;
+            if(flag == 0){
+            PWM_WriteCompare1(adc_value_float);
+            }else{
+            PWM_WriteCompare2(adc_value_float);
+            }
+        }
+}
+
+void appuiSW4()
+{
+    //char* message;
+    
+if( SW4_Read() != 0)
+    {
+       // LCD_ClearDisplay();
+        // message = (char*) malloc(strlen("FLAG 1"));
+        
+       
+        flag = !flag;
+        CyDelay(1000);
+        
+        
+        /*
+        if(flag == 0){
+        sprintf(message,"FLAG 1");
+        displayMessage(&message);
+        }else{
+        sprintf(message,"FLAG 2");
+        displayMessage(&message);
+        }  
+        */
+   }
 }
 
 
@@ -220,23 +274,47 @@ int main(void)
     }
     i = 0;
     isr_StartEx(Timer_Handler);
+    pin_SW4_int_StartEx(SW4_Handler);
     Timer_Stop();
     VDAC_Start();
     VDAC_SetValue(0);
+    PWM_Start();
+    ADC_Start();
+    ADC_StartConvert();
     Led_1_Write(0);
     Led_2_Write(0);
     Led_3_Write(0);
     Led_4_Write(0);
     LCD_Start();
-    LCD_ClearDisplay();
     for(;;)
     {  
-        
-                
         appuiSW1();
         appuiSW2();
-        appuiSW3();   
+        appuiSW3();  
         keyboard();
+        potentiometer();
+         
+     /*   PWM_WriteCompare(1500);
+        CyDelay(1000);
+        PWM_WriteCompare(3000);
+        CyDelay(1000);
+        PWM_WriteCompare(4500);
+        CyDelay(1000);
+        PWM_WriteCompare(6000);
+        CyDelay(1000);
+        PWM_WriteCompare(7500);
+        CyDelay(1000);
+    */    
+        /*
+        LCD_Position(0,0);
+            sprintf(test,"John Wo");
+            LCD_PrintString(test);
+            
+            LCD_Position(1,0);
+            sprintf(test,"rld") ;
+            
+            LCD_PrintString(test);
+        */
     }
 }
 
