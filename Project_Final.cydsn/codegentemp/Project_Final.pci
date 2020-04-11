@@ -1,5 +1,5 @@
 # Project_Final
-# 2020-04-10 20:45:05Z
+# 2020-04-11 11:40:56Z
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0
@@ -35,5 +35,6 @@ set_io "Tx_1(0)" iocell 1 5
 set_io "Servo1(0)" iocell 15 1
 set_io "Potentiometer(0)" iocell 0 7
 set_io "Servo2(0)" iocell 15 2
+set_io "Photoresistor(0)" iocell 15 3
 set_location "\VDAC:viDAC8\" vidaccell -1 -1 0
 set_location "\ADC:DSM\" dsmodcell -1 -1 0

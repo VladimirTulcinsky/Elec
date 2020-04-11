@@ -193,6 +193,11 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Servo2.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\pin_SW4_int.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\pin_SW4_int.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\AMux.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\AMux.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Photoresistor_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Photoresistor.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Photoresistor.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\Export\ARM_GCC_Generic">

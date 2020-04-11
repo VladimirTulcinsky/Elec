@@ -255,6 +255,7 @@
       <Data key="8ab7e6f8-e3fb-4e6e-ac75-62cdaa832257" value="Servo1" />
       <Data key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba" value="SW1" />
       <Data key="9d2d5d60-58b4-4136-99df-53470a1d4ca6/ed092b9b-d398-4703-be89-cebf998501f6" value="LCD_LCDPort" />
+      <Data key="9e7accf3-1d7f-4c21-91f1-8cd207048d1a" value="Photoresistor" />
       <Data key="9f39c030-0294-4af5-9d8c-5da8396d263a" value="COL3" />
       <Data key="09ff8cd3-b344-47b4-9043-d7ed14af0c05" value="ROW0" />
       <Data key="42afe877-bb79-402f-a719-5ae522162598" value="SW4" />
@@ -3395,6 +3396,11 @@
       </Group>
       <Group key="6">
         <Data key="Port Format" value="2,6" />
+      </Group>
+    </Group>
+    <Group key="9e7accf3-1d7f-4c21-91f1-8cd207048d1a">
+      <Group key="0">
+        <Data key="Port Format" value="15,3" />
       </Group>
     </Group>
     <Group key="9f39c030-0294-4af5-9d8c-5da8396d263a">

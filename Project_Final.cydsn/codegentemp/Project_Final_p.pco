@@ -86,6 +86,8 @@ set_io "COL3(0)" iocell 3 4
 set_io "\LCD:LCDPort(0)\" iocell 2 0
 set_io "Potentiometer(0)" iocell 0 7
 # Note: port 15 is the logical name for port 8
+set_io "Photoresistor(0)" iocell 15 3
+# Note: port 15 is the logical name for port 8
 set_io "ROW3(0)" iocell 15 0
 set_location "\ADC:DEC\" decimatorcell -1 -1 0
 set_io "\LCD:LCDPort(2)\" iocell 2 2

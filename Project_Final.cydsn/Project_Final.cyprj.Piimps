@@ -17,6 +17,7 @@
 <dep name=".\Generated_Source\PSoC5\ADC_Ext_CP_Clk.h" />
 <dep name=".\Generated_Source\PSoC5\ADC_IRQ.h" />
 <dep name=".\Generated_Source\PSoC5\ADC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\AMux.h" />
 <dep name=".\Generated_Source\PSoC5\Analog_Output_Pin.h" />
 <dep name=".\Generated_Source\PSoC5\Analog_Output_Pin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\COL1.h" />
@@ -41,6 +42,8 @@
 <dep name=".\Generated_Source\PSoC5\Led_4.h" />
 <dep name=".\Generated_Source\PSoC5\Led_4_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\PWM.h" />
+<dep name=".\Generated_Source\PSoC5\Photoresistor.h" />
+<dep name=".\Generated_Source\PSoC5\Photoresistor_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\Potentiometer.h" />
 <dep name=".\Generated_Source\PSoC5\Potentiometer_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\ROW0.h" />
@@ -94,6 +97,7 @@
 <file name=".\Generated_Source\PSoC5\ADC_Ext_CP_Clk.h" />
 <file name=".\Generated_Source\PSoC5\ADC_IRQ.h" />
 <file name=".\Generated_Source\PSoC5\ADC_theACLK.h" />
+<file name=".\Generated_Source\PSoC5\AMux.h" />
 <file name=".\Generated_Source\PSoC5\Analog_Output_Pin.h" />
 <file name=".\Generated_Source\PSoC5\Analog_Output_Pin_aliases.h" />
 <file name=".\Generated_Source\PSoC5\COL1.h" />
@@ -118,6 +122,8 @@
 <file name=".\Generated_Source\PSoC5\Led_4.h" />
 <file name=".\Generated_Source\PSoC5\Led_4_aliases.h" />
 <file name=".\Generated_Source\PSoC5\PWM.h" />
+<file name=".\Generated_Source\PSoC5\Photoresistor.h" />
+<file name=".\Generated_Source\PSoC5\Photoresistor_aliases.h" />
 <file name=".\Generated_Source\PSoC5\Potentiometer.h" />
 <file name=".\Generated_Source\PSoC5\Potentiometer_aliases.h" />
 <file name=".\Generated_Source\PSoC5\ROW0.h" />
@@ -252,6 +258,16 @@
 <dep name=".\Generated_Source\PSoC5\cytypes.h" />
 </file>
 <file name=".\Generated_Source\PSoC5\ADC_theACLK.c" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\AMux.o">
+<dep name=".\Generated_Source\PSoC5\AMux.c" />
+<dep name=".\Generated_Source\PSoC5\AMux.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter_cfg.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+</file>
+<file name=".\Generated_Source\PSoC5\AMux.c" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\Analog_Output_Pin.o">
 <dep name=".\Generated_Source\PSoC5\Analog_Output_Pin.c" />
 <dep name=".\Generated_Source\PSoC5\Analog_Output_Pin.h" />
@@ -463,6 +479,17 @@
 <dep name=".\Generated_Source\PSoC5\cytypes.h" />
 </file>
 <file name=".\Generated_Source\PSoC5\PWM_PM.c" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\Photoresistor.o">
+<dep name=".\Generated_Source\PSoC5\Photoresistor.c" />
+<dep name=".\Generated_Source\PSoC5\Photoresistor.h" />
+<dep name=".\Generated_Source\PSoC5\Photoresistor_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cypins.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+</file>
+<file name=".\Generated_Source\PSoC5\Photoresistor.c" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\Potentiometer.o">
 <dep name=".\Generated_Source\PSoC5\Potentiometer.c" />
 <dep name=".\Generated_Source\PSoC5\Potentiometer.h" />
@@ -823,6 +850,7 @@
 <dep name=".\Generated_Source\PSoC5\ADC_Ext_CP_Clk.h" />
 <dep name=".\Generated_Source\PSoC5\ADC_IRQ.h" />
 <dep name=".\Generated_Source\PSoC5\ADC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\AMux.h" />
 <dep name=".\Generated_Source\PSoC5\Analog_Output_Pin.h" />
 <dep name=".\Generated_Source\PSoC5\Analog_Output_Pin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\COL1.h" />
@@ -847,6 +875,8 @@
 <dep name=".\Generated_Source\PSoC5\Led_4.h" />
 <dep name=".\Generated_Source\PSoC5\Led_4_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\PWM.h" />
+<dep name=".\Generated_Source\PSoC5\Photoresistor.h" />
+<dep name=".\Generated_Source\PSoC5\Photoresistor_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\Potentiometer.h" />
 <dep name=".\Generated_Source\PSoC5\Potentiometer_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\ROW0.h" />
@@ -1005,6 +1035,8 @@
 <dep name=".\CortexM3\ARM_GCC_541\Debug\ADC_theACLK.o" />
 <dep name=".\CortexM3\ARM_GCC_541\Debug\Servo2.o" />
 <dep name=".\CortexM3\ARM_GCC_541\Debug\pin_SW4_int.o" />
+<dep name=".\CortexM3\ARM_GCC_541\Debug\AMux.o" />
+<dep name=".\CortexM3\ARM_GCC_541\Debug\Photoresistor.o" />
 <dep name=".\CortexM3\ARM_GCC_541\Debug\Project_Final.a" />
 <dep name="${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_541\Debug\CyComponentLibrary.a" />
 </file>
@@ -1080,6 +1112,8 @@
 <name_val_pair name="Generated_Source\PSoC5\ADC_theACLK.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
 <name_val_pair name="Generated_Source\PSoC5\Servo2.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
 <name_val_pair name="Generated_Source\PSoC5\pin_SW4_int.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="Generated_Source\PSoC5\AMux.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="Generated_Source\PSoC5\Photoresistor.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
 </name>
 </genericCmdLineData>
 <codeGenCmdLineTag v="-.appdatapath &quot;C:\Users\Piimps\AppData\Local\Cypress Semiconductor\PSoC Creator\4.3&quot; -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p &quot;C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\Project_Final.cyprj&quot; -d CY8C5888LTI-LP097 -s &quot;C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\Generated_Source\PSoC5&quot; -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE" />
@@ -1097,7 +1131,7 @@
 <v>Off-Chip</v>
 </tree_states_tab_names>
 <tree_states>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Cypress Component Catalog">
 <ExpandedNodeIds>
 <v>Cypress Component Catalog</v>
 </ExpandedNodeIds>
@@ -1566,6 +1600,11 @@
 <v>Generated_Source\PSoC5\Servo2.h</v>
 <v>Generated_Source\PSoC5\pin_SW4_int.c</v>
 <v>Generated_Source\PSoC5\pin_SW4_int.h</v>
+<v>Generated_Source\PSoC5\AMux.c</v>
+<v>Generated_Source\PSoC5\AMux.h</v>
+<v>Generated_Source\PSoC5\Photoresistor_aliases.h</v>
+<v>Generated_Source\PSoC5\Photoresistor.c</v>
+<v>Generated_Source\PSoC5\Photoresistor.h</v>
 </gen_list>
 <warp_dep>
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\ieee\work\stdlogic.vif</v>
@@ -1575,7 +1614,7 @@
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif</v>
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif</v>
 </warp_dep>
-<deps_time v="132310251150120135" />
+<deps_time v="132310788634710326" />
 <top_block v="TopDesign" />
 <last_generation v="0" />
 <pdl_path v="" />
@@ -1585,7 +1624,7 @@
 <dataGuid v="769d31ea-68b1-4f0c-b90a-7c10a43ee563">
 <CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563 type_name="CyDesigner.Common.ProjMgmt.Model.CyLinkCustomData" version="1">
 <link_deps_times>
-<name_val_pair name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM3" v="132310251404225466" />
+<name_val_pair name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM3" v="132310846490514691" />
 </link_deps_times>
 </CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563>
 </dataGuid>

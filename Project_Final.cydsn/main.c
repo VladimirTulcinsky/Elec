@@ -21,6 +21,7 @@ int clock=0;
 int clock2=0;
 _Bool flag = 0;
 _Bool pressSW4 = 0;
+_Bool lightOn;
 
 //adc potentiometer
 int32 volatile static adc_value;
@@ -75,12 +76,16 @@ void pointAllume(int length)
     do{
         Timer_Start();
         if(Timer_1_ReadStatusRegister() & Timer_1_STATUS_TC) clock++;
+        if(lightOn == 1)
+        {
         Led_1_Write(1);
         Led_2_Write(1);
         Led_3_Write(1);
         Led_4_Write(1);   
+        }
     }while(clock - actualClock < length);
 }
+
 
 void pointEteint(int length)
 {
@@ -194,14 +199,34 @@ void signalBEAMS()
     LCD_Position(0,0);
     LCD_PrintString(*message);
 }
+
+void photoresistor()
+{
+    if (ADC_IsEndConversion(ADC_RETURN_STATUS) != 0) {
+            int32 value = ADC_GetResult32();
+            if(value < 8000) // pas de lumière 
+            {
+               PWM_Stop();
+               lightOn = 1;
+            }else if(value > 8000) // de la lumière
+            {
+               lightOn = 0;
+               PWM_Start(); 
+            }  
+        }
+}
   
   void keyboard() // Keyboard function used to read 1,2 or *
 {
     uint8_t  value = keypadScan();
     char* message;
+    
+    
     while (value == '1' || value == '*' || value == '2') 
     {
         uint8_t value2 = keypadScan();
+        AMux_FastSelect(0);
+        photoresistor();
 
         if ((value == '1' && value2 == '*') || (value == '*' && value2 == '1')) {
             message = (char*) malloc(strlen("SOS"));
@@ -209,8 +234,6 @@ void signalBEAMS()
             displayMessage(&message);
             signalSOS();
             LCD_ClearDisplay();
-            
-            
             break;
         }
          if ((value == '2' && value2 == '*') || (value == '*' && value2 == '2')) {
@@ -219,8 +242,6 @@ void signalBEAMS()
             displayMessage(&message);
             signalBEAMS();
             LCD_ClearDisplay();
-            
-            
             break;
         }
     }
@@ -229,41 +250,16 @@ void signalBEAMS()
 void potentiometer()
 {
     if (ADC_IsEndConversion(ADC_RETURN_STATUS) > 0) {
-            adc_value = ADC_GetResult32();
-            adc_value_float = adc_value/7.9;
+            int32 value = ADC_GetResult32();
+            float value_float = value/7.9;
             if(flag == 0){
-            PWM_WriteCompare1(adc_value_float);
+            PWM_WriteCompare1(value_float);
             }else{
-            PWM_WriteCompare2(adc_value_float);
+            PWM_WriteCompare2(value_float);
             }
         }
 }
 
-void appuiSW4()
-{
-    //char* message;
-    
-if( SW4_Read() != 0)
-    {
-       // LCD_ClearDisplay();
-        // message = (char*) malloc(strlen("FLAG 1"));
-        
-       
-        flag = !flag;
-        CyDelay(1000);
-        
-        
-        /*
-        if(flag == 0){
-        sprintf(message,"FLAG 1");
-        displayMessage(&message);
-        }else{
-        sprintf(message,"FLAG 2");
-        displayMessage(&message);
-        }  
-        */
-   }
-}
 
 
 int main(void)
@@ -281,30 +277,23 @@ int main(void)
     PWM_Start();
     ADC_Start();
     ADC_StartConvert();
-    Led_1_Write(0);
-    Led_2_Write(0);
-    Led_3_Write(0);
-    Led_4_Write(0);
+    AMux_FastSelect(1);
     LCD_Start();
+    resetLed();
+    // reset servo
+    PWM_WriteCompare1(7500);
+    CyDelay(1000);
+    PWM_WriteCompare2(7500);
+    ////
     for(;;)
     {  
         appuiSW1();
         appuiSW2();
         appuiSW3();  
         keyboard();
+        AMux_FastSelect(1);
         potentiometer();
-         
-     /*   PWM_WriteCompare(1500);
-        CyDelay(1000);
-        PWM_WriteCompare(3000);
-        CyDelay(1000);
-        PWM_WriteCompare(4500);
-        CyDelay(1000);
-        PWM_WriteCompare(6000);
-        CyDelay(1000);
-        PWM_WriteCompare(7500);
-        CyDelay(1000);
-    */    
+           
         /*
         LCD_Position(0,0);
             sprintf(test,"John Wo");

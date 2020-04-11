@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <blockRegMap version="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://cypress.com/xsd/cyblockregmap cyblockregmap.xsd" xmlns="http://cypress.com/xsd/cyblockregmap">
+  <block name="Rx_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="UART" BASE="0x0" SIZE="0x0" desc="UART" visible="true" hidden="false">
     <block name="IntClock" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="VirtualMux_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
@@ -24,22 +25,6 @@
       <field name="UART_TX_STS_FIFO_NOT_FULL" from="3" to="3" access="R" resetVal="" desc="" hidden="false" />
     </register>
   </block>
-  <block name="LCD" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
-    <block name="LCDPort" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  </block>
-  <block name="Tx_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="Rx_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="ROW3" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="ROW1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="COL3" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="ROW2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="ROW0" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="Servo2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="pin_SW4_int" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="Em_EEPROM_Dynamic" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="cy_boot" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="Potentiometer" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="timer_clock_2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="PWM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
     <block name="vmIRQ" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="vmCompare" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
@@ -115,6 +100,20 @@
       </field>
     </register>
   </block>
+  <block name="Tx_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="LCD" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
+    <block name="LCDPort" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  </block>
+  <block name="ROW0" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="ROW1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="ROW3" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="ROW2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="timer_clock_2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Photoresistor" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="AMux" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Em_EEPROM_Dynamic" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="cy_boot" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Servo2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="ADC" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
     <block name="cy_analog_virtualmux_5" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="cy_analog_noconnect_5" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
@@ -937,7 +936,9 @@
     </register>
   </block>
   <block name="Servo1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="COL2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="pin_SW4_int" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Potentiometer" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="COL3" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="ZeroTerminal_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="timer_clock" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="VDAC" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
@@ -1115,7 +1116,11 @@
   <block name="Led_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="Led_4" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="Led_3" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Analog_Output_Pin" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="timer_clock_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="ZeroTerminal_2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="COL2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="COL1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="Timer_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
     <block name="VirtualMux_2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="ZeroTerminal_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
@@ -1173,11 +1178,8 @@
     <register name="Timer_1_PERIOD" address="0x40004F10" bitWidth="16" desc="TMRx.PER0 - Assigned Period" hidden="false" />
     <register name="Timer_1_COUNTER" address="0x40004F12" bitWidth="16" desc="TMRx.CNT_CMP0 - Current Down Counter Value" hidden="false" />
   </block>
-  <block name="COL1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="timer_clock_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="SW4" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="isr" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="Analog_Output_Pin" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="SW3" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="SW2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="isr" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="SW4" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="SW3" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
 </blockRegMap>

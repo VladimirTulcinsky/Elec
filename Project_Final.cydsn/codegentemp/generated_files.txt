@@ -105,6 +105,11 @@
   <file name="C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\codegentemp\Servo2_aliases.h" value="HEADER;;;;;Servo2" />
   <file name="C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\codegentemp\Servo2.c" value="SOURCE_C;CortexM3;;;;Servo2" />
   <file name="C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\codegentemp\Servo2.h" value="HEADER;;;;;Servo2" />
+  <file name="C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\codegentemp\AMux.c" value="SOURCE_C;CortexM3;;;;AMux" />
+  <file name="C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\codegentemp\AMux.h" value="HEADER;;;;;AMux" />
+  <file name="C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\codegentemp\Photoresistor_aliases.h" value="HEADER;;;;;Photoresistor" />
+  <file name="C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\codegentemp\Photoresistor.c" value="SOURCE_C;CortexM3;;;;Photoresistor" />
+  <file name="C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\codegentemp\Photoresistor.h" value="HEADER;;;;;Photoresistor" />
   <file name="C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\codegentemp\LCD_LCDPort_aliases.h" value="HEADER;;;;;LCD_LCDPort" />
   <file name="C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\codegentemp\LCD_LCDPort.c" value="SOURCE_C;CortexM3;;;;LCD_LCDPort" />
   <file name="C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\codegentemp\LCD_LCDPort.h" value="HEADER;;;;;LCD_LCDPort" />

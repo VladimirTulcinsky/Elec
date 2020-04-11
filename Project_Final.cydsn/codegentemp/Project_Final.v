@@ -1,6 +1,6 @@
 // ======================================================================
 // Project_Final.v generated from TopDesign.cysch
-// 04/10/2020 at 22:45
+// 04/11/2020 at 13:40
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -909,6 +909,8 @@ endmodule
 // top
 module top ;
 
+    electrical  Net_1;
+    electrical  Net_438;
           wire  Net_313;
     electrical  Net_312;
           wire  Net_311;
@@ -968,7 +970,7 @@ module top ;
           wire  Net_325;
           wire  Net_286;
           wire  Net_267;
-    electrical  Net_1;
+    electrical  Net_429;
     electrical  Net_29;
           wire  Net_145;
           wire  Net_12;
@@ -2545,7 +2547,7 @@ module top ;
 	assign tmpOE__Servo1_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
 
     ADC_DelSig_v3_30_6 ADC (
-        .vplus(Net_1),
+        .vplus(Net_429),
         .vminus(Net_308),
         .soc(1'b1),
         .eoc(Net_310),
@@ -2616,7 +2618,7 @@ module top ;
 		 (.oe(tmpOE__Potentiometer_net),
 		  .y({1'b0}),
 		  .fb({tmpFB_0__Potentiometer_net[0:0]}),
-		  .analog({Net_1}),
+		  .analog({Net_438}),
 		  .io({tmpIO_0__Potentiometer_net[0:0]}),
 		  .siovref(tmpSIOVREF__Potentiometer_net),
 		  .interrupt({tmpINTERRUPT_0__Potentiometer_net[0:0]}),
@@ -2710,6 +2712,100 @@ module top ;
 		  .out_reset({1'b0}));
 
 	assign tmpOE__Servo2_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
+
+    // -- AMux AMux start -- ***
+    // -- Mux A --
+    
+    cy_psoc3_amux_v1_0 AMux(
+        .muxin({
+            Net_438,
+            Net_1
+            }),
+        .vout(Net_429)
+        );
+    
+    defparam AMux.muxin_width = 2;
+    defparam AMux.init_mux_sel = 2'h0;
+    defparam AMux.one_active = 0;
+    defparam AMux.connect_mode = 1;
+    
+    // -- AMux AMux end --
+
+	wire [0:0] tmpOE__Photoresistor_net;
+	wire [0:0] tmpFB_0__Photoresistor_net;
+	wire [0:0] tmpIO_0__Photoresistor_net;
+	wire [0:0] tmpINTERRUPT_0__Photoresistor_net;
+	electrical [0:0] tmpSIOVREF__Photoresistor_net;
+
+	cy_psoc3_pins_v1_10
+		#(.id("9e7accf3-1d7f-4c21-91f1-8cd207048d1a"),
+		  .drive_mode(3'b000),
+		  .ibuf_enabled(1'b0),
+		  .init_dr_st(1'b0),
+		  .input_clk_en(0),
+		  .input_sync(1'b1),
+		  .input_sync_mode(1'b0),
+		  .intr_mode(2'b00),
+		  .invert_in_clock(0),
+		  .invert_in_clock_en(0),
+		  .invert_in_reset(0),
+		  .invert_out_clock(0),
+		  .invert_out_clock_en(0),
+		  .invert_out_reset(0),
+		  .io_voltage(""),
+		  .layout_mode("CONTIGUOUS"),
+		  .oe_conn(1'b0),
+		  .oe_reset(0),
+		  .oe_sync(1'b0),
+		  .output_clk_en(0),
+		  .output_clock_mode(1'b0),
+		  .output_conn(1'b0),
+		  .output_mode(1'b0),
+		  .output_reset(0),
+		  .output_sync(1'b0),
+		  .pa_in_clock(-1),
+		  .pa_in_clock_en(-1),
+		  .pa_in_reset(-1),
+		  .pa_out_clock(-1),
+		  .pa_out_clock_en(-1),
+		  .pa_out_reset(-1),
+		  .pin_aliases(""),
+		  .pin_mode("A"),
+		  .por_state(4),
+		  .sio_group_cnt(0),
+		  .sio_hyst(1'b1),
+		  .sio_ibuf(""),
+		  .sio_info(2'b00),
+		  .sio_obuf(""),
+		  .sio_refsel(""),
+		  .sio_vtrip(""),
+		  .sio_hifreq(""),
+		  .sio_vohsel(""),
+		  .slew_rate(1'b0),
+		  .spanning(0),
+		  .use_annotation(1'b0),
+		  .vtrip(2'b10),
+		  .width(1),
+		  .ovt_hyst_trim(1'b0),
+		  .ovt_needed(1'b0),
+		  .ovt_slew_control(2'b00),
+		  .input_buffer_sel(2'b00))
+		Photoresistor
+		 (.oe(tmpOE__Photoresistor_net),
+		  .y({1'b0}),
+		  .fb({tmpFB_0__Photoresistor_net[0:0]}),
+		  .analog({Net_1}),
+		  .io({tmpIO_0__Photoresistor_net[0:0]}),
+		  .siovref(tmpSIOVREF__Photoresistor_net),
+		  .interrupt({tmpINTERRUPT_0__Photoresistor_net[0:0]}),
+		  .in_clock({1'b0}),
+		  .in_clock_en({1'b1}),
+		  .in_reset({1'b0}),
+		  .out_clock({1'b0}),
+		  .out_clock_en({1'b1}),
+		  .out_reset({1'b0}));
+
+	assign tmpOE__Photoresistor_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
 
 
 
