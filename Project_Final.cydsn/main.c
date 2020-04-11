@@ -234,6 +234,7 @@ void photoresistor()
             displayMessage(&message);
             signalSOS();
             LCD_ClearDisplay();
+            AMux_FastSelect(1);
             break;
         }
          if ((value == '2' && value2 == '*') || (value == '*' && value2 == '2')) {
@@ -242,6 +243,7 @@ void photoresistor()
             displayMessage(&message);
             signalBEAMS();
             LCD_ClearDisplay();
+            AMux_FastSelect(1);
             break;
         }
     }
@@ -291,7 +293,6 @@ int main(void)
         appuiSW2();
         appuiSW3();  
         keyboard();
-        AMux_FastSelect(1);
         potentiometer();
            
         /*
