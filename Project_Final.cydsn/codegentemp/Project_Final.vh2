@@ -2,7 +2,7 @@
 --	Conversion of Project_Final.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Sat Apr 11 13:40:55 2020
+--	Mon Apr 13 15:37:11 2020
 --
 
 USE cypress.cypress.all;
@@ -488,15 +488,15 @@ SIGNAL \UART:BUART:sRX:MODULE_5:gte\ : bit;
 ATTRIBUTE port_state_att of \UART:BUART:sRX:MODULE_5:gte\:SIGNAL IS 2;
 SIGNAL \UART:BUART:sRX:MODULE_5:lte\ : bit;
 ATTRIBUTE port_state_att of \UART:BUART:sRX:MODULE_5:lte\:SIGNAL IS 2;
-SIGNAL tmpOE__Rx_1_net_0 : bit;
-SIGNAL tmpIO_0__Rx_1_net_0 : bit;
-TERMINAL tmpSIOVREF__Rx_1_net_0 : bit;
-SIGNAL tmpINTERRUPT_0__Rx_1_net_0 : bit;
-SIGNAL tmpOE__Tx_1_net_0 : bit;
-SIGNAL tmpFB_0__Tx_1_net_0 : bit;
-SIGNAL tmpIO_0__Tx_1_net_0 : bit;
-TERMINAL tmpSIOVREF__Tx_1_net_0 : bit;
-SIGNAL tmpINTERRUPT_0__Tx_1_net_0 : bit;
+SIGNAL tmpOE__Rx_net_0 : bit;
+SIGNAL tmpIO_0__Rx_net_0 : bit;
+TERMINAL tmpSIOVREF__Rx_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__Rx_net_0 : bit;
+SIGNAL tmpOE__Tx_net_0 : bit;
+SIGNAL tmpFB_0__Tx_net_0 : bit;
+SIGNAL tmpIO_0__Tx_net_0 : bit;
+TERMINAL tmpSIOVREF__Tx_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__Tx_net_0 : bit;
 SIGNAL \PWM:PWMUDB:km_run\ : bit;
 SIGNAL \PWM:PWMUDB:min_kill_reg\ : bit;
 SIGNAL Net_267 : bit;
@@ -976,7 +976,7 @@ SIGNAL tmpFB_0__Servo2_net_0 : bit;
 SIGNAL tmpIO_0__Servo2_net_0 : bit;
 TERMINAL tmpSIOVREF__Servo2_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__Servo2_net_0 : bit;
-TERMINAL Net_1 : bit;
+TERMINAL Net_427 : bit;
 SIGNAL tmpOE__Photoresistor_net_0 : bit;
 SIGNAL tmpFB_0__Photoresistor_net_0 : bit;
 SIGNAL tmpIO_0__Photoresistor_net_0 : bit;
@@ -2720,8 +2720,8 @@ ROW3:cy_psoc3_pins_v1_10
 		clock=>\UART:BUART:clock_op\,
 		status=>(zero, \UART:BUART:rx_status_5\, \UART:BUART:rx_status_4\, \UART:BUART:rx_status_3\,
 			\UART:BUART:rx_status_2\, zero, zero),
-		interrupt=>\UART:BUART:rx_interrupt_out\);
-Rx_1:cy_psoc3_pins_v1_10
+		interrupt=>Net_219);
+Rx:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"1425177d-0d0e-4468-8bcc-e638e5509a9b",
 		drive_mode=>"001",
 		ibuf_enabled=>"1",
@@ -2781,8 +2781,8 @@ Rx_1:cy_psoc3_pins_v1_10
 		y=>(zero),
 		fb=>Net_217,
 		analog=>(open),
-		io=>(tmpIO_0__Rx_1_net_0),
-		siovref=>(tmpSIOVREF__Rx_1_net_0),
+		io=>(tmpIO_0__Rx_net_0),
+		siovref=>(tmpSIOVREF__Rx_net_0),
 		annotation=>(open),
 		in_clock=>zero,
 		in_clock_en=>tmpOE__Led_1_net_0,
@@ -2790,8 +2790,8 @@ Rx_1:cy_psoc3_pins_v1_10
 		out_clock=>zero,
 		out_clock_en=>tmpOE__Led_1_net_0,
 		out_reset=>zero,
-		interrupt=>tmpINTERRUPT_0__Rx_1_net_0);
-Tx_1:cy_psoc3_pins_v1_10
+		interrupt=>tmpINTERRUPT_0__Rx_net_0);
+Tx:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"ed092b9b-d398-4703-be89-cebf998501f6",
 		drive_mode=>"110",
 		ibuf_enabled=>"1",
@@ -2849,10 +2849,10 @@ Tx_1:cy_psoc3_pins_v1_10
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(tmpOE__Led_1_net_0),
 		y=>Net_212,
-		fb=>(tmpFB_0__Tx_1_net_0),
+		fb=>(tmpFB_0__Tx_net_0),
 		analog=>(open),
-		io=>(tmpIO_0__Tx_1_net_0),
-		siovref=>(tmpSIOVREF__Tx_1_net_0),
+		io=>(tmpIO_0__Tx_net_0),
+		siovref=>(tmpSIOVREF__Tx_net_0),
 		annotation=>(open),
 		in_clock=>zero,
 		in_clock_en=>tmpOE__Led_1_net_0,
@@ -2860,7 +2860,7 @@ Tx_1:cy_psoc3_pins_v1_10
 		out_clock=>zero,
 		out_clock_en=>tmpOE__Led_1_net_0,
 		out_reset=>zero,
-		interrupt=>tmpINTERRUPT_0__Tx_1_net_0);
+		interrupt=>tmpINTERRUPT_0__Tx_net_0);
 \PWM:PWMUDB:clock_enable_block\:cy_psoc3_udb_clock_enable_v1_0
 	GENERIC MAP(sync_mode=>'1')
 	PORT MAP(clock_in=>Net_267,
@@ -3403,7 +3403,7 @@ AMux:cy_psoc3_amux_v1_0
 		init_mux_sel=>"00",
 		api_type=>0,
 		connect_mode=>1)
-	PORT MAP(muxin=>(Net_438, Net_1),
+	PORT MAP(muxin=>(Net_438, Net_427),
 		hw_ctrl_en=>(others => zero),
 		vout=>Net_429);
 Photoresistor:cy_psoc3_pins_v1_10
@@ -3465,7 +3465,7 @@ Photoresistor:cy_psoc3_pins_v1_10
 	PORT MAP(oe=>(tmpOE__Led_1_net_0),
 		y=>(zero),
 		fb=>(tmpFB_0__Photoresistor_net_0),
-		analog=>Net_1,
+		analog=>Net_427,
 		io=>(tmpIO_0__Photoresistor_net_0),
 		siovref=>(tmpSIOVREF__Photoresistor_net_0),
 		annotation=>(open),
@@ -3476,6 +3476,10 @@ Photoresistor:cy_psoc3_pins_v1_10
 		out_clock_en=>tmpOE__Led_1_net_0,
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__Photoresistor_net_0);
+isr1:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_219);
 \UART:BUART:reset_reg\:cy_dff
 	PORT MAP(d=>zero,
 		clk=>\UART:BUART:clock_op\,

@@ -1,5 +1,5 @@
 # Project_Final
-# 2020-04-11 11:40:56Z
+# 2020-04-13 13:37:13Z
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0
@@ -30,8 +30,8 @@ set_io "\LCD:LCDPort(3)\" iocell 2 3
 set_io "\LCD:LCDPort(4)\" iocell 2 4
 set_io "\LCD:LCDPort(5)\" iocell 2 5
 set_io "\LCD:LCDPort(6)\" iocell 2 6
-set_io "Rx_1(0)" iocell 2 7
-set_io "Tx_1(0)" iocell 1 5
+set_io "Rx(0)" iocell 1 2
+set_io "Tx(0)" iocell 1 4
 set_io "Servo1(0)" iocell 15 1
 set_io "Potentiometer(0)" iocell 0 7
 set_io "Servo2(0)" iocell 15 2

@@ -70,6 +70,7 @@
 #include "AMux.h"
 #include "Photoresistor_aliases.h"
 #include "Photoresistor.h"
+#include "isr1.h"
 #include "LCD_LCDPort_aliases.h"
 #include "LCD_LCDPort.h"
 #include "UART_IntClock.h"

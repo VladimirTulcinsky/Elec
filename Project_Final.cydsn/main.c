@@ -22,10 +22,41 @@ int clock2=0;
 _Bool flag = 0;
 _Bool pressSW4 = 0;
 _Bool lightOn;
-
+char rxData;
 //adc potentiometer
 int32 volatile static adc_value;
 float adc_value_float;
+
+ void displayMessage(char** message)
+{
+    LCD_Position(0,0);
+    LCD_PrintString(*message);
+}
+
+CY_ISR(UART_Handler)
+{ 
+    char test[4];
+    uint8_t status = 0; 
+     LCD_Position(0,0);
+            sprintf(test,"John");
+            LCD_PrintString(test);
+    do{ 
+        // Checks if no UART Rx errors
+        status = UART_ReadRxStatus(); 
+        if ((status & UART_RX_STS_PAR_ERROR) | (status & UART_RX_STS_STOP_ERROR) | (status & UART_RX_STS_BREAK) | (status & UART_RX_STS_OVERRUN) ) 
+            { // Parity , framing , break or overrun error 
+            LCD_Position(1,0); 
+            LCD_PrintString("UART err"); 
+            } 
+            // Check that rx buffer is not empty and get rx data 
+            if ( (status & UART_RX_STS_FIFO_NOTEMPTY) != 0)
+            {
+            rxData = UART_ReadRxData(); 
+          
+            
+            } 
+    }while ((status & UART_RX_STS_FIFO_NOTEMPTY) != 0);
+}
 
 CY_ISR(Timer_Handler) 
 {
@@ -72,6 +103,7 @@ CY_ISR( SW4_Handler)
 
 void pointAllume(int length)
 {
+    
     int actualClock = clock;
     do{
         Timer_Start();
@@ -84,6 +116,7 @@ void pointAllume(int length)
         Led_4_Write(1);   
         }
     }while(clock - actualClock < length);
+    
 }
 
 
@@ -102,11 +135,12 @@ void pointEteint(int length)
 void barre()
 {
     pointAllume(750);
+    
 }
 
 void espacementLettre()
 {
-   pointEteint(750); 
+   pointEteint(750);  
 }
 
 void espacementElement()
@@ -117,13 +151,19 @@ void espacementElement()
 void selectSignal(int value)
 {   
    if(value == 0){
-        pointAllume(250);    
+        pointAllume(250);
+        UART_PutChar(46); 
     }else if(value == 1){
         barre();
+        UART_PutChar(45); 
     }else if(value == 2){
         espacementElement();
+        UART_PutChar(32);
     }else if(value == 3){
         espacementLettre();
+        UART_PutChar(32);
+        UART_PutChar(32);
+        UART_PutChar(32);
     }
 }
  
@@ -194,11 +234,7 @@ void signalBEAMS()
         }
     }
     
- void displayMessage(char** message)
-{
-    LCD_Position(0,0);
-    LCD_PrintString(*message);
-}
+
 
 void photoresistor()
 {
@@ -220,8 +256,7 @@ void photoresistor()
 {
     uint8_t  value = keypadScan();
     char* message;
-    
-    
+       
     while (value == '1' || value == '*' || value == '2') 
     {
         uint8_t value2 = keypadScan();
@@ -262,8 +297,6 @@ void potentiometer()
         }
 }
 
-
-
 int main(void)
 {
     CyGlobalIntEnable; /* Enable global interrupts. */
@@ -273,7 +306,10 @@ int main(void)
     i = 0;
     isr_StartEx(Timer_Handler);
     pin_SW4_int_StartEx(SW4_Handler);
+    isr1_StartEx(UART_Handler);
     Timer_Stop();
+    UART_Start();
+    UART_PutString("Start");
     VDAC_Start();
     VDAC_SetValue(0);
     PWM_Start();
@@ -282,29 +318,22 @@ int main(void)
     AMux_FastSelect(1);
     LCD_Start();
     resetLed();
+    UART_SetRxInterruptMode(UART_RX_STS_FIFO_NOTEMPTY);
     // reset servo
     PWM_WriteCompare1(7500);
     CyDelay(1000);
     PWM_WriteCompare2(7500);
     ////
+    
     for(;;)
     {  
+        
         appuiSW1();
         appuiSW2();
         appuiSW3();  
         keyboard();
         potentiometer();
-           
-        /*
-        LCD_Position(0,0);
-            sprintf(test,"John Wo");
-            LCD_PrintString(test);
-            
-            LCD_Position(1,0);
-            sprintf(test,"rld") ;
-            
-            LCD_PrintString(test);
-        */
+      
     }
 }
 

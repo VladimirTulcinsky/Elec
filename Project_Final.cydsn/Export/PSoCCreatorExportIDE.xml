@@ -198,6 +198,8 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Photoresistor_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Photoresistor.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Photoresistor.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr1.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr1.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\Export\ARM_GCC_Generic">
