@@ -55,7 +55,6 @@
 <dep name=".\Generated_Source\PSoC5\ROW3.h" />
 <dep name=".\Generated_Source\PSoC5\ROW3_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\SW1_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\SW2.h" />
 <dep name=".\Generated_Source\PSoC5\SW2_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\SW3.h" />
 <dep name=".\Generated_Source\PSoC5\SW3_aliases.h" />
@@ -90,6 +89,7 @@
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\timer_clock_2.h" />
 <dep name=".\SW1.h" />
+<dep name=".\SW2.h" />
 <dep name=".\keypad.h" />
 <dep name=".\main.c" />
 <dep name=".\morse.h" />
@@ -138,7 +138,6 @@
 <file name=".\Generated_Source\PSoC5\ROW3.h" />
 <file name=".\Generated_Source\PSoC5\ROW3_aliases.h" />
 <file name=".\Generated_Source\PSoC5\SW1_aliases.h" />
-<file name=".\Generated_Source\PSoC5\SW2.h" />
 <file name=".\Generated_Source\PSoC5\SW2_aliases.h" />
 <file name=".\Generated_Source\PSoC5\SW3.h" />
 <file name=".\Generated_Source\PSoC5\SW3_aliases.h" />
@@ -173,9 +172,11 @@
 <file name=".\Generated_Source\PSoC5\project.h" />
 <file name=".\Generated_Source\PSoC5\timer_clock_2.h" />
 <file name=".\SW1.h" />
+<file name=".\SW2.h" />
 <file name=".\keypad.h" />
 <file name=".\main.c" />
 <file name=".\morse.h" />
+<file name=".\Generated_Source\PSoC5\SW2.h" />
 <file name=".\Generated_Source\PSoC5\SW1.h" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\morse.o">
 <dep name=".\Generated_Source\PSoC5\ADC.h" />
@@ -1091,6 +1092,7 @@
 <dep name=".\CortexM3\ARM_GCC_541\Debug\keypad.o" />
 <dep name=".\CortexM3\ARM_GCC_541\Debug\morse.o" />
 <dep name=".\CortexM3\ARM_GCC_541\Debug\sw1.o" />
+<dep name=".\CortexM3\ARM_GCC_541\Debug\sw2.o" />
 <dep name=".\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o" />
 <dep name=".\CortexM3\ARM_GCC_541\Debug\cymetadata.o" />
 <dep name=".\CortexM3\ARM_GCC_541\Debug\Led_1.o" />
@@ -1231,6 +1233,7 @@
 <name_val_pair name="Generated_Source\PSoC5\isr1.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
 <name_val_pair name="morse.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
 <name_val_pair name="sw1.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="sw2.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
 </name>
 </genericCmdLineData>
 <codeGenCmdLineTag v="-.appdatapath &quot;C:\Users\Piimps\AppData\Local\Cypress Semiconductor\PSoC Creator\4.3&quot; -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p &quot;C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\Project_Final.cyprj&quot; -d CY8C5888LTI-LP097 -s &quot;C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\Generated_Source\PSoC5&quot; -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE" />
@@ -1745,7 +1748,7 @@
 <dataGuid v="769d31ea-68b1-4f0c-b90a-7c10a43ee563">
 <CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563 type_name="CyDesigner.Common.ProjMgmt.Model.CyLinkCustomData" version="1">
 <link_deps_times>
-<name_val_pair name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM3" v="132314513840815160" />
+<name_val_pair name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM3" v="132314529740012964" />
 </link_deps_times>
 </CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563>
 </dataGuid>

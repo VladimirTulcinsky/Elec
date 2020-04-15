@@ -51,8 +51,6 @@ CY_ISR( SW4_Handler)
  SW4_ClearInterrupt();
 }
 
-
-    
  void resetLed()
 {
         Led_1_Write(0);
@@ -80,7 +78,6 @@ void pointAllume(int length)
     }while(clock - actualClock < length);
     
 }
-
 
 void pointEteint(int length)
 {
