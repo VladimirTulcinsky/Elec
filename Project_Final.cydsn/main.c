@@ -11,6 +11,7 @@
 */
 #include "project.h"
 #include "keypad.h"
+#include "morse.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -33,30 +34,6 @@ float adc_value_float;
     LCD_PrintString(*message);
 }
 
-CY_ISR(UART_Handler)
-{ 
-    char test[4];
-    uint8_t status = 0; 
-     LCD_Position(0,0);
-            sprintf(test,"John");
-            LCD_PrintString(test);
-    do{ 
-        // Checks if no UART Rx errors
-        status = UART_ReadRxStatus(); 
-        if ((status & UART_RX_STS_PAR_ERROR) | (status & UART_RX_STS_STOP_ERROR) | (status & UART_RX_STS_BREAK) | (status & UART_RX_STS_OVERRUN) ) 
-            { // Parity , framing , break or overrun error 
-            LCD_Position(1,0); 
-            LCD_PrintString("UART err"); 
-            } 
-            // Check that rx buffer is not empty and get rx data 
-            if ( (status & UART_RX_STS_FIFO_NOTEMPTY) != 0)
-            {
-            rxData = UART_ReadRxData(); 
-          
-            
-            } 
-    }while ((status & UART_RX_STS_FIFO_NOTEMPTY) != 0);
-}
 
 CY_ISR(Timer_Handler) 
 {
@@ -73,7 +50,6 @@ CY_ISR( SW4_Handler)
  flag =!flag;   
  SW4_ClearInterrupt();
 }
-
 
   // Function to turn on all LEDs when you press on SW1
  void appuiSW1() 
@@ -105,8 +81,9 @@ void pointAllume(int length)
 {
     
     int actualClock = clock;
+    Timer_Start();
     do{
-        Timer_Start();
+        
         if(Timer_1_ReadStatusRegister() & Timer_1_STATUS_TC) clock++;
         if(lightOn == 1)
         {
@@ -167,6 +144,46 @@ void selectSignal(int value)
     }
 }
  
+void selectSignal2(char value)
+{   
+   if(value == '.'){
+        pointAllume(250);
+        UART_PutChar(46); 
+    }else if(value == '-'){
+        barre();
+        UART_PutChar(45); 
+    }else if(value == ' '){
+        espacementElement();
+        UART_PutChar(32);
+    } 
+    if(value == '3'){
+        espacementLettre();
+        UART_PutChar(32);
+        UART_PutChar(32);
+        UART_PutChar(32);
+    }
+}
+void test(char value)
+{
+    
+    
+    Timer_1_Start();
+   
+    if(Timer_1_ReadStatusRegister() & Timer_1_STATUS_TC) clock++;
+    
+    char* morseCode = translateToMorse(value);
+    selectSignal2('3'); //espacement lettre
+    
+    for(int x = 0; x < (int) strlen(morseCode); x++)
+    {
+        selectSignal2(morseCode[x]);
+    }
+    selectSignal2('3'); //espacement lettre
+    resetLed();
+    clock = 0;
+    
+}
+
 void signalSOS()
 {
         // ... --- ...
@@ -180,10 +197,31 @@ void signalSOS()
    
     if(Timer_1_ReadStatusRegister() & Timer_1_STATUS_TC) clock++;
     
-    for(f = 0; f < 17; f ++)
+   /* for(f = 0; f < 17; f ++)
     {
         selectSignal(arr[f]);
     }
+    */
+    char* morseCode = translateToMorse('s');
+    
+    for(int x = 0; x < (int) strlen(morseCode); x++)
+    {
+        selectSignal2(morseCode[x]);
+    }
+    selectSignal2('3'); //espacement lettre
+    char* morseCode2 = translateToMorse('o');
+    
+    for(int x = 0; x < (int) strlen(morseCode2); x++)
+    {
+        selectSignal2(morseCode2[x]);
+    }
+    selectSignal2('3'); //espacement lettre
+   
+    for(int x = 0; x < (int) strlen(morseCode); x++)
+    {
+        selectSignal2(morseCode[x]);
+    }
+    selectSignal2('3'); //espacement lettre
     resetLed();
     clock = 0;
 }
@@ -240,11 +278,11 @@ void photoresistor()
 {
     if (ADC_IsEndConversion(ADC_RETURN_STATUS) != 0) {
             int32 value = ADC_GetResult32();
-            if(value < 8000) // pas de lumière 
+            if(value < 6500) // pas de lumière 
             {
                PWM_Stop();
                lightOn = 1;
-            }else if(value > 8000) // de la lumière
+            }else if(value > 6500) // de la lumière
             {
                lightOn = 0;
                PWM_Start(); 
@@ -297,6 +335,29 @@ void potentiometer()
         }
 }
 
+CY_ISR(UART_Handler)
+{ 
+    uint8_t status = 0; 
+    do{ 
+        // Checks if no UART Rx errors
+        status = UART_ReadRxStatus(); 
+        if ((status & UART_RX_STS_PAR_ERROR) | (status & UART_RX_STS_STOP_ERROR) | (status & UART_RX_STS_BREAK) | (status & UART_RX_STS_OVERRUN) ) 
+            { // Parity , framing , break or overrun error 
+            LCD_Position(1,0); 
+            LCD_PrintString("UART err"); 
+            } 
+            // Check that rx buffer is not empty and get rx data 
+            if ( (status & UART_RX_STS_FIFO_NOTEMPTY) != 0)
+            {
+            rxData = UART_ReadRxData(); 
+            LCD_Position(0,0);
+            LCD_PrintString(&rxData);
+            } 
+    }while ((status & UART_RX_STS_FIFO_NOTEMPTY) != 0);
+}
+
+
+
 int main(void)
 {
     CyGlobalIntEnable; /* Enable global interrupts. */
@@ -327,7 +388,14 @@ int main(void)
     
     for(;;)
     {  
-        
+        if(rxData != _NULL){
+        AMux_FastSelect(0);
+        photoresistor();  
+        test(rxData);  
+        rxData = _NULL;
+        LCD_ClearDisplay();
+        AMux_FastSelect(1);  
+        }
         appuiSW1();
         appuiSW2();
         appuiSW3();  
