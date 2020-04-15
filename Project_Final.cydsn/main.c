@@ -1,17 +1,17 @@
 /* ========================================
- *
- * Copyright YOUR COMPANY, THE YEAR
- * All Rights Reserved
- * UNPUBLISHED, LICENSED SOFTWARE.
- *
- * CONFIDENTIAL AND PROPRIETARY INFORMATION
- * WHICH IS THE PROPERTY OF your company.
+ * ULB - Digital Electronic : Project 2020 
+ * 
+ * Mathias Hanquiniaux
+ * Tanguy Snoeck
+ * Vladimir Tulcinsky
  *
  * ========================================
 */
+
 #include "project.h"
 #include "keypad.h"
 #include "morse.h"
+#include "sw1.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -51,23 +51,7 @@ CY_ISR( SW4_Handler)
  SW4_ClearInterrupt();
 }
 
-  // Function to turn on all LEDs when you press on SW1
- void appuiSW1() 
-{
-    if( SW1_Read() != 0) { // When the SW1 is press
-        Led_1_Write(SW1_Read());
-        Led_2_Write(SW1_Read());
-        Led_3_Write(SW1_Read());
-        Led_4_Write(SW1_Read());
-        Timer_Start();   
-    } else { //  When the SW1 isn't press
-        Led_1_Write(SW1_Read());
-        Led_2_Write(SW1_Read());
-        Led_3_Write(SW1_Read());
-        Led_4_Write(SW1_Read());
-        Timer_Stop();
-    }
-}
+
     
  void resetLed()
 {
@@ -76,6 +60,7 @@ CY_ISR( SW4_Handler)
         Led_3_Write(0);
         Led_4_Write(0);
 }
+
 
 void pointAllume(int length)
 {

@@ -19,7 +19,7 @@
 #include <cydevice_trm.h>
 #include <CyLib.h>
 #include <pin_SW4_int.h>
-#include "cyapicallbacks.h"
+
 
 #if !defined(pin_SW4_int__REMOVED) /* Check for removal by optimization */
 

@@ -9,7 +9,6 @@
 */
 
 #include "project.h"
-char* translateToMorse(char );
 void appuiSW1(void);
 
 /* [] END OF FILE */
