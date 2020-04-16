@@ -9,6 +9,6 @@
 */
 
 #include "project.h"
-void appuiSW1(void);
+void pressSW1(void);
 
 /* [] END OF FILE */

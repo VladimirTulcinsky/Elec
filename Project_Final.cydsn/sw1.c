@@ -13,19 +13,20 @@
 #include <stdlib.h>
 
   // Function to turn on all LEDs when you press on SW1
- void appuiSW1() 
-{
-    if( SW1_Read() != 0) { // When the SW1 is press
+void pressSW1()  {
+    if (SW1_Read() != 0) { // When the SW1 is pressed
         Led_1_Write(SW1_Read());
         Led_2_Write(SW1_Read());
         Led_3_Write(SW1_Read());
         Led_4_Write(SW1_Read());
+        
         Timer_Start();   
-    } else { //  When the SW1 isn't press
+    } else { //  When the SW1 isn't pressed
         Led_1_Write(SW1_Read());
         Led_2_Write(SW1_Read());
         Led_3_Write(SW1_Read());
         Led_4_Write(SW1_Read());
+        
         Timer_Stop();
     }
 }

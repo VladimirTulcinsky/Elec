@@ -13,9 +13,8 @@
 #include <stdlib.h>
 
   // Function to turn on all LEDs when you press on SW1
- void appuiSW1() 
-{
-    if( SW1_Read() != 0) { // When the SW1 is press
+void pressSW1() {
+    if (SW1_Read() != 0) { // When the SW1 is press
         Led_1_Write(SW1_Read());
         Led_2_Write(SW1_Read());
         Led_3_Write(SW1_Read());
@@ -30,179 +29,137 @@
     }
 }
 
+char* translateToMorse(char character){
+    char* morse_alphabet[40] = {". -", "- . . .", "- . - .", "- . .", ".", ". . - .", "- - .", ". . . .", ". .", ". - - -",
+        "- . -", "-. - . .", "- -", "- .", "- - -", ". - - .", "- - . -", ". - .", ". . .", "-", ". . -", ". . -",
+        ". - -", "- . . -", "- . - -", "- - . .", "- - - - -", ". - - - -", ". . - - -", ". . . - -", ". . . . -",
+        ". . . . .", "- . . . .", "- - . . .", "- - - . .", "- - - - .", ". - . - . -", ". . - - . .", "- . - . - -",
+        "- . - . - -"};
 
-char* translateToMorse(char caractere){
-
-char* myReturn[20];
-char *carac[40];
-
-carac[0] = ". -";
-carac[1] = "- . . .";
-carac[2] = "- . - .";
-carac[3] = "- . .";
-carac[4] = ".";
-carac[5] = ". . - .";
-carac[6] = "- - .";
-carac[7] = ". . . .";
-carac[8] = ". .";
-carac[9] = ". - - -";
-
-carac[10] = "- . -";
-carac[11] = "-. - . .";
-carac[12] = "- -";
-carac[13] = "- .";
-carac[14] = "- - -";
-carac[15] = ". - - .";
-carac[16] = "- - . -";
-carac[17] = ". - .";
-carac[18] = ". . .";
-carac[19] = "-";
-carac[20] = ". . -";
-carac[21] = ". . . -";
-carac[22] = ". - -";
-carac[23] = "- . . -";
-carac[24] = "- . - -";
-carac[25] = "- - . .";
-
-carac[26]="- - - - -";
-carac[27]=". - - - -";
-carac[28]=". . - - -";
-carac[29]=". . . - -";
-carac[30]=". . . . -";
-carac[31]=". . . . .";
-carac[32]="- . . . .";
-carac[33]="- - . . .";
-carac[34]="- - - . .";
-carac[35]="- - - - .";
-carac[36] = ". - . - . -";
-carac[37] = ". . - - . .";
-carac[38] = "- . - . - -";
-carac[39] = ". - - . - .";
-
-switch (caractere)
-{
-    case 'a':
-     return carac[0];
-     ;
-    case 'b':
-     return carac[1];
-     ;
-    case 'c':
-     return carac[2];
-     ;
-    case 'd':
-     return carac[3];
-     ;
-    case 'e':
-     return carac[4];
-     ;
-    case 'f':
-     return carac[5];
-     ;
-    case 'g':
-     return carac[6];
-     ;
-    case 'h':
-     return carac[7];
-     ;
-    case 'i':
-     return carac[8];
-     ;
-    case 'j':
-     return carac[9];
-     ;
-    case 'k':
-     return carac[10];
-     ;
-    case 'l':
-     return carac[11];
-     ;
-    case 'm':
-     return carac[12];
-     ;
-    case 'n':
-     return carac[13];
-     ;
-    case 'o':
-     return carac[14];
-     ;
-    case 'p':
-     return carac[15];
-     ;
-    case 'q':
-     return carac[16];
-     ;
-    case 'r':
-     return carac[17];
-     ;
-    case 's':
-     return carac[18];
-     ;
-    case 't':
-     return carac[19];
-     ;
-    case 'u':
-     return carac[20];
-     ;
-    case 'v':
-     return carac[21];
-     ;
-    case 'w':
-     return carac[22];
-     ;
-    case 'x':
-     return carac[23];
-     ;
-    case 'y':
-     return carac[24];
-     ;
-    case 'z':
-     return carac[25];
-     ;
-    case '0':
-     return carac[26];
-     ;
-    case '1':
-     return carac[27];
-     ;
-    case '2':
-     return carac[28];
-     ;
-    case '3':
-     return carac[29];
-     ;
-    case '4':
-     return carac[30];
-     ;
-    case '5':
-     return carac[31];
-     ;
-    case '6':
-     return carac[32];
-     ;
-    case '7':
-     return carac[33];
-     ;
-    case '8':
-     return carac[34];
-     ;
-    case '9':
-     return carac[35];
-     ;
-    case '.':
-     return carac[36];
-     ;
-    case '?':
-     return carac[37];
-     ;
-    case '!':
-     return carac[38];
-     ;
-    case '@':
-     return carac[39];
-     ;
-}
-    return 0;
+    switch (character) {
+        case 'a':
+            return morse_alphabet[0];
+            break;
+        case 'b':
+            return morse_alphabet[1];
+            break;
+        case 'c':
+            return morse_alphabet[2];
+            break;
+        case 'd':
+            return morse_alphabet[3];
+            break;
+        case 'e':
+            return morse_alphabet[4];
+            break;
+        case 'f':
+            return morse_alphabet[5];
+            break;
+        case 'g':
+            return morse_alphabet[6];
+            break;
+        case 'h':
+            return morse_alphabet[7];
+            break;
+        case 'i':
+            return morse_alphabet[8];
+            break;
+        case 'j':
+            return morse_alphabet[9];
+            break;
+        case 'k':
+            return morse_alphabet[10];
+            break;
+        case 'l':
+            return morse_alphabet[11];
+            break;
+        case 'm':
+            return morse_alphabet[12];
+            break;
+        case 'n':
+            return morse_alphabet[13];
+            break;
+        case 'o':
+            return morse_alphabet[14];
+            break;
+        case 'p':
+            return morse_alphabet[15];
+            break;
+        case 'q':
+            return morse_alphabet[16];
+            break;
+        case 'r':
+            return morse_alphabet[17];
+            break;
+        case 's':
+            return morse_alphabet[18];
+            break;
+        case 't':
+            return morse_alphabet[19];
+            break;
+        case 'u':
+            return morse_alphabet[20];
+            break;
+        case 'v':
+            return morse_alphabet[21];
+            break;
+        case 'w':
+            return morse_alphabet[22];
+            break;
+        case 'x':
+            return morse_alphabet[23];
+            break;
+        case 'y':
+            return morse_alphabet[24];
+            break;
+        case 'z':
+            return morse_alphabet[25];
+            break;
+        case '0':
+            return morse_alphabet[26];
+            break;
+        case '1':
+            return morse_alphabet[27];
+            break;
+        case '2':
+            return morse_alphabet[28];
+            break;
+        case '3':
+            return morse_alphabet[29];
+            break;
+        case '4':
+            return morse_alphabet[30];
+            break;
+        case '5':
+            return morse_alphabet[31];
+            break;
+        case '6':
+            return morse_alphabet[32];
+            break;
+        case '7':
+            return morse_alphabet[33];
+            break;
+        case '8':
+            return morse_alphabet[34];
+            break;
+        case '9':
+            return morse_alphabet[35];
+            break;
+        case '.':
+            return morse_alphabet[36];
+            break;
+        case '?':
+            return morse_alphabet[37];
+            break;
+        case '!':
+            return morse_alphabet[38];
+            break;
+        case '@':
+            return morse_alphabet[39];
+            break;
+    }
+    
+    return "";
 }
 
 
