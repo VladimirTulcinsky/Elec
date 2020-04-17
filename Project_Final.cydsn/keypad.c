@@ -1,14 +1,13 @@
 /* ========================================
- *
- * Copyright YOUR COMPANY, THE YEAR
- * All Rights Reserved
- * UNPUBLISHED, LICENSED SOFTWARE.
- *
- * CONFIDENTIAL AND PROPRIETARY INFORMATION
- * WHICH IS THE PROPERTY OF your company.
+ * ULB - Digital Electronic : Project 2020 
+ * 
+ * Mathias Hanquiniaux
+ * Tanguy Snoeck
+ * Vladimir Tulcinsky
  *
  * ========================================
 */
+
 #include "project.h"
 
 #define KBD_DELAY   5

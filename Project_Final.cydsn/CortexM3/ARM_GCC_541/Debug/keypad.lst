@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 1
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccZ3erQF.s 			page 1
 
 
    1              		.syntax unified
@@ -29,23 +29,22 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 1
   26              	.LFB63:
   27              		.file 1 "keypad.c"
    1:keypad.c      **** /* ========================================
-   2:keypad.c      ****  *
-   3:keypad.c      ****  * Copyright YOUR COMPANY, THE YEAR
-   4:keypad.c      ****  * All Rights Reserved
-   5:keypad.c      ****  * UNPUBLISHED, LICENSED SOFTWARE.
-   6:keypad.c      ****  *
-   7:keypad.c      ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
-   8:keypad.c      ****  * WHICH IS THE PROPERTY OF your company.
-   9:keypad.c      ****  *
-  10:keypad.c      ****  * ========================================
-  11:keypad.c      **** */
-  12:keypad.c      **** #include "project.h"
-  13:keypad.c      **** 
-  14:keypad.c      **** #define KBD_DELAY   5
+   2:keypad.c      ****  * ULB - Digital Electronic : Project 2020 
+   3:keypad.c      ****  * 
+   4:keypad.c      ****  * Mathias Hanquiniaux
+   5:keypad.c      ****  * Tanguy Snoeck
+   6:keypad.c      ****  * Vladimir Tulcinsky
+   7:keypad.c      ****  *
+   8:keypad.c      ****  * ========================================
+   9:keypad.c      **** */
+  10:keypad.c      **** 
+  11:keypad.c      **** #include "project.h"
+  12:keypad.c      **** 
+  13:keypad.c      **** #define KBD_DELAY   5
+  14:keypad.c      **** 
   15:keypad.c      **** 
-  16:keypad.c      **** 
-  17:keypad.c      **** void keypadInit (void) {
-  28              		.loc 1 17 0
+  16:keypad.c      **** void keypadInit (void) {
+  28              		.loc 1 16 0
   29              		.cfi_startproc
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -53,21 +52,21 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 1
   33              		.cfi_def_cfa_offset 8
   34              		.cfi_offset 3, -8
   35              		.cfi_offset 14, -4
-  18:keypad.c      ****     COL1_Write(1);
-  36              		.loc 1 18 0
+  17:keypad.c      ****     COL1_Write(1);
+  36              		.loc 1 17 0
   37 0002 0120     		movs	r0, #1
   38 0004 FFF7FEFF 		bl	COL1_Write
   39              	.LVL0:
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 2
+  18:keypad.c      ****     COL2_Write(1);
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccZ3erQF.s 			page 2
 
 
-  19:keypad.c      ****     COL2_Write(1);
-  40              		.loc 1 19 0
+  40              		.loc 1 18 0
   41 0008 0120     		movs	r0, #1
   42 000a FFF7FEFF 		bl	COL2_Write
   43              	.LVL1:
-  20:keypad.c      ****     COL3_Write(1);
-  44              		.loc 1 20 0
+  19:keypad.c      ****     COL3_Write(1);
+  44              		.loc 1 19 0
   45 000e 0120     		movs	r0, #1
   46 0010 FFF7FEFF 		bl	COL3_Write
   47              	.LVL2:
@@ -83,10 +82,10 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 1
   57              		.type	keypadScan, %function
   58              	keypadScan:
   59              	.LFB64:
-  21:keypad.c      **** }
-  22:keypad.c      **** 
-  23:keypad.c      **** uint8_t keypadScan (void) {
-  60              		.loc 1 23 0
+  20:keypad.c      **** }
+  21:keypad.c      **** 
+  22:keypad.c      **** uint8_t keypadScan (void) {
+  60              		.loc 1 22 0
   61              		.cfi_startproc
   62              		@ args = 0, pretend = 0, frame = 0
   63              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -94,263 +93,263 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 1
   65              		.cfi_def_cfa_offset 8
   66              		.cfi_offset 3, -8
   67              		.cfi_offset 14, -4
-  24:keypad.c      ****     COL1_Write(0);
-  68              		.loc 1 24 0
+  23:keypad.c      ****     COL1_Write(0);
+  68              		.loc 1 23 0
   69 0002 0020     		movs	r0, #0
   70 0004 FFF7FEFF 		bl	COL1_Write
   71              	.LVL3:
-  25:keypad.c      ****     CyDelay(KBD_DELAY);
-  72              		.loc 1 25 0
+  24:keypad.c      ****     CyDelay(KBD_DELAY);
+  72              		.loc 1 24 0
   73 0008 0520     		movs	r0, #5
   74 000a FFF7FEFF 		bl	CyDelay
   75              	.LVL4:
-  26:keypad.c      ****     if (!ROW0_Read()) {
-  76              		.loc 1 26 0
+  25:keypad.c      ****     if (!ROW0_Read()) {
+  76              		.loc 1 25 0
   77 000e FFF7FEFF 		bl	ROW0_Read
   78              	.LVL5:
   79 0012 20B9     		cbnz	r0, .L4
-  27:keypad.c      ****         COL1_Write(1);
-  80              		.loc 1 27 0
+  26:keypad.c      ****         COL1_Write(1);
+  80              		.loc 1 26 0
   81 0014 0120     		movs	r0, #1
   82 0016 FFF7FEFF 		bl	COL1_Write
   83              	.LVL6:
-  28:keypad.c      ****         return('#');
-  84              		.loc 1 28 0
+  27:keypad.c      ****         return('#');
+  84              		.loc 1 27 0
   85 001a 2320     		movs	r0, #35
   86 001c 08BD     		pop	{r3, pc}
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 3
-
-
   87              	.L4:
-  29:keypad.c      ****     }
-  30:keypad.c      ****     if (!ROW1_Read()) {
-  88              		.loc 1 30 0
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccZ3erQF.s 			page 3
+
+
+  28:keypad.c      ****     }
+  29:keypad.c      ****     if (!ROW1_Read()) {
+  88              		.loc 1 29 0
   89 001e FFF7FEFF 		bl	ROW1_Read
   90              	.LVL7:
   91 0022 20B9     		cbnz	r0, .L6
-  31:keypad.c      ****         COL1_Write(1);
-  92              		.loc 1 31 0
+  30:keypad.c      ****         COL1_Write(1);
+  92              		.loc 1 30 0
   93 0024 0120     		movs	r0, #1
   94 0026 FFF7FEFF 		bl	COL1_Write
   95              	.LVL8:
-  32:keypad.c      ****         return('9');
-  96              		.loc 1 32 0
+  31:keypad.c      ****         return('9');
+  96              		.loc 1 31 0
   97 002a 3920     		movs	r0, #57
   98 002c 08BD     		pop	{r3, pc}
   99              	.L6:
-  33:keypad.c      ****     }
-  34:keypad.c      ****     if (!ROW2_Read()) {
- 100              		.loc 1 34 0
+  32:keypad.c      ****     }
+  33:keypad.c      ****     if (!ROW2_Read()) {
+ 100              		.loc 1 33 0
  101 002e FFF7FEFF 		bl	ROW2_Read
  102              	.LVL9:
  103 0032 20B9     		cbnz	r0, .L7
-  35:keypad.c      ****         COL1_Write(1);
- 104              		.loc 1 35 0
+  34:keypad.c      ****         COL1_Write(1);
+ 104              		.loc 1 34 0
  105 0034 0120     		movs	r0, #1
  106 0036 FFF7FEFF 		bl	COL1_Write
  107              	.LVL10:
-  36:keypad.c      ****         return('6');
- 108              		.loc 1 36 0
+  35:keypad.c      ****         return('6');
+ 108              		.loc 1 35 0
  109 003a 3620     		movs	r0, #54
  110 003c 08BD     		pop	{r3, pc}
  111              	.L7:
-  37:keypad.c      ****     }
-  38:keypad.c      ****     if (!ROW3_Read()) {
- 112              		.loc 1 38 0
+  36:keypad.c      ****     }
+  37:keypad.c      ****     if (!ROW3_Read()) {
+ 112              		.loc 1 37 0
  113 003e FFF7FEFF 		bl	ROW3_Read
  114              	.LVL11:
  115 0042 20B9     		cbnz	r0, .L8
-  39:keypad.c      ****         COL1_Write(1);
- 116              		.loc 1 39 0
+  38:keypad.c      ****         COL1_Write(1);
+ 116              		.loc 1 38 0
  117 0044 0120     		movs	r0, #1
  118 0046 FFF7FEFF 		bl	COL1_Write
  119              	.LVL12:
-  40:keypad.c      ****         return('3');
- 120              		.loc 1 40 0
+  39:keypad.c      ****         return('3');
+ 120              		.loc 1 39 0
  121 004a 3320     		movs	r0, #51
  122 004c 08BD     		pop	{r3, pc}
  123              	.L8:
-  41:keypad.c      ****     }
-  42:keypad.c      ****     COL1_Write(1);
- 124              		.loc 1 42 0
+  40:keypad.c      ****     }
+  41:keypad.c      ****     COL1_Write(1);
+ 124              		.loc 1 41 0
  125 004e 0120     		movs	r0, #1
  126 0050 FFF7FEFF 		bl	COL1_Write
  127              	.LVL13:
-  43:keypad.c      ****     
-  44:keypad.c      ****     COL2_Write(0);
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 4
+  42:keypad.c      ****     
+  43:keypad.c      ****     COL2_Write(0);
+ 128              		.loc 1 43 0
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccZ3erQF.s 			page 4
 
 
- 128              		.loc 1 44 0
  129 0054 0020     		movs	r0, #0
  130 0056 FFF7FEFF 		bl	COL2_Write
  131              	.LVL14:
-  45:keypad.c      ****     CyDelay(KBD_DELAY);
- 132              		.loc 1 45 0
+  44:keypad.c      ****     CyDelay(KBD_DELAY);
+ 132              		.loc 1 44 0
  133 005a 0520     		movs	r0, #5
  134 005c FFF7FEFF 		bl	CyDelay
  135              	.LVL15:
-  46:keypad.c      ****     if (!ROW0_Read()) {
- 136              		.loc 1 46 0
+  45:keypad.c      ****     if (!ROW0_Read()) {
+ 136              		.loc 1 45 0
  137 0060 FFF7FEFF 		bl	ROW0_Read
  138              	.LVL16:
  139 0064 20B9     		cbnz	r0, .L9
-  47:keypad.c      ****         COL2_Write(1);
- 140              		.loc 1 47 0
+  46:keypad.c      ****         COL2_Write(1);
+ 140              		.loc 1 46 0
  141 0066 0120     		movs	r0, #1
  142 0068 FFF7FEFF 		bl	COL2_Write
  143              	.LVL17:
-  48:keypad.c      ****         return('0');
- 144              		.loc 1 48 0
+  47:keypad.c      ****         return('0');
+ 144              		.loc 1 47 0
  145 006c 3020     		movs	r0, #48
  146 006e 08BD     		pop	{r3, pc}
  147              	.L9:
-  49:keypad.c      ****     }
-  50:keypad.c      ****     if (!ROW1_Read()) {
- 148              		.loc 1 50 0
+  48:keypad.c      ****     }
+  49:keypad.c      ****     if (!ROW1_Read()) {
+ 148              		.loc 1 49 0
  149 0070 FFF7FEFF 		bl	ROW1_Read
  150              	.LVL18:
  151 0074 20B9     		cbnz	r0, .L10
-  51:keypad.c      ****         COL2_Write(1);
- 152              		.loc 1 51 0
+  50:keypad.c      ****         COL2_Write(1);
+ 152              		.loc 1 50 0
  153 0076 0120     		movs	r0, #1
  154 0078 FFF7FEFF 		bl	COL2_Write
  155              	.LVL19:
-  52:keypad.c      ****         return('8');
- 156              		.loc 1 52 0
+  51:keypad.c      ****         return('8');
+ 156              		.loc 1 51 0
  157 007c 3820     		movs	r0, #56
  158 007e 08BD     		pop	{r3, pc}
  159              	.L10:
-  53:keypad.c      ****     }
-  54:keypad.c      ****     if (!ROW2_Read()) {
- 160              		.loc 1 54 0
+  52:keypad.c      ****     }
+  53:keypad.c      ****     if (!ROW2_Read()) {
+ 160              		.loc 1 53 0
  161 0080 FFF7FEFF 		bl	ROW2_Read
  162              	.LVL20:
  163 0084 20B9     		cbnz	r0, .L11
-  55:keypad.c      ****         COL2_Write(1);
- 164              		.loc 1 55 0
+  54:keypad.c      ****         COL2_Write(1);
+ 164              		.loc 1 54 0
  165 0086 0120     		movs	r0, #1
  166 0088 FFF7FEFF 		bl	COL2_Write
  167              	.LVL21:
-  56:keypad.c      ****         return('5');
- 168              		.loc 1 56 0
+  55:keypad.c      ****         return('5');
+ 168              		.loc 1 55 0
  169 008c 3520     		movs	r0, #53
  170 008e 08BD     		pop	{r3, pc}
  171              	.L11:
-  57:keypad.c      ****     }
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 5
+  56:keypad.c      ****     }
+  57:keypad.c      ****     if (!ROW3_Read()) {
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccZ3erQF.s 			page 5
 
 
-  58:keypad.c      ****     if (!ROW3_Read()) {
- 172              		.loc 1 58 0
+ 172              		.loc 1 57 0
  173 0090 FFF7FEFF 		bl	ROW3_Read
  174              	.LVL22:
  175 0094 20B9     		cbnz	r0, .L12
-  59:keypad.c      ****         COL2_Write(1);
- 176              		.loc 1 59 0
+  58:keypad.c      ****         COL2_Write(1);
+ 176              		.loc 1 58 0
  177 0096 0120     		movs	r0, #1
  178 0098 FFF7FEFF 		bl	COL2_Write
  179              	.LVL23:
-  60:keypad.c      ****         return('2');
- 180              		.loc 1 60 0
+  59:keypad.c      ****         return('2');
+ 180              		.loc 1 59 0
  181 009c 3220     		movs	r0, #50
  182 009e 08BD     		pop	{r3, pc}
  183              	.L12:
-  61:keypad.c      ****     }
-  62:keypad.c      ****     COL2_Write(1);
- 184              		.loc 1 62 0
+  60:keypad.c      ****     }
+  61:keypad.c      ****     COL2_Write(1);
+ 184              		.loc 1 61 0
  185 00a0 0120     		movs	r0, #1
  186 00a2 FFF7FEFF 		bl	COL2_Write
  187              	.LVL24:
-  63:keypad.c      **** 
-  64:keypad.c      ****     COL3_Write(0);
- 188              		.loc 1 64 0
+  62:keypad.c      **** 
+  63:keypad.c      ****     COL3_Write(0);
+ 188              		.loc 1 63 0
  189 00a6 0020     		movs	r0, #0
  190 00a8 FFF7FEFF 		bl	COL3_Write
  191              	.LVL25:
-  65:keypad.c      ****     CyDelay(KBD_DELAY);
- 192              		.loc 1 65 0
+  64:keypad.c      ****     CyDelay(KBD_DELAY);
+ 192              		.loc 1 64 0
  193 00ac 0520     		movs	r0, #5
  194 00ae FFF7FEFF 		bl	CyDelay
  195              	.LVL26:
-  66:keypad.c      ****     if (!ROW0_Read()) {
- 196              		.loc 1 66 0
+  65:keypad.c      ****     if (!ROW0_Read()) {
+ 196              		.loc 1 65 0
  197 00b2 FFF7FEFF 		bl	ROW0_Read
  198              	.LVL27:
  199 00b6 20B9     		cbnz	r0, .L13
-  67:keypad.c      ****         COL3_Write(1);
- 200              		.loc 1 67 0
+  66:keypad.c      ****         COL3_Write(1);
+ 200              		.loc 1 66 0
  201 00b8 0120     		movs	r0, #1
  202 00ba FFF7FEFF 		bl	COL3_Write
  203              	.LVL28:
-  68:keypad.c      ****         return('*');
- 204              		.loc 1 68 0
+  67:keypad.c      ****         return('*');
+ 204              		.loc 1 67 0
  205 00be 2A20     		movs	r0, #42
  206 00c0 08BD     		pop	{r3, pc}
  207              	.L13:
-  69:keypad.c      ****     }
-  70:keypad.c      ****     if (!ROW1_Read()) {
- 208              		.loc 1 70 0
+  68:keypad.c      ****     }
+  69:keypad.c      ****     if (!ROW1_Read()) {
+ 208              		.loc 1 69 0
  209 00c2 FFF7FEFF 		bl	ROW1_Read
  210              	.LVL29:
  211 00c6 20B9     		cbnz	r0, .L14
-  71:keypad.c      ****         COL3_Write(1);
- 212              		.loc 1 71 0
+  70:keypad.c      ****         COL3_Write(1);
+ 212              		.loc 1 70 0
  213 00c8 0120     		movs	r0, #1
  214 00ca FFF7FEFF 		bl	COL3_Write
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 6
-
-
  215              	.LVL30:
-  72:keypad.c      ****         return('7');
- 216              		.loc 1 72 0
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccZ3erQF.s 			page 6
+
+
+  71:keypad.c      ****         return('7');
+ 216              		.loc 1 71 0
  217 00ce 3720     		movs	r0, #55
  218 00d0 08BD     		pop	{r3, pc}
  219              	.L14:
-  73:keypad.c      ****     }
-  74:keypad.c      ****     if (!ROW2_Read()) {
- 220              		.loc 1 74 0
+  72:keypad.c      ****     }
+  73:keypad.c      ****     if (!ROW2_Read()) {
+ 220              		.loc 1 73 0
  221 00d2 FFF7FEFF 		bl	ROW2_Read
  222              	.LVL31:
  223 00d6 20B9     		cbnz	r0, .L15
-  75:keypad.c      ****         COL3_Write(1);
- 224              		.loc 1 75 0
+  74:keypad.c      ****         COL3_Write(1);
+ 224              		.loc 1 74 0
  225 00d8 0120     		movs	r0, #1
  226 00da FFF7FEFF 		bl	COL3_Write
  227              	.LVL32:
-  76:keypad.c      ****         return('4');
- 228              		.loc 1 76 0
+  75:keypad.c      ****         return('4');
+ 228              		.loc 1 75 0
  229 00de 3420     		movs	r0, #52
  230 00e0 08BD     		pop	{r3, pc}
  231              	.L15:
-  77:keypad.c      ****     }
-  78:keypad.c      ****     if (!ROW3_Read()) {
- 232              		.loc 1 78 0
+  76:keypad.c      ****     }
+  77:keypad.c      ****     if (!ROW3_Read()) {
+ 232              		.loc 1 77 0
  233 00e2 FFF7FEFF 		bl	ROW3_Read
  234              	.LVL33:
  235 00e6 20B9     		cbnz	r0, .L16
-  79:keypad.c      ****         COL3_Write(1);
- 236              		.loc 1 79 0
+  78:keypad.c      ****         COL3_Write(1);
+ 236              		.loc 1 78 0
  237 00e8 0120     		movs	r0, #1
  238 00ea FFF7FEFF 		bl	COL3_Write
  239              	.LVL34:
-  80:keypad.c      ****         return('1');
- 240              		.loc 1 80 0
+  79:keypad.c      ****         return('1');
+ 240              		.loc 1 79 0
  241 00ee 3120     		movs	r0, #49
  242 00f0 08BD     		pop	{r3, pc}
  243              	.L16:
-  81:keypad.c      ****     }
-  82:keypad.c      ****     COL3_Write(1);
- 244              		.loc 1 82 0
+  80:keypad.c      ****     }
+  81:keypad.c      ****     COL3_Write(1);
+ 244              		.loc 1 81 0
  245 00f2 0120     		movs	r0, #1
  246 00f4 FFF7FEFF 		bl	COL3_Write
  247              	.LVL35:
-  83:keypad.c      ****     
-  84:keypad.c      ****     return('z');
- 248              		.loc 1 84 0
+  82:keypad.c      ****     
+  83:keypad.c      ****     return('z');
+ 248              		.loc 1 83 0
  249 00f8 7A20     		movs	r0, #122
-  85:keypad.c      **** }
- 250              		.loc 1 85 0
+  84:keypad.c      **** }
+ 250              		.loc 1 84 0
  251 00fa 08BD     		pop	{r3, pc}
  252              		.cfi_endproc
  253              	.LFE64:
@@ -358,10 +357,10 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 1
  255              		.text
  256              	.Letext0:
  257              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 7
-
-
  258              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccZ3erQF.s 			page 7
+
+
  259              		.file 4 "Generated_Source\\PSoC5/COL1.h"
  260              		.file 5 "Generated_Source\\PSoC5/COL2.h"
  261              		.file 6 "Generated_Source\\PSoC5/COL3.h"
@@ -418,10 +417,10 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 1
  312 005e 02       		.uleb128 0x2
  313 005f 04       		.byte	0x4
  314 0060 07       		.byte	0x7
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 8
-
-
  315 0061 E1000000 		.4byte	.LASF7
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccZ3erQF.s 			page 8
+
+
  316 0065 02       		.uleb128 0x2
  317 0066 08       		.byte	0x8
  318 0067 05       		.byte	0x5
@@ -471,17 +470,17 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 1
  362 00ba 05       		.uleb128 0x5
  363 00bb 61010000 		.4byte	.LASF29
  364 00bf 01       		.byte	0x1
- 365 00c0 11       		.byte	0x11
+ 365 00c0 10       		.byte	0x10
  366 00c1 00000000 		.4byte	.LFB63
  367 00c5 16000000 		.4byte	.LFE63-.LFB63
  368 00c9 01       		.uleb128 0x1
  369 00ca 9C       		.byte	0x9c
  370 00cb 05010000 		.4byte	0x105
  371 00cf 06       		.uleb128 0x6
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 9
-
-
  372 00d0 08000000 		.4byte	.LVL0
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccZ3erQF.s 			page 9
+
+
  373 00d4 27030000 		.4byte	0x327
  374 00d8 E2000000 		.4byte	0xe2
  375 00dc 07       		.uleb128 0x7
@@ -513,7 +512,7 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 1
  401 0105 09       		.uleb128 0x9
  402 0106 7C010000 		.4byte	.LASF30
  403 010a 01       		.byte	0x1
- 404 010b 17       		.byte	0x17
+ 404 010b 16       		.byte	0x16
  405 010c 81000000 		.4byte	0x81
  406 0110 00000000 		.4byte	.LFB64
  407 0114 FC000000 		.4byte	.LFE64-.LFB64
@@ -538,10 +537,10 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 1
  426 013f 01       		.uleb128 0x1
  427 0140 50       		.byte	0x50
  428 0141 01       		.uleb128 0x1
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 10
-
-
  429 0142 35       		.byte	0x35
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccZ3erQF.s 			page 10
+
+
  430 0143 00       		.byte	0
  431 0144 0A       		.uleb128 0xa
  432 0145 12000000 		.4byte	.LVL5
@@ -598,10 +597,10 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 1
  483 01b4 06       		.uleb128 0x6
  484 01b5 54000000 		.4byte	.LVL13
  485 01b9 27030000 		.4byte	0x327
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 11
-
-
  486 01bd C7010000 		.4byte	0x1c7
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccZ3erQF.s 			page 11
+
+
  487 01c1 07       		.uleb128 0x7
  488 01c2 01       		.uleb128 0x1
  489 01c3 50       		.byte	0x50
@@ -658,10 +657,10 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 1
  540 0226 84000000 		.4byte	.LVL20
  541 022a 69030000 		.4byte	0x369
  542 022e 06       		.uleb128 0x6
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 12
-
-
  543 022f 8C000000 		.4byte	.LVL21
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccZ3erQF.s 			page 12
+
+
  544 0233 32030000 		.4byte	0x332
  545 0237 41020000 		.4byte	0x241
  546 023b 07       		.uleb128 0x7
@@ -718,10 +717,10 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 1
  597 029b 53030000 		.4byte	0x353
  598 029f 06       		.uleb128 0x6
  599 02a0 BE000000 		.4byte	.LVL28
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 13
-
-
  600 02a4 3D030000 		.4byte	0x33d
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccZ3erQF.s 			page 13
+
+
  601 02a8 B2020000 		.4byte	0x2b2
  602 02ac 07       		.uleb128 0x7
  603 02ad 01       		.uleb128 0x1
@@ -778,10 +777,10 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 1
  654 0313 31       		.byte	0x31
  655 0314 00       		.byte	0
  656 0315 00       		.byte	0
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 14
-
-
  657 0316 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccZ3erQF.s 			page 14
+
+
  658 0317 10010000 		.4byte	.LASF31
  659 031b 0C       		.byte	0xc
  660 031c 1207     		.2byte	0x712
@@ -838,10 +837,10 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 1
  711 0004 0E       		.uleb128 0xe
  712 0005 13       		.uleb128 0x13
  713 0006 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 15
-
-
  714 0007 03       		.uleb128 0x3
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccZ3erQF.s 			page 15
+
+
  715 0008 0E       		.uleb128 0xe
  716 0009 1B       		.uleb128 0x1b
  717 000a 0E       		.uleb128 0xe
@@ -898,10 +897,10 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 1
  768 003d 3A       		.uleb128 0x3a
  769 003e 0B       		.uleb128 0xb
  770 003f 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 16
-
-
  771 0040 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccZ3erQF.s 			page 16
+
+
  772 0041 27       		.uleb128 0x27
  773 0042 19       		.uleb128 0x19
  774 0043 11       		.uleb128 0x11
@@ -958,10 +957,10 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 1
  825 007e 0B       		.uleb128 0xb
  826 007f 27       		.uleb128 0x27
  827 0080 19       		.uleb128 0x19
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 17
-
-
  828 0081 49       		.uleb128 0x49
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccZ3erQF.s 			page 17
+
+
  829 0082 13       		.uleb128 0x13
  830 0083 11       		.uleb128 0x11
  831 0084 01       		.uleb128 0x1
@@ -1018,10 +1017,10 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 1
  882 00ba 6E       		.uleb128 0x6e
  883 00bb 0E       		.uleb128 0xe
  884 00bc 03       		.uleb128 0x3
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 18
-
-
  885 00bd 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccZ3erQF.s 			page 18
+
+
  886 00be 3A       		.uleb128 0x3a
  887 00bf 0B       		.uleb128 0xb
  888 00c0 3B       		.uleb128 0x3b
@@ -1078,10 +1077,10 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 1
  926              	.LASF5:
  927 002b 5F5F696E 		.ascii	"__int32_t\000"
  927      7433325F 
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 19
-
-
  927      7400
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccZ3erQF.s 			page 19
+
+
  928              	.LASF22:
  929 0035 524F5730 		.ascii	"ROW0_Read\000"
  929      5F526561 
@@ -1138,10 +1137,10 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 1
  949 0124 756E7369 		.ascii	"unsigned int\000"
  949      676E6564 
  949      20696E74 
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 20
-
-
  949      00
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccZ3erQF.s 			page 20
+
+
  950              	.LASF9:
  951 0131 6C6F6E67 		.ascii	"long long unsigned int\000"
  951      206C6F6E 
@@ -1198,10 +1197,10 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 1
  977      5F577269 
  977      746500
  978              	.LASF0:
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccp4WVrf.s 			page 21
-
-
  979 01c6 7369676E 		.ascii	"signed char\000"
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccZ3erQF.s 			page 21
+
+
  979      65642063 
  979      68617200 
  980              	.LASF28:
