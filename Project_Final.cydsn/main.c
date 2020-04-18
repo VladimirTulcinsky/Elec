@@ -108,7 +108,7 @@ void activateSoundAndLEDS(int time, _Bool state) {
     do {
         checkTimerStatus();
         
-        if (lightOn == 1 && state == 1) { // Start sound and light on LEDs
+        if (lightOn == 0 && state == 1) { // Start sound and light on LEDs
             ledsState(1);  
         }
         if (state == 0) { // Stop sound and light off LEDs
@@ -207,18 +207,12 @@ void sendSignal(char* word) {
    	char *str = word;
 	int len = strlen(str); // get length of word
 	char *morse[len]; // variable to store complete morse translation (eg: sos => ...---...)
-	//char dest[20];  // variable to store translation of one letter (eg: s => ...)
-    char *dest;
+	char dest[20];  // variable to store translation of one letter (eg: s => ...)
     float value[len];
     for (int h = 0; h < len; ++h) { // for each letter of the word (eg: sos) get corresponding morse translation
         // morse[0] holds ...
         // morse[1] holds --- etc ...
         morse[h] = getMorse(str[h]);
-        if (h == 0) 
-        { dest = malloc(sizeof(char*) * strlen(morse[h]));}
-        else{
-          dest = realloc(dest, sizeof(char*) * strlen(morse[h]));
-        }// malloc else // idem mais avec realloc
 		
 		strcpy(dest, morse[h]); // copy translation of one letter (eg s => ...) in dest variable for looping through individual symbols of morse string
 		for (int var = 0; var < (int) strlen(dest); ++var) { // for each symbol (. or -) activate leds and write to UART
@@ -226,14 +220,18 @@ void sendSignal(char* word) {
 		}
 		switchMorseCode(_LETTER_SPACE_); // between each letter we add 3 spaces
 	}
-	
-    for (int j = 0; j < len; j++) {
-            value[j] = getSemaphore(str[j]);
-            uint16 value2 = value[j];
-            PWM_WriteCompare1(value2);
-            CyDelay(500);
-                
-    } 
+    if ( lightOn == 1) {
+    	for (int j = 0; j < len; j++) {
+                value[j] = getSemaphore(str[j]);
+                uint16 value2 = value[j];
+                if (flag == 0) {
+                  PWM_WriteCompare1(value2);
+                } else {
+                  PWM_WriteCompare2(value2);
+                }
+                CyDelay(500);
+        } 
+    }
     ledsState(0);
 	clock = 0;
 }
@@ -290,11 +288,9 @@ void photoResistor() {
         int32 value = ADC_GetResult32();
         
         if (value < 6500) { // There is no enough light
-           PWM_Stop(); // Stop servo
-           lightOn = 1;
-        } else if(value > 6500) { // There is enough light
            lightOn = 0;
-           PWM_Start(); // Start servo
+        } else if(value > 6500) { // There is enough light
+           lightOn = 1;
         }  
     }
 }
@@ -407,6 +403,7 @@ int main(void) {
     ledsState(0); 
     Timer_Stop();
     UART_PutString("Start \n");
+    createArray();
     /*
 	* Fill a vector with a sound wave
 	*/

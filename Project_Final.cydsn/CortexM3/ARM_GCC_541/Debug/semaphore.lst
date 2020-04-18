@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\cc7gaNMe.s 			page 1
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccXwjrLg.s 			page 1
 
 
    1              		.syntax unified
@@ -23,14 +23,14 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\cc7gaNMe.s 			page 1
   20              		.global	__aeabi_dmul
   21              		.global	__aeabi_dadd
   22              		.global	__aeabi_d2f
-  23              		.section	.text.getSemaphore,"ax",%progbits
+  23              		.section	.text.createArray,"ax",%progbits
   24              		.align	2
-  25              		.global	getSemaphore
+  25              		.global	createArray
   26              		.thumb
   27              		.thumb_func
-  28              		.type	getSemaphore, %function
-  29              	getSemaphore:
-  30              	.LFB1:
+  28              		.type	createArray, %function
+  29              	createArray:
+  30              	.LFB64:
   31              		.file 1 "semaphore.c"
    1:semaphore.c   **** /* ========================================
    2:semaphore.c   ****  * ULB - Digital Electronic : Project 2020 
@@ -46,780 +46,965 @@ ARM GAS  C:\Users\Piimps\AppData\Local\Temp\cc7gaNMe.s 			page 1
   12:semaphore.c   **** #include <stdlib.h>
   13:semaphore.c   **** #include <stdint.h>
   14:semaphore.c   **** #include <string.h>
-  15:semaphore.c   **** 
-  16:semaphore.c   **** float alpha[26]; // a -> z
-  17:semaphore.c   **** float numbers[10]; // 0 -> 9
-  18:semaphore.c   **** 
-  19:semaphore.c   **** float getSemaphore(char lettertoTranslate) {
-  32              		.loc 1 19 0
+  15:semaphore.c   **** #include "project.h"
+  16:semaphore.c   **** 
+  17:semaphore.c   **** static float alpha[26]; // a -> z
+  18:semaphore.c   **** static float numbers[10]; // 0 -> 9
+  19:semaphore.c   **** 
+  20:semaphore.c   **** void createArray() {
+  32              		.loc 1 20 0
   33              		.cfi_startproc
   34              		@ args = 0, pretend = 0, frame = 0
   35              		@ frame_needed = 0, uses_anonymous_args = 0
-  36              	.LVL0:
-  37 0000 38B5     		push	{r3, r4, r5, lr}
-  38              		.cfi_def_cfa_offset 16
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\cc7gaNMe.s 			page 2
+  36 0000 38B5     		push	{r3, r4, r5, lr}
+  37              		.cfi_def_cfa_offset 16
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccXwjrLg.s 			page 2
 
 
-  39              		.cfi_offset 3, -16
-  40              		.cfi_offset 4, -12
-  41              		.cfi_offset 5, -8
-  42              		.cfi_offset 14, -4
-  43 0002 0546     		mov	r5, r0
-  44              	.LVL1:
-  45              	.LBB2:
-  20:semaphore.c   ****     for(int x = 0; x < 26; x++) {
-  46              		.loc 1 20 0
-  47 0004 0024     		movs	r4, #0
-  48 0006 12E0     		b	.L2
-  49              	.LVL2:
-  50              	.L3:
-  21:semaphore.c   **** 	alpha[x] = 1500 + (x*166.66); // 7500 - 1500 = 6000
-  51              		.loc 1 21 0 discriminator 3
-  52 0008 2046     		mov	r0, r4
-  53 000a FFF7FEFF 		bl	__aeabi_i2d
-  54              	.LVL3:
-  55 000e 1CA3     		adr	r3, .L9
-  56 0010 D3E90023 		ldrd	r2, [r3]
-  57 0014 FFF7FEFF 		bl	__aeabi_dmul
-  58              	.LVL4:
-  59 0018 1BA3     		adr	r3, .L9+8
-  60 001a D3E90023 		ldrd	r2, [r3]
-  61 001e FFF7FEFF 		bl	__aeabi_dadd
+  38              		.cfi_offset 3, -16
+  39              		.cfi_offset 4, -12
+  40              		.cfi_offset 5, -8
+  41              		.cfi_offset 14, -4
+  42              	.LVL0:
+  43              	.LBB2:
+  21:semaphore.c   ****     for(int x = 0; x < 26; x++) {
+  44              		.loc 1 21 0
+  45 0002 0024     		movs	r4, #0
+  46 0004 12E0     		b	.L2
+  47              	.LVL1:
+  48              	.L3:
+  22:semaphore.c   **** 	alpha[x] = 1500 + ( x * 166.66); // 7500 - 1500 = 6000
+  49              		.loc 1 22 0 discriminator 3
+  50 0006 2046     		mov	r0, r4
+  51 0008 FFF7FEFF 		bl	__aeabi_i2d
+  52              	.LVL2:
+  53 000c 16A3     		adr	r3, .L7
+  54 000e D3E90023 		ldrd	r2, [r3]
+  55 0012 FFF7FEFF 		bl	__aeabi_dmul
+  56              	.LVL3:
+  57 0016 16A3     		adr	r3, .L7+8
+  58 0018 D3E90023 		ldrd	r2, [r3]
+  59 001c FFF7FEFF 		bl	__aeabi_dadd
+  60              	.LVL4:
+  61 0020 FFF7FEFF 		bl	__aeabi_d2f
   62              	.LVL5:
-  63 0022 FFF7FEFF 		bl	__aeabi_d2f
-  64              	.LVL6:
-  65 0026 1C4B     		ldr	r3, .L9+24
-  66 0028 43F82400 		str	r0, [r3, r4, lsl #2]	@ float
-  20:semaphore.c   ****     for(int x = 0; x < 26; x++) {
-  67              		.loc 1 20 0 discriminator 3
-  68 002c 0134     		adds	r4, r4, #1
-  69              	.LVL7:
-  70              	.L2:
-  20:semaphore.c   ****     for(int x = 0; x < 26; x++) {
-  71              		.loc 1 20 0 is_stmt 0 discriminator 1
-  72 002e 192C     		cmp	r4, #25
-  73 0030 EADD     		ble	.L3
-  74 0032 0024     		movs	r4, #0
+  63 0024 164B     		ldr	r3, .L7+24
+  64 0026 43F82400 		str	r0, [r3, r4, lsl #2]	@ float
+  21:semaphore.c   ****     for(int x = 0; x < 26; x++) {
+  65              		.loc 1 21 0 discriminator 3
+  66 002a 0134     		adds	r4, r4, #1
+  67              	.LVL6:
+  68              	.L2:
+  21:semaphore.c   ****     for(int x = 0; x < 26; x++) {
+  69              		.loc 1 21 0 is_stmt 0 discriminator 1
+  70 002c 192C     		cmp	r4, #25
+  71 002e EADD     		ble	.L3
+  72 0030 0024     		movs	r4, #0
+  73              	.LVL7:
+  74 0032 13E0     		b	.L4
   75              	.LVL8:
-  76 0034 12E0     		b	.L4
-  77              	.LVL9:
-  78              	.L5:
-  79              	.LBE2:
-  80              	.LBB3:
-  22:semaphore.c   ****     }                             // 6000 / 36 = 166.66 (36 = 26 char + 10 numbers)
-  23:semaphore.c   ****     for(int y = 0; y < 10; y++) {
-  24:semaphore.c   ****     	numbers[y] = 5833.33 + (y*166.66);
-  81              		.loc 1 24 0 is_stmt 1 discriminator 3
-  82 0036 2046     		mov	r0, r4
-  83 0038 FFF7FEFF 		bl	__aeabi_i2d
-  84              	.LVL10:
-  85 003c 10A3     		adr	r3, .L9
-  86 003e D3E90023 		ldrd	r2, [r3]
-  87 0042 FFF7FEFF 		bl	__aeabi_dmul
-  88              	.LVL11:
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\cc7gaNMe.s 			page 3
+  76              	.L5:
+  77              	.LBE2:
+  78              	.LBB3:
+  23:semaphore.c   ****     }                                // 6000 / 36 = 166.66 (36 = 26 char + 10 numbers)
+  24:semaphore.c   ****     for(int y = 0; y < 10; y++) {
+  25:semaphore.c   ****     	numbers[y] =  5833.33 + ( y * 166.66);
+  79              		.loc 1 25 0 is_stmt 1 discriminator 3
+  80 0034 2046     		mov	r0, r4
+  81 0036 FFF7FEFF 		bl	__aeabi_i2d
+  82              	.LVL9:
+  83 003a 0BA3     		adr	r3, .L7
+  84 003c D3E90023 		ldrd	r2, [r3]
+  85 0040 FFF7FEFF 		bl	__aeabi_dmul
+  86              	.LVL10:
+  87 0044 0CA3     		adr	r3, .L7+16
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccXwjrLg.s 			page 3
 
 
-  89 0046 12A3     		adr	r3, .L9+16
-  90 0048 D3E90023 		ldrd	r2, [r3]
-  91 004c FFF7FEFF 		bl	__aeabi_dadd
-  92              	.LVL12:
-  93 0050 FFF7FEFF 		bl	__aeabi_d2f
-  94              	.LVL13:
-  95 0054 114B     		ldr	r3, .L9+28
-  96 0056 43F82400 		str	r0, [r3, r4, lsl #2]	@ float
-  23:semaphore.c   ****     	numbers[y] = 5833.33 + (y*166.66);
-  97              		.loc 1 23 0 discriminator 3
-  98 005a 0134     		adds	r4, r4, #1
-  99              	.LVL14:
- 100              	.L4:
-  23:semaphore.c   ****     	numbers[y] = 5833.33 + (y*166.66);
- 101              		.loc 1 23 0 is_stmt 0 discriminator 1
- 102 005c 092C     		cmp	r4, #9
- 103 005e EADD     		ble	.L5
- 104              	.LBE3:
-  25:semaphore.c   ****     }
-  26:semaphore.c   **** 	int position = lettertoTranslate - '0';
- 105              		.loc 1 26 0 is_stmt 1
- 106 0060 A5F13003 		sub	r3, r5, #48
- 107              	.LVL15:
-  27:semaphore.c   **** 
-  28:semaphore.c   **** 	if (position >= 0 && position <= 9)
- 108              		.loc 1 28 0
- 109 0064 092B     		cmp	r3, #9
- 110 0066 03D8     		bhi	.L6
-  29:semaphore.c   **** 		return numbers[position];
- 111              		.loc 1 29 0
- 112 0068 0C4A     		ldr	r2, .L9+28
- 113 006a 52F82300 		ldr	r0, [r2, r3, lsl #2]	@ float
- 114 006e 38BD     		pop	{r3, r4, r5, pc}
- 115              	.LVL16:
- 116              	.L6:
- 117              	.LBB4:
-  30:semaphore.c   **** 	else {
-  31:semaphore.c   **** 		position = tolower(lettertoTranslate) - 'a';
- 118              		.loc 1 31 0
- 119 0070 2846     		mov	r0, r5
- 120 0072 FFF7FEFF 		bl	tolower
- 121              	.LVL17:
- 122 0076 6138     		subs	r0, r0, #97
- 123              	.LVL18:
-  32:semaphore.c   **** 		return alpha[position];
- 124              		.loc 1 32 0
- 125 0078 074B     		ldr	r3, .L9+24
- 126 007a 53F82000 		ldr	r0, [r3, r0, lsl #2]	@ float
- 127              	.LVL19:
- 128              	.LBE4:
-  33:semaphore.c   **** 	}
-  34:semaphore.c   **** }
- 129              		.loc 1 34 0
- 130 007e 38BD     		pop	{r3, r4, r5, pc}
- 131              	.LVL20:
- 132              	.L10:
- 133              		.align	3
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\cc7gaNMe.s 			page 4
+  88 0046 D3E90023 		ldrd	r2, [r3]
+  89 004a FFF7FEFF 		bl	__aeabi_dadd
+  90              	.LVL11:
+  91 004e 0C4D     		ldr	r5, .L7+24
+  92 0050 05EB8405 		add	r5, r5, r4, lsl #2
+  93 0054 FFF7FEFF 		bl	__aeabi_d2f
+  94              	.LVL12:
+  95 0058 A866     		str	r0, [r5, #104]	@ float
+  24:semaphore.c   ****     	numbers[y] =  5833.33 + ( y * 166.66);
+  96              		.loc 1 24 0 discriminator 3
+  97 005a 0134     		adds	r4, r4, #1
+  98              	.LVL13:
+  99              	.L4:
+  24:semaphore.c   ****     	numbers[y] =  5833.33 + ( y * 166.66);
+ 100              		.loc 1 24 0 is_stmt 0 discriminator 1
+ 101 005c 092C     		cmp	r4, #9
+ 102 005e E9DD     		ble	.L5
+ 103              	.LBE3:
+  26:semaphore.c   ****     }
+  27:semaphore.c   **** }
+ 104              		.loc 1 27 0 is_stmt 1
+ 105 0060 38BD     		pop	{r3, r4, r5, pc}
+ 106              	.LVL14:
+ 107              	.L8:
+ 108 0062 00BFAFF3 		.align	3
+ 108      0080
+ 109              	.L7:
+ 110 0068 85EB51B8 		.word	-1202590843
+ 111 006c 1ED56440 		.word	1080349982
+ 112 0070 00000000 		.word	0
+ 113 0074 00709740 		.word	1083666432
+ 114 0078 AE47E17A 		.word	2061584302
+ 115 007c 54C9B640 		.word	1085720916
+ 116 0080 00000000 		.word	.LANCHOR0
+ 117              		.cfi_endproc
+ 118              	.LFE64:
+ 119              		.size	createArray, .-createArray
+ 120              		.section	.text.getSemaphore,"ax",%progbits
+ 121              		.align	2
+ 122              		.global	getSemaphore
+ 123              		.thumb
+ 124              		.thumb_func
+ 125              		.type	getSemaphore, %function
+ 126              	getSemaphore:
+ 127              	.LFB65:
+  28:semaphore.c   **** 
+  29:semaphore.c   **** float getSemaphore(char lettertoTranslate) {
+ 128              		.loc 1 29 0
+ 129              		.cfi_startproc
+ 130              		@ args = 0, pretend = 0, frame = 0
+ 131              		@ frame_needed = 0, uses_anonymous_args = 0
+ 132              		@ link register save eliminated.
+ 133              	.LVL15:
+  30:semaphore.c   ****    
+  31:semaphore.c   **** 	int position = lettertoTranslate - '0';
+ 134              		.loc 1 31 0
+ 135 0000 0346     		mov	r3, r0
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccXwjrLg.s 			page 4
 
 
- 134              	.L9:
- 135 0080 85EB51B8 		.word	-1202590843
- 136 0084 1ED56440 		.word	1080349982
- 137 0088 00000000 		.word	0
- 138 008c 00709740 		.word	1083666432
- 139 0090 AE47E17A 		.word	2061584302
- 140 0094 54C9B640 		.word	1085720916
- 141 0098 00000000 		.word	alpha
- 142 009c 00000000 		.word	numbers
- 143              		.cfi_endproc
- 144              	.LFE1:
- 145              		.size	getSemaphore, .-getSemaphore
- 146              		.comm	numbers,40,4
- 147              		.comm	alpha,104,4
- 148              		.text
- 149              	.Letext0:
- 150              		.file 2 "<built-in>"
- 151              		.section	.debug_info,"",%progbits
- 152              	.Ldebug_info0:
- 153 0000 6A010000 		.4byte	0x16a
- 154 0004 0400     		.2byte	0x4
- 155 0006 00000000 		.4byte	.Ldebug_abbrev0
- 156 000a 04       		.byte	0x4
- 157 000b 01       		.uleb128 0x1
- 158 000c 40000000 		.4byte	.LASF16
- 159 0010 0C       		.byte	0xc
- 160 0011 AF010000 		.4byte	.LASF17
- 161 0015 34010000 		.4byte	.LASF18
- 162 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 163 001d 00000000 		.4byte	0
- 164 0021 00000000 		.4byte	.Ldebug_line0
- 165 0025 02       		.uleb128 0x2
- 166 0026 01       		.byte	0x1
- 167 0027 06       		.byte	0x6
- 168 0028 7C010000 		.4byte	.LASF0
- 169 002c 02       		.uleb128 0x2
- 170 002d 01       		.byte	0x1
- 171 002e 08       		.byte	0x8
- 172 002f 12010000 		.4byte	.LASF1
- 173 0033 02       		.uleb128 0x2
- 174 0034 02       		.byte	0x2
- 175 0035 05       		.byte	0x5
- 176 0036 A5010000 		.4byte	.LASF2
- 177 003a 02       		.uleb128 0x2
- 178 003b 02       		.byte	0x2
- 179 003c 07       		.byte	0x7
- 180 003d 0E000000 		.4byte	.LASF3
- 181 0041 02       		.uleb128 0x2
- 182 0042 04       		.byte	0x4
- 183 0043 05       		.byte	0x5
- 184 0044 25010000 		.4byte	.LASF4
- 185 0048 02       		.uleb128 0x2
- 186 0049 04       		.byte	0x4
- 187 004a 07       		.byte	0x7
- 188 004b DB000000 		.4byte	.LASF5
- 189 004f 02       		.uleb128 0x2
- 190 0050 08       		.byte	0x8
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\cc7gaNMe.s 			page 5
+ 136 0002 A0F13002 		sub	r2, r0, #48
+ 137              	.LVL16:
+  32:semaphore.c   **** 
+  33:semaphore.c   **** 	if (position >= 0 && position <= 9)
+ 138              		.loc 1 33 0
+ 139 0006 092A     		cmp	r2, #9
+ 140 0008 04D8     		bhi	.L10
+  34:semaphore.c   **** 		return numbers[position];
+ 141              		.loc 1 34 0
+ 142 000a 0A4B     		ldr	r3, .L13
+ 143 000c 03EB8202 		add	r2, r3, r2, lsl #2
+ 144              	.LVL17:
+ 145 0010 906E     		ldr	r0, [r2, #104]	@ float
+ 146              	.LVL18:
+ 147 0012 7047     		bx	lr
+ 148              	.LVL19:
+ 149              	.L10:
+ 150              	.LBB4:
+  35:semaphore.c   **** 	else {
+  36:semaphore.c   **** 		position = tolower(lettertoTranslate) - 'a';
+ 151              		.loc 1 36 0
+ 152 0014 084A     		ldr	r2, .L13+4
+ 153              	.LVL20:
+ 154 0016 1268     		ldr	r2, [r2]
+ 155 0018 0244     		add	r2, r2, r0
+ 156 001a 5278     		ldrb	r2, [r2, #1]	@ zero_extendqisi2
+ 157 001c 02F00302 		and	r2, r2, #3
+ 158 0020 012A     		cmp	r2, #1
+ 159 0022 01D1     		bne	.L12
+ 160              		.loc 1 36 0 is_stmt 0 discriminator 1
+ 161 0024 00F12003 		add	r3, r0, #32
+ 162              	.L12:
+ 163              	.LBE4:
+ 164              		.loc 1 36 0 discriminator 4
+ 165 0028 613B     		subs	r3, r3, #97
+ 166              	.LVL21:
+  37:semaphore.c   **** 		return alpha[position];
+ 167              		.loc 1 37 0 is_stmt 1 discriminator 4
+ 168 002a 024A     		ldr	r2, .L13
+ 169 002c 52F82300 		ldr	r0, [r2, r3, lsl #2]	@ float
+ 170              	.LVL22:
+  38:semaphore.c   **** 	}
+  39:semaphore.c   **** }
+ 171              		.loc 1 39 0 discriminator 4
+ 172 0030 7047     		bx	lr
+ 173              	.L14:
+ 174 0032 00BF     		.align	2
+ 175              	.L13:
+ 176 0034 00000000 		.word	.LANCHOR0
+ 177 0038 00000000 		.word	__ctype_ptr__
+ 178              		.cfi_endproc
+ 179              	.LFE65:
+ 180              		.size	getSemaphore, .-getSemaphore
+ 181              		.bss
+ 182              		.align	2
+ 183              		.set	.LANCHOR0,. + 0
+ 184              		.type	alpha, %object
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccXwjrLg.s 			page 5
 
 
- 191 0051 05       		.byte	0x5
- 192 0052 00000000 		.4byte	.LASF6
- 193 0056 02       		.uleb128 0x2
- 194 0057 08       		.byte	0x8
- 195 0058 07       		.byte	0x7
- 196 0059 ED000000 		.4byte	.LASF7
- 197 005d 03       		.uleb128 0x3
- 198 005e 04       		.byte	0x4
- 199 005f 05       		.byte	0x5
- 200 0060 696E7400 		.ascii	"int\000"
- 201 0064 02       		.uleb128 0x2
- 202 0065 04       		.byte	0x4
- 203 0066 07       		.byte	0x7
- 204 0067 21000000 		.4byte	.LASF8
- 205 006b 02       		.uleb128 0x2
- 206 006c 08       		.byte	0x8
- 207 006d 04       		.byte	0x4
- 208 006e 99010000 		.4byte	.LASF9
- 209 0072 02       		.uleb128 0x2
- 210 0073 04       		.byte	0x4
- 211 0074 07       		.byte	0x7
- 212 0075 BB010000 		.4byte	.LASF10
- 213 0079 02       		.uleb128 0x2
- 214 007a 01       		.byte	0x1
- 215 007b 08       		.byte	0x8
- 216 007c 20010000 		.4byte	.LASF11
- 217 0080 04       		.uleb128 0x4
- 218 0081 CE000000 		.4byte	.LASF19
- 219 0085 01       		.byte	0x1
- 220 0086 13       		.byte	0x13
- 221 0087 19010000 		.4byte	0x119
- 222 008b 00000000 		.4byte	.LFB1
- 223 008f A0000000 		.4byte	.LFE1-.LFB1
- 224 0093 01       		.uleb128 0x1
- 225 0094 9C       		.byte	0x9c
- 226 0095 19010000 		.4byte	0x119
- 227 0099 05       		.uleb128 0x5
- 228 009a 2E000000 		.4byte	.LASF20
- 229 009e 01       		.byte	0x1
- 230 009f 13       		.byte	0x13
- 231 00a0 79000000 		.4byte	0x79
- 232 00a4 00000000 		.4byte	.LLST0
- 233 00a8 06       		.uleb128 0x6
- 234 00a9 90010000 		.4byte	.LASF12
- 235 00ad 01       		.byte	0x1
- 236 00ae 1A       		.byte	0x1a
- 237 00af 5D000000 		.4byte	0x5d
- 238 00b3 21000000 		.4byte	.LLST1
- 239 00b7 07       		.uleb128 0x7
- 240 00b8 04000000 		.4byte	.LBB2
- 241 00bc 32000000 		.4byte	.LBE2-.LBB2
- 242 00c0 D2000000 		.4byte	0xd2
- 243 00c4 08       		.uleb128 0x8
- 244 00c5 7800     		.ascii	"x\000"
- 245 00c7 01       		.byte	0x1
- 246 00c8 14       		.byte	0x14
- 247 00c9 5D000000 		.4byte	0x5d
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\cc7gaNMe.s 			page 6
+ 185              		.size	alpha, 104
+ 186              	alpha:
+ 187 0000 00000000 		.space	104
+ 187      00000000 
+ 187      00000000 
+ 187      00000000 
+ 187      00000000 
+ 188              		.type	numbers, %object
+ 189              		.size	numbers, 40
+ 190              	numbers:
+ 191 0068 00000000 		.space	40
+ 191      00000000 
+ 191      00000000 
+ 191      00000000 
+ 191      00000000 
+ 192              		.text
+ 193              	.Letext0:
+ 194              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
+ 195              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
+ 196              		.file 4 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
+ 197              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 198              		.section	.debug_info,"",%progbits
+ 199              	.Ldebug_info0:
+ 200 0000 A3010000 		.4byte	0x1a3
+ 201 0004 0400     		.2byte	0x4
+ 202 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 203 000a 04       		.byte	0x4
+ 204 000b 01       		.uleb128 0x1
+ 205 000c 26000000 		.4byte	.LASF21
+ 206 0010 0C       		.byte	0xc
+ 207 0011 78010000 		.4byte	.LASF22
+ 208 0015 AE010000 		.4byte	.LASF23
+ 209 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 210 001d 00000000 		.4byte	0
+ 211 0021 00000000 		.4byte	.Ldebug_line0
+ 212 0025 02       		.uleb128 0x2
+ 213 0026 01       		.byte	0x1
+ 214 0027 06       		.byte	0x6
+ 215 0028 A2010000 		.4byte	.LASF0
+ 216 002c 02       		.uleb128 0x2
+ 217 002d 01       		.byte	0x1
+ 218 002e 08       		.byte	0x8
+ 219 002f 18000000 		.4byte	.LASF1
+ 220 0033 02       		.uleb128 0x2
+ 221 0034 02       		.byte	0x2
+ 222 0035 05       		.byte	0x5
+ 223 0036 6E010000 		.4byte	.LASF2
+ 224 003a 02       		.uleb128 0x2
+ 225 003b 02       		.byte	0x2
+ 226 003c 07       		.byte	0x7
+ 227 003d D4000000 		.4byte	.LASF3
+ 228 0041 03       		.uleb128 0x3
+ 229 0042 00000000 		.4byte	.LASF12
+ 230 0046 02       		.byte	0x2
+ 231 0047 3F       		.byte	0x3f
+ 232 0048 4C000000 		.4byte	0x4c
+ 233 004c 02       		.uleb128 0x2
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccXwjrLg.s 			page 6
 
 
- 248 00cd 4C000000 		.4byte	.LLST2
- 249 00d1 00       		.byte	0
- 250 00d2 07       		.uleb128 0x7
- 251 00d3 36000000 		.4byte	.LBB3
- 252 00d7 2A000000 		.4byte	.LBE3-.LBB3
- 253 00db ED000000 		.4byte	0xed
- 254 00df 08       		.uleb128 0x8
- 255 00e0 7900     		.ascii	"y\000"
- 256 00e2 01       		.byte	0x1
- 257 00e3 17       		.byte	0x17
- 258 00e4 5D000000 		.4byte	0x5d
- 259 00e8 6B000000 		.4byte	.LLST3
- 260 00ec 00       		.byte	0
- 261 00ed 09       		.uleb128 0x9
- 262 00ee 70000000 		.4byte	.LBB4
- 263 00f2 0E000000 		.4byte	.LBE4-.LBB4
- 264 00f6 0A       		.uleb128 0xa
- 265 00f7 88010000 		.4byte	.LASF21
- 266 00fb 02       		.byte	0x2
- 267 00fc 00       		.byte	0
- 268 00fd 5D000000 		.4byte	0x5d
- 269 0101 07010000 		.4byte	0x107
- 270 0105 0B       		.uleb128 0xb
- 271 0106 00       		.byte	0
- 272 0107 0C       		.uleb128 0xc
- 273 0108 76000000 		.4byte	.LVL17
- 274 010c 62010000 		.4byte	0x162
- 275 0110 0D       		.uleb128 0xd
- 276 0111 01       		.uleb128 0x1
- 277 0112 50       		.byte	0x50
- 278 0113 02       		.uleb128 0x2
- 279 0114 75       		.byte	0x75
- 280 0115 00       		.sleb128 0
- 281 0116 00       		.byte	0
- 282 0117 00       		.byte	0
- 283 0118 00       		.byte	0
- 284 0119 02       		.uleb128 0x2
- 285 011a 04       		.byte	0x4
- 286 011b 04       		.byte	0x4
- 287 011c 0C010000 		.4byte	.LASF13
- 288 0120 0E       		.uleb128 0xe
- 289 0121 19010000 		.4byte	0x119
- 290 0125 30010000 		.4byte	0x130
- 291 0129 0F       		.uleb128 0xf
- 292 012a 72000000 		.4byte	0x72
- 293 012e 19       		.byte	0x19
- 294 012f 00       		.byte	0
- 295 0130 10       		.uleb128 0x10
- 296 0131 2E010000 		.4byte	.LASF14
- 297 0135 01       		.byte	0x1
- 298 0136 10       		.byte	0x10
- 299 0137 20010000 		.4byte	0x120
- 300 013b 05       		.uleb128 0x5
- 301 013c 03       		.byte	0x3
- 302 013d 00000000 		.4byte	alpha
- 303 0141 0E       		.uleb128 0xe
- 304 0142 19010000 		.4byte	0x119
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\cc7gaNMe.s 			page 7
+ 234 004d 04       		.byte	0x4
+ 235 004e 05       		.byte	0x5
+ 236 004f 8D010000 		.4byte	.LASF4
+ 237 0053 02       		.uleb128 0x2
+ 238 0054 04       		.byte	0x4
+ 239 0055 07       		.byte	0x7
+ 240 0056 B4000000 		.4byte	.LASF5
+ 241 005a 02       		.uleb128 0x2
+ 242 005b 08       		.byte	0x8
+ 243 005c 05       		.byte	0x5
+ 244 005d 4E010000 		.4byte	.LASF6
+ 245 0061 02       		.uleb128 0x2
+ 246 0062 08       		.byte	0x8
+ 247 0063 07       		.byte	0x7
+ 248 0064 1A010000 		.4byte	.LASF7
+ 249 0068 04       		.uleb128 0x4
+ 250 0069 04       		.byte	0x4
+ 251 006a 05       		.byte	0x5
+ 252 006b 696E7400 		.ascii	"int\000"
+ 253 006f 02       		.uleb128 0x2
+ 254 0070 04       		.byte	0x4
+ 255 0071 07       		.byte	0x7
+ 256 0072 0D010000 		.4byte	.LASF8
+ 257 0076 02       		.uleb128 0x2
+ 258 0077 08       		.byte	0x8
+ 259 0078 04       		.byte	0x4
+ 260 0079 96010000 		.4byte	.LASF9
+ 261 007d 02       		.uleb128 0x2
+ 262 007e 04       		.byte	0x4
+ 263 007f 07       		.byte	0x7
+ 264 0080 45010000 		.4byte	.LASF10
+ 265 0084 02       		.uleb128 0x2
+ 266 0085 01       		.byte	0x1
+ 267 0086 08       		.byte	0x8
+ 268 0087 5C010000 		.4byte	.LASF11
+ 269 008b 05       		.uleb128 0x5
+ 270 008c 04       		.byte	0x4
+ 271 008d 91000000 		.4byte	0x91
+ 272 0091 06       		.uleb128 0x6
+ 273 0092 84000000 		.4byte	0x84
+ 274 0096 03       		.uleb128 0x3
+ 275 0097 3D010000 		.4byte	.LASF13
+ 276 009b 03       		.byte	0x3
+ 277 009c 2C       		.byte	0x2c
+ 278 009d 41000000 		.4byte	0x41
+ 279 00a1 02       		.uleb128 0x2
+ 280 00a2 04       		.byte	0x4
+ 281 00a3 04       		.byte	0x4
+ 282 00a4 12000000 		.4byte	.LASF14
+ 283 00a8 02       		.uleb128 0x2
+ 284 00a9 08       		.byte	0x8
+ 285 00aa 04       		.byte	0x4
+ 286 00ab F4000000 		.4byte	.LASF15
+ 287 00af 07       		.uleb128 0x7
+ 288 00b0 31010000 		.4byte	.LASF24
+ 289 00b4 01       		.byte	0x1
+ 290 00b5 14       		.byte	0x14
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccXwjrLg.s 			page 7
 
 
- 305 0146 51010000 		.4byte	0x151
- 306 014a 0F       		.uleb128 0xf
- 307 014b 72000000 		.4byte	0x72
- 308 014f 09       		.byte	0x9
- 309 0150 00       		.byte	0
- 310 0151 10       		.uleb128 0x10
- 311 0152 04010000 		.4byte	.LASF15
- 312 0156 01       		.byte	0x1
- 313 0157 11       		.byte	0x11
- 314 0158 41010000 		.4byte	0x141
- 315 015c 05       		.uleb128 0x5
- 316 015d 03       		.byte	0x3
- 317 015e 00000000 		.4byte	numbers
- 318 0162 11       		.uleb128 0x11
- 319 0163 88010000 		.4byte	.LASF21
- 320 0167 88010000 		.4byte	.LASF21
- 321 016b 02       		.byte	0x2
- 322 016c 00       		.byte	0
- 323 016d 00       		.byte	0
- 324              		.section	.debug_abbrev,"",%progbits
- 325              	.Ldebug_abbrev0:
- 326 0000 01       		.uleb128 0x1
- 327 0001 11       		.uleb128 0x11
- 328 0002 01       		.byte	0x1
- 329 0003 25       		.uleb128 0x25
- 330 0004 0E       		.uleb128 0xe
- 331 0005 13       		.uleb128 0x13
- 332 0006 0B       		.uleb128 0xb
- 333 0007 03       		.uleb128 0x3
- 334 0008 0E       		.uleb128 0xe
- 335 0009 1B       		.uleb128 0x1b
- 336 000a 0E       		.uleb128 0xe
- 337 000b 55       		.uleb128 0x55
- 338 000c 17       		.uleb128 0x17
- 339 000d 11       		.uleb128 0x11
- 340 000e 01       		.uleb128 0x1
- 341 000f 10       		.uleb128 0x10
- 342 0010 17       		.uleb128 0x17
- 343 0011 00       		.byte	0
- 344 0012 00       		.byte	0
- 345 0013 02       		.uleb128 0x2
- 346 0014 24       		.uleb128 0x24
- 347 0015 00       		.byte	0
- 348 0016 0B       		.uleb128 0xb
- 349 0017 0B       		.uleb128 0xb
- 350 0018 3E       		.uleb128 0x3e
- 351 0019 0B       		.uleb128 0xb
- 352 001a 03       		.uleb128 0x3
- 353 001b 0E       		.uleb128 0xe
- 354 001c 00       		.byte	0
- 355 001d 00       		.byte	0
- 356 001e 03       		.uleb128 0x3
- 357 001f 24       		.uleb128 0x24
- 358 0020 00       		.byte	0
- 359 0021 0B       		.uleb128 0xb
- 360 0022 0B       		.uleb128 0xb
- 361 0023 3E       		.uleb128 0x3e
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\cc7gaNMe.s 			page 8
+ 291 00b6 00000000 		.4byte	.LFB64
+ 292 00ba 84000000 		.4byte	.LFE64-.LFB64
+ 293 00be 01       		.uleb128 0x1
+ 294 00bf 9C       		.byte	0x9c
+ 295 00c0 F7000000 		.4byte	0xf7
+ 296 00c4 08       		.uleb128 0x8
+ 297 00c5 02000000 		.4byte	.LBB2
+ 298 00c9 32000000 		.4byte	.LBE2-.LBB2
+ 299 00cd DF000000 		.4byte	0xdf
+ 300 00d1 09       		.uleb128 0x9
+ 301 00d2 7800     		.ascii	"x\000"
+ 302 00d4 01       		.byte	0x1
+ 303 00d5 15       		.byte	0x15
+ 304 00d6 68000000 		.4byte	0x68
+ 305 00da 00000000 		.4byte	.LLST0
+ 306 00de 00       		.byte	0
+ 307 00df 0A       		.uleb128 0xa
+ 308 00e0 34000000 		.4byte	.LBB3
+ 309 00e4 2C000000 		.4byte	.LBE3-.LBB3
+ 310 00e8 09       		.uleb128 0x9
+ 311 00e9 7900     		.ascii	"y\000"
+ 312 00eb 01       		.byte	0x1
+ 313 00ec 18       		.byte	0x18
+ 314 00ed 68000000 		.4byte	0x68
+ 315 00f1 1F000000 		.4byte	.LLST1
+ 316 00f5 00       		.byte	0
+ 317 00f6 00       		.byte	0
+ 318 00f7 0B       		.uleb128 0xb
+ 319 00f8 61010000 		.4byte	.LASF25
+ 320 00fc 01       		.byte	0x1
+ 321 00fd 1D       		.byte	0x1d
+ 322 00fe A1000000 		.4byte	0xa1
+ 323 0102 00000000 		.4byte	.LFB65
+ 324 0106 3C000000 		.4byte	.LFE65-.LFB65
+ 325 010a 01       		.uleb128 0x1
+ 326 010b 9C       		.byte	0x9c
+ 327 010c 48010000 		.4byte	0x148
+ 328 0110 0C       		.uleb128 0xc
+ 329 0111 FB000000 		.4byte	.LASF26
+ 330 0115 01       		.byte	0x1
+ 331 0116 1D       		.byte	0x1d
+ 332 0117 84000000 		.4byte	0x84
+ 333 011b 32000000 		.4byte	.LLST2
+ 334 011f 0D       		.uleb128 0xd
+ 335 0120 84010000 		.4byte	.LASF16
+ 336 0124 01       		.byte	0x1
+ 337 0125 1F       		.byte	0x1f
+ 338 0126 68000000 		.4byte	0x68
+ 339 012a 6C000000 		.4byte	.LLST3
+ 340 012e 0A       		.uleb128 0xa
+ 341 012f 14000000 		.4byte	.LBB4
+ 342 0133 14000000 		.4byte	.LBE4-.LBB4
+ 343 0137 09       		.uleb128 0x9
+ 344 0138 5F5F7800 		.ascii	"__x\000"
+ 345 013c 01       		.byte	0x1
+ 346 013d 24       		.byte	0x24
+ 347 013e 84000000 		.4byte	0x84
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccXwjrLg.s 			page 8
 
 
- 362 0024 0B       		.uleb128 0xb
- 363 0025 03       		.uleb128 0x3
- 364 0026 08       		.uleb128 0x8
- 365 0027 00       		.byte	0
- 366 0028 00       		.byte	0
- 367 0029 04       		.uleb128 0x4
- 368 002a 2E       		.uleb128 0x2e
- 369 002b 01       		.byte	0x1
- 370 002c 3F       		.uleb128 0x3f
- 371 002d 19       		.uleb128 0x19
- 372 002e 03       		.uleb128 0x3
- 373 002f 0E       		.uleb128 0xe
- 374 0030 3A       		.uleb128 0x3a
- 375 0031 0B       		.uleb128 0xb
- 376 0032 3B       		.uleb128 0x3b
- 377 0033 0B       		.uleb128 0xb
- 378 0034 27       		.uleb128 0x27
- 379 0035 19       		.uleb128 0x19
- 380 0036 49       		.uleb128 0x49
- 381 0037 13       		.uleb128 0x13
- 382 0038 11       		.uleb128 0x11
- 383 0039 01       		.uleb128 0x1
- 384 003a 12       		.uleb128 0x12
- 385 003b 06       		.uleb128 0x6
- 386 003c 40       		.uleb128 0x40
- 387 003d 18       		.uleb128 0x18
- 388 003e 9642     		.uleb128 0x2116
- 389 0040 19       		.uleb128 0x19
- 390 0041 01       		.uleb128 0x1
- 391 0042 13       		.uleb128 0x13
- 392 0043 00       		.byte	0
- 393 0044 00       		.byte	0
- 394 0045 05       		.uleb128 0x5
- 395 0046 05       		.uleb128 0x5
- 396 0047 00       		.byte	0
- 397 0048 03       		.uleb128 0x3
- 398 0049 0E       		.uleb128 0xe
- 399 004a 3A       		.uleb128 0x3a
- 400 004b 0B       		.uleb128 0xb
- 401 004c 3B       		.uleb128 0x3b
- 402 004d 0B       		.uleb128 0xb
- 403 004e 49       		.uleb128 0x49
- 404 004f 13       		.uleb128 0x13
- 405 0050 02       		.uleb128 0x2
- 406 0051 17       		.uleb128 0x17
- 407 0052 00       		.byte	0
- 408 0053 00       		.byte	0
- 409 0054 06       		.uleb128 0x6
- 410 0055 34       		.uleb128 0x34
- 411 0056 00       		.byte	0
- 412 0057 03       		.uleb128 0x3
- 413 0058 0E       		.uleb128 0xe
- 414 0059 3A       		.uleb128 0x3a
- 415 005a 0B       		.uleb128 0xb
- 416 005b 3B       		.uleb128 0x3b
- 417 005c 0B       		.uleb128 0xb
- 418 005d 49       		.uleb128 0x49
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\cc7gaNMe.s 			page 9
+ 348 0142 AF000000 		.4byte	.LLST4
+ 349 0146 00       		.byte	0
+ 350 0147 00       		.byte	0
+ 351 0148 0E       		.uleb128 0xe
+ 352 0149 A1000000 		.4byte	0xa1
+ 353 014d 58010000 		.4byte	0x158
+ 354 0151 0F       		.uleb128 0xf
+ 355 0152 7D000000 		.4byte	0x7d
+ 356 0156 19       		.byte	0x19
+ 357 0157 00       		.byte	0
+ 358 0158 10       		.uleb128 0x10
+ 359 0159 F6010000 		.4byte	.LASF17
+ 360 015d 01       		.byte	0x1
+ 361 015e 11       		.byte	0x11
+ 362 015f 48010000 		.4byte	0x148
+ 363 0163 05       		.uleb128 0x5
+ 364 0164 03       		.byte	0x3
+ 365 0165 00000000 		.4byte	alpha
+ 366 0169 0E       		.uleb128 0xe
+ 367 016a A1000000 		.4byte	0xa1
+ 368 016e 79010000 		.4byte	0x179
+ 369 0172 0F       		.uleb128 0xf
+ 370 0173 7D000000 		.4byte	0x7d
+ 371 0177 09       		.byte	0x9
+ 372 0178 00       		.byte	0
+ 373 0179 10       		.uleb128 0x10
+ 374 017a 0A000000 		.4byte	.LASF18
+ 375 017e 01       		.byte	0x1
+ 376 017f 12       		.byte	0x12
+ 377 0180 69010000 		.4byte	0x169
+ 378 0184 05       		.uleb128 0x5
+ 379 0185 03       		.byte	0x3
+ 380 0186 68000000 		.4byte	numbers
+ 381 018a 11       		.uleb128 0x11
+ 382 018b C6000000 		.4byte	.LASF19
+ 383 018f 04       		.byte	0x4
+ 384 0190 2E       		.byte	0x2e
+ 385 0191 8B000000 		.4byte	0x8b
+ 386 0195 12       		.uleb128 0x12
+ 387 0196 E7000000 		.4byte	.LASF20
+ 388 019a 05       		.byte	0x5
+ 389 019b 1207     		.2byte	0x712
+ 390 019d A1010000 		.4byte	0x1a1
+ 391 01a1 13       		.uleb128 0x13
+ 392 01a2 96000000 		.4byte	0x96
+ 393 01a6 00       		.byte	0
+ 394              		.section	.debug_abbrev,"",%progbits
+ 395              	.Ldebug_abbrev0:
+ 396 0000 01       		.uleb128 0x1
+ 397 0001 11       		.uleb128 0x11
+ 398 0002 01       		.byte	0x1
+ 399 0003 25       		.uleb128 0x25
+ 400 0004 0E       		.uleb128 0xe
+ 401 0005 13       		.uleb128 0x13
+ 402 0006 0B       		.uleb128 0xb
+ 403 0007 03       		.uleb128 0x3
+ 404 0008 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccXwjrLg.s 			page 9
 
 
- 419 005e 13       		.uleb128 0x13
- 420 005f 02       		.uleb128 0x2
- 421 0060 17       		.uleb128 0x17
- 422 0061 00       		.byte	0
- 423 0062 00       		.byte	0
- 424 0063 07       		.uleb128 0x7
- 425 0064 0B       		.uleb128 0xb
- 426 0065 01       		.byte	0x1
- 427 0066 11       		.uleb128 0x11
- 428 0067 01       		.uleb128 0x1
- 429 0068 12       		.uleb128 0x12
- 430 0069 06       		.uleb128 0x6
- 431 006a 01       		.uleb128 0x1
- 432 006b 13       		.uleb128 0x13
- 433 006c 00       		.byte	0
- 434 006d 00       		.byte	0
- 435 006e 08       		.uleb128 0x8
- 436 006f 34       		.uleb128 0x34
- 437 0070 00       		.byte	0
- 438 0071 03       		.uleb128 0x3
- 439 0072 08       		.uleb128 0x8
- 440 0073 3A       		.uleb128 0x3a
- 441 0074 0B       		.uleb128 0xb
- 442 0075 3B       		.uleb128 0x3b
- 443 0076 0B       		.uleb128 0xb
- 444 0077 49       		.uleb128 0x49
- 445 0078 13       		.uleb128 0x13
- 446 0079 02       		.uleb128 0x2
- 447 007a 17       		.uleb128 0x17
- 448 007b 00       		.byte	0
- 449 007c 00       		.byte	0
- 450 007d 09       		.uleb128 0x9
- 451 007e 0B       		.uleb128 0xb
- 452 007f 01       		.byte	0x1
- 453 0080 11       		.uleb128 0x11
- 454 0081 01       		.uleb128 0x1
- 455 0082 12       		.uleb128 0x12
- 456 0083 06       		.uleb128 0x6
- 457 0084 00       		.byte	0
- 458 0085 00       		.byte	0
- 459 0086 0A       		.uleb128 0xa
- 460 0087 2E       		.uleb128 0x2e
- 461 0088 01       		.byte	0x1
- 462 0089 3F       		.uleb128 0x3f
- 463 008a 19       		.uleb128 0x19
- 464 008b 03       		.uleb128 0x3
- 465 008c 0E       		.uleb128 0xe
- 466 008d 3A       		.uleb128 0x3a
- 467 008e 0B       		.uleb128 0xb
- 468 008f 3B       		.uleb128 0x3b
- 469 0090 0B       		.uleb128 0xb
- 470 0091 49       		.uleb128 0x49
- 471 0092 13       		.uleb128 0x13
- 472 0093 3C       		.uleb128 0x3c
- 473 0094 19       		.uleb128 0x19
- 474 0095 01       		.uleb128 0x1
- 475 0096 13       		.uleb128 0x13
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\cc7gaNMe.s 			page 10
+ 405 0009 1B       		.uleb128 0x1b
+ 406 000a 0E       		.uleb128 0xe
+ 407 000b 55       		.uleb128 0x55
+ 408 000c 17       		.uleb128 0x17
+ 409 000d 11       		.uleb128 0x11
+ 410 000e 01       		.uleb128 0x1
+ 411 000f 10       		.uleb128 0x10
+ 412 0010 17       		.uleb128 0x17
+ 413 0011 00       		.byte	0
+ 414 0012 00       		.byte	0
+ 415 0013 02       		.uleb128 0x2
+ 416 0014 24       		.uleb128 0x24
+ 417 0015 00       		.byte	0
+ 418 0016 0B       		.uleb128 0xb
+ 419 0017 0B       		.uleb128 0xb
+ 420 0018 3E       		.uleb128 0x3e
+ 421 0019 0B       		.uleb128 0xb
+ 422 001a 03       		.uleb128 0x3
+ 423 001b 0E       		.uleb128 0xe
+ 424 001c 00       		.byte	0
+ 425 001d 00       		.byte	0
+ 426 001e 03       		.uleb128 0x3
+ 427 001f 16       		.uleb128 0x16
+ 428 0020 00       		.byte	0
+ 429 0021 03       		.uleb128 0x3
+ 430 0022 0E       		.uleb128 0xe
+ 431 0023 3A       		.uleb128 0x3a
+ 432 0024 0B       		.uleb128 0xb
+ 433 0025 3B       		.uleb128 0x3b
+ 434 0026 0B       		.uleb128 0xb
+ 435 0027 49       		.uleb128 0x49
+ 436 0028 13       		.uleb128 0x13
+ 437 0029 00       		.byte	0
+ 438 002a 00       		.byte	0
+ 439 002b 04       		.uleb128 0x4
+ 440 002c 24       		.uleb128 0x24
+ 441 002d 00       		.byte	0
+ 442 002e 0B       		.uleb128 0xb
+ 443 002f 0B       		.uleb128 0xb
+ 444 0030 3E       		.uleb128 0x3e
+ 445 0031 0B       		.uleb128 0xb
+ 446 0032 03       		.uleb128 0x3
+ 447 0033 08       		.uleb128 0x8
+ 448 0034 00       		.byte	0
+ 449 0035 00       		.byte	0
+ 450 0036 05       		.uleb128 0x5
+ 451 0037 0F       		.uleb128 0xf
+ 452 0038 00       		.byte	0
+ 453 0039 0B       		.uleb128 0xb
+ 454 003a 0B       		.uleb128 0xb
+ 455 003b 49       		.uleb128 0x49
+ 456 003c 13       		.uleb128 0x13
+ 457 003d 00       		.byte	0
+ 458 003e 00       		.byte	0
+ 459 003f 06       		.uleb128 0x6
+ 460 0040 26       		.uleb128 0x26
+ 461 0041 00       		.byte	0
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccXwjrLg.s 			page 10
 
 
- 476 0097 00       		.byte	0
- 477 0098 00       		.byte	0
- 478 0099 0B       		.uleb128 0xb
- 479 009a 18       		.uleb128 0x18
- 480 009b 00       		.byte	0
- 481 009c 00       		.byte	0
- 482 009d 00       		.byte	0
- 483 009e 0C       		.uleb128 0xc
- 484 009f 898201   		.uleb128 0x4109
- 485 00a2 01       		.byte	0x1
- 486 00a3 11       		.uleb128 0x11
- 487 00a4 01       		.uleb128 0x1
- 488 00a5 31       		.uleb128 0x31
- 489 00a6 13       		.uleb128 0x13
- 490 00a7 00       		.byte	0
- 491 00a8 00       		.byte	0
- 492 00a9 0D       		.uleb128 0xd
- 493 00aa 8A8201   		.uleb128 0x410a
- 494 00ad 00       		.byte	0
- 495 00ae 02       		.uleb128 0x2
- 496 00af 18       		.uleb128 0x18
- 497 00b0 9142     		.uleb128 0x2111
- 498 00b2 18       		.uleb128 0x18
- 499 00b3 00       		.byte	0
- 500 00b4 00       		.byte	0
- 501 00b5 0E       		.uleb128 0xe
- 502 00b6 01       		.uleb128 0x1
- 503 00b7 01       		.byte	0x1
- 504 00b8 49       		.uleb128 0x49
- 505 00b9 13       		.uleb128 0x13
- 506 00ba 01       		.uleb128 0x1
- 507 00bb 13       		.uleb128 0x13
- 508 00bc 00       		.byte	0
- 509 00bd 00       		.byte	0
- 510 00be 0F       		.uleb128 0xf
- 511 00bf 21       		.uleb128 0x21
- 512 00c0 00       		.byte	0
- 513 00c1 49       		.uleb128 0x49
- 514 00c2 13       		.uleb128 0x13
- 515 00c3 2F       		.uleb128 0x2f
- 516 00c4 0B       		.uleb128 0xb
- 517 00c5 00       		.byte	0
- 518 00c6 00       		.byte	0
- 519 00c7 10       		.uleb128 0x10
- 520 00c8 34       		.uleb128 0x34
- 521 00c9 00       		.byte	0
- 522 00ca 03       		.uleb128 0x3
- 523 00cb 0E       		.uleb128 0xe
- 524 00cc 3A       		.uleb128 0x3a
- 525 00cd 0B       		.uleb128 0xb
- 526 00ce 3B       		.uleb128 0x3b
- 527 00cf 0B       		.uleb128 0xb
- 528 00d0 49       		.uleb128 0x49
- 529 00d1 13       		.uleb128 0x13
- 530 00d2 3F       		.uleb128 0x3f
- 531 00d3 19       		.uleb128 0x19
- 532 00d4 02       		.uleb128 0x2
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\cc7gaNMe.s 			page 11
+ 462 0042 49       		.uleb128 0x49
+ 463 0043 13       		.uleb128 0x13
+ 464 0044 00       		.byte	0
+ 465 0045 00       		.byte	0
+ 466 0046 07       		.uleb128 0x7
+ 467 0047 2E       		.uleb128 0x2e
+ 468 0048 01       		.byte	0x1
+ 469 0049 3F       		.uleb128 0x3f
+ 470 004a 19       		.uleb128 0x19
+ 471 004b 03       		.uleb128 0x3
+ 472 004c 0E       		.uleb128 0xe
+ 473 004d 3A       		.uleb128 0x3a
+ 474 004e 0B       		.uleb128 0xb
+ 475 004f 3B       		.uleb128 0x3b
+ 476 0050 0B       		.uleb128 0xb
+ 477 0051 11       		.uleb128 0x11
+ 478 0052 01       		.uleb128 0x1
+ 479 0053 12       		.uleb128 0x12
+ 480 0054 06       		.uleb128 0x6
+ 481 0055 40       		.uleb128 0x40
+ 482 0056 18       		.uleb128 0x18
+ 483 0057 9642     		.uleb128 0x2116
+ 484 0059 19       		.uleb128 0x19
+ 485 005a 01       		.uleb128 0x1
+ 486 005b 13       		.uleb128 0x13
+ 487 005c 00       		.byte	0
+ 488 005d 00       		.byte	0
+ 489 005e 08       		.uleb128 0x8
+ 490 005f 0B       		.uleb128 0xb
+ 491 0060 01       		.byte	0x1
+ 492 0061 11       		.uleb128 0x11
+ 493 0062 01       		.uleb128 0x1
+ 494 0063 12       		.uleb128 0x12
+ 495 0064 06       		.uleb128 0x6
+ 496 0065 01       		.uleb128 0x1
+ 497 0066 13       		.uleb128 0x13
+ 498 0067 00       		.byte	0
+ 499 0068 00       		.byte	0
+ 500 0069 09       		.uleb128 0x9
+ 501 006a 34       		.uleb128 0x34
+ 502 006b 00       		.byte	0
+ 503 006c 03       		.uleb128 0x3
+ 504 006d 08       		.uleb128 0x8
+ 505 006e 3A       		.uleb128 0x3a
+ 506 006f 0B       		.uleb128 0xb
+ 507 0070 3B       		.uleb128 0x3b
+ 508 0071 0B       		.uleb128 0xb
+ 509 0072 49       		.uleb128 0x49
+ 510 0073 13       		.uleb128 0x13
+ 511 0074 02       		.uleb128 0x2
+ 512 0075 17       		.uleb128 0x17
+ 513 0076 00       		.byte	0
+ 514 0077 00       		.byte	0
+ 515 0078 0A       		.uleb128 0xa
+ 516 0079 0B       		.uleb128 0xb
+ 517 007a 01       		.byte	0x1
+ 518 007b 11       		.uleb128 0x11
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccXwjrLg.s 			page 11
 
 
- 533 00d5 18       		.uleb128 0x18
- 534 00d6 00       		.byte	0
- 535 00d7 00       		.byte	0
- 536 00d8 11       		.uleb128 0x11
- 537 00d9 2E       		.uleb128 0x2e
- 538 00da 00       		.byte	0
- 539 00db 3F       		.uleb128 0x3f
- 540 00dc 19       		.uleb128 0x19
- 541 00dd 3C       		.uleb128 0x3c
- 542 00de 19       		.uleb128 0x19
- 543 00df 6E       		.uleb128 0x6e
- 544 00e0 0E       		.uleb128 0xe
- 545 00e1 03       		.uleb128 0x3
- 546 00e2 0E       		.uleb128 0xe
- 547 00e3 3A       		.uleb128 0x3a
- 548 00e4 0B       		.uleb128 0xb
- 549 00e5 3B       		.uleb128 0x3b
- 550 00e6 0B       		.uleb128 0xb
- 551 00e7 00       		.byte	0
- 552 00e8 00       		.byte	0
- 553 00e9 00       		.byte	0
- 554              		.section	.debug_loc,"",%progbits
- 555              	.Ldebug_loc0:
- 556              	.LLST0:
- 557 0000 00000000 		.4byte	.LVL0
- 558 0004 08000000 		.4byte	.LVL2
- 559 0008 0100     		.2byte	0x1
- 560 000a 50       		.byte	0x50
- 561 000b 08000000 		.4byte	.LVL2
- 562 000f A0000000 		.4byte	.LFE1
- 563 0013 0400     		.2byte	0x4
- 564 0015 F3       		.byte	0xf3
- 565 0016 01       		.uleb128 0x1
- 566 0017 50       		.byte	0x50
- 567 0018 9F       		.byte	0x9f
- 568 0019 00000000 		.4byte	0
- 569 001d 00000000 		.4byte	0
- 570              	.LLST1:
- 571 0021 64000000 		.4byte	.LVL15
- 572 0025 75000000 		.4byte	.LVL17-1
- 573 0029 0100     		.2byte	0x1
- 574 002b 53       		.byte	0x53
- 575 002c 75000000 		.4byte	.LVL17-1
- 576 0030 78000000 		.4byte	.LVL18
- 577 0034 0300     		.2byte	0x3
- 578 0036 75       		.byte	0x75
- 579 0037 50       		.sleb128 -48
- 580 0038 9F       		.byte	0x9f
- 581 0039 78000000 		.4byte	.LVL18
- 582 003d 7E000000 		.4byte	.LVL19
- 583 0041 0100     		.2byte	0x1
- 584 0043 50       		.byte	0x50
- 585 0044 00000000 		.4byte	0
- 586 0048 00000000 		.4byte	0
- 587              	.LLST2:
- 588 004c 04000000 		.4byte	.LVL1
- 589 0050 08000000 		.4byte	.LVL2
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\cc7gaNMe.s 			page 12
+ 519 007c 01       		.uleb128 0x1
+ 520 007d 12       		.uleb128 0x12
+ 521 007e 06       		.uleb128 0x6
+ 522 007f 00       		.byte	0
+ 523 0080 00       		.byte	0
+ 524 0081 0B       		.uleb128 0xb
+ 525 0082 2E       		.uleb128 0x2e
+ 526 0083 01       		.byte	0x1
+ 527 0084 3F       		.uleb128 0x3f
+ 528 0085 19       		.uleb128 0x19
+ 529 0086 03       		.uleb128 0x3
+ 530 0087 0E       		.uleb128 0xe
+ 531 0088 3A       		.uleb128 0x3a
+ 532 0089 0B       		.uleb128 0xb
+ 533 008a 3B       		.uleb128 0x3b
+ 534 008b 0B       		.uleb128 0xb
+ 535 008c 27       		.uleb128 0x27
+ 536 008d 19       		.uleb128 0x19
+ 537 008e 49       		.uleb128 0x49
+ 538 008f 13       		.uleb128 0x13
+ 539 0090 11       		.uleb128 0x11
+ 540 0091 01       		.uleb128 0x1
+ 541 0092 12       		.uleb128 0x12
+ 542 0093 06       		.uleb128 0x6
+ 543 0094 40       		.uleb128 0x40
+ 544 0095 18       		.uleb128 0x18
+ 545 0096 9742     		.uleb128 0x2117
+ 546 0098 19       		.uleb128 0x19
+ 547 0099 01       		.uleb128 0x1
+ 548 009a 13       		.uleb128 0x13
+ 549 009b 00       		.byte	0
+ 550 009c 00       		.byte	0
+ 551 009d 0C       		.uleb128 0xc
+ 552 009e 05       		.uleb128 0x5
+ 553 009f 00       		.byte	0
+ 554 00a0 03       		.uleb128 0x3
+ 555 00a1 0E       		.uleb128 0xe
+ 556 00a2 3A       		.uleb128 0x3a
+ 557 00a3 0B       		.uleb128 0xb
+ 558 00a4 3B       		.uleb128 0x3b
+ 559 00a5 0B       		.uleb128 0xb
+ 560 00a6 49       		.uleb128 0x49
+ 561 00a7 13       		.uleb128 0x13
+ 562 00a8 02       		.uleb128 0x2
+ 563 00a9 17       		.uleb128 0x17
+ 564 00aa 00       		.byte	0
+ 565 00ab 00       		.byte	0
+ 566 00ac 0D       		.uleb128 0xd
+ 567 00ad 34       		.uleb128 0x34
+ 568 00ae 00       		.byte	0
+ 569 00af 03       		.uleb128 0x3
+ 570 00b0 0E       		.uleb128 0xe
+ 571 00b1 3A       		.uleb128 0x3a
+ 572 00b2 0B       		.uleb128 0xb
+ 573 00b3 3B       		.uleb128 0x3b
+ 574 00b4 0B       		.uleb128 0xb
+ 575 00b5 49       		.uleb128 0x49
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccXwjrLg.s 			page 12
 
 
- 590 0054 0200     		.2byte	0x2
- 591 0056 30       		.byte	0x30
- 592 0057 9F       		.byte	0x9f
- 593 0058 08000000 		.4byte	.LVL2
- 594 005c 34000000 		.4byte	.LVL8
- 595 0060 0100     		.2byte	0x1
- 596 0062 54       		.byte	0x54
- 597 0063 00000000 		.4byte	0
- 598 0067 00000000 		.4byte	0
- 599              	.LLST3:
- 600 006b 36000000 		.4byte	.LVL9
- 601 006f 80000000 		.4byte	.LVL20
- 602 0073 0100     		.2byte	0x1
- 603 0075 54       		.byte	0x54
- 604 0076 00000000 		.4byte	0
- 605 007a 00000000 		.4byte	0
- 606              		.section	.debug_aranges,"",%progbits
- 607 0000 1C000000 		.4byte	0x1c
- 608 0004 0200     		.2byte	0x2
- 609 0006 00000000 		.4byte	.Ldebug_info0
- 610 000a 04       		.byte	0x4
- 611 000b 00       		.byte	0
- 612 000c 0000     		.2byte	0
- 613 000e 0000     		.2byte	0
- 614 0010 00000000 		.4byte	.LFB1
- 615 0014 A0000000 		.4byte	.LFE1-.LFB1
- 616 0018 00000000 		.4byte	0
- 617 001c 00000000 		.4byte	0
- 618              		.section	.debug_ranges,"",%progbits
- 619              	.Ldebug_ranges0:
- 620 0000 00000000 		.4byte	.LFB1
- 621 0004 A0000000 		.4byte	.LFE1
- 622 0008 00000000 		.4byte	0
- 623 000c 00000000 		.4byte	0
- 624              		.section	.debug_line,"",%progbits
- 625              	.Ldebug_line0:
- 626 0000 6F000000 		.section	.debug_str,"MS",%progbits,1
- 626      02003000 
- 626      00000201 
- 626      FB0E0D00 
- 626      01010101 
- 627              	.LASF6:
- 628 0000 6C6F6E67 		.ascii	"long long int\000"
- 628      206C6F6E 
- 628      6720696E 
- 628      7400
- 629              	.LASF3:
- 630 000e 73686F72 		.ascii	"short unsigned int\000"
- 630      7420756E 
- 630      7369676E 
- 630      65642069 
- 630      6E7400
- 631              	.LASF8:
- 632 0021 756E7369 		.ascii	"unsigned int\000"
- 632      676E6564 
- 632      20696E74 
- 632      00
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\cc7gaNMe.s 			page 13
+ 576 00b6 13       		.uleb128 0x13
+ 577 00b7 02       		.uleb128 0x2
+ 578 00b8 17       		.uleb128 0x17
+ 579 00b9 00       		.byte	0
+ 580 00ba 00       		.byte	0
+ 581 00bb 0E       		.uleb128 0xe
+ 582 00bc 01       		.uleb128 0x1
+ 583 00bd 01       		.byte	0x1
+ 584 00be 49       		.uleb128 0x49
+ 585 00bf 13       		.uleb128 0x13
+ 586 00c0 01       		.uleb128 0x1
+ 587 00c1 13       		.uleb128 0x13
+ 588 00c2 00       		.byte	0
+ 589 00c3 00       		.byte	0
+ 590 00c4 0F       		.uleb128 0xf
+ 591 00c5 21       		.uleb128 0x21
+ 592 00c6 00       		.byte	0
+ 593 00c7 49       		.uleb128 0x49
+ 594 00c8 13       		.uleb128 0x13
+ 595 00c9 2F       		.uleb128 0x2f
+ 596 00ca 0B       		.uleb128 0xb
+ 597 00cb 00       		.byte	0
+ 598 00cc 00       		.byte	0
+ 599 00cd 10       		.uleb128 0x10
+ 600 00ce 34       		.uleb128 0x34
+ 601 00cf 00       		.byte	0
+ 602 00d0 03       		.uleb128 0x3
+ 603 00d1 0E       		.uleb128 0xe
+ 604 00d2 3A       		.uleb128 0x3a
+ 605 00d3 0B       		.uleb128 0xb
+ 606 00d4 3B       		.uleb128 0x3b
+ 607 00d5 0B       		.uleb128 0xb
+ 608 00d6 49       		.uleb128 0x49
+ 609 00d7 13       		.uleb128 0x13
+ 610 00d8 02       		.uleb128 0x2
+ 611 00d9 18       		.uleb128 0x18
+ 612 00da 00       		.byte	0
+ 613 00db 00       		.byte	0
+ 614 00dc 11       		.uleb128 0x11
+ 615 00dd 34       		.uleb128 0x34
+ 616 00de 00       		.byte	0
+ 617 00df 03       		.uleb128 0x3
+ 618 00e0 0E       		.uleb128 0xe
+ 619 00e1 3A       		.uleb128 0x3a
+ 620 00e2 0B       		.uleb128 0xb
+ 621 00e3 3B       		.uleb128 0x3b
+ 622 00e4 0B       		.uleb128 0xb
+ 623 00e5 49       		.uleb128 0x49
+ 624 00e6 13       		.uleb128 0x13
+ 625 00e7 3F       		.uleb128 0x3f
+ 626 00e8 19       		.uleb128 0x19
+ 627 00e9 3C       		.uleb128 0x3c
+ 628 00ea 19       		.uleb128 0x19
+ 629 00eb 00       		.byte	0
+ 630 00ec 00       		.byte	0
+ 631 00ed 12       		.uleb128 0x12
+ 632 00ee 34       		.uleb128 0x34
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccXwjrLg.s 			page 13
 
 
- 633              	.LASF20:
- 634 002e 6C657474 		.ascii	"lettertoTranslate\000"
- 634      6572746F 
- 634      5472616E 
- 634      736C6174 
- 634      6500
- 635              	.LASF16:
- 636 0040 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 636      43313120 
- 636      352E342E 
- 636      31203230 
- 636      31363036 
- 637 0073 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 637      20726576 
- 637      6973696F 
- 637      6E203233 
- 637      37373135 
- 638 00a6 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 638      66756E63 
- 638      74696F6E 
- 638      2D736563 
- 638      74696F6E 
- 639              	.LASF19:
- 640 00ce 67657453 		.ascii	"getSemaphore\000"
- 640      656D6170 
- 640      686F7265 
- 640      00
- 641              	.LASF5:
- 642 00db 6C6F6E67 		.ascii	"long unsigned int\000"
- 642      20756E73 
- 642      69676E65 
- 642      6420696E 
- 642      7400
- 643              	.LASF7:
- 644 00ed 6C6F6E67 		.ascii	"long long unsigned int\000"
- 644      206C6F6E 
- 644      6720756E 
- 644      7369676E 
- 644      65642069 
- 645              	.LASF15:
- 646 0104 6E756D62 		.ascii	"numbers\000"
- 646      65727300 
- 647              	.LASF13:
- 648 010c 666C6F61 		.ascii	"float\000"
- 648      7400
- 649              	.LASF1:
- 650 0112 756E7369 		.ascii	"unsigned char\000"
- 650      676E6564 
- 650      20636861 
- 650      7200
- 651              	.LASF11:
- 652 0120 63686172 		.ascii	"char\000"
- 652      00
- 653              	.LASF4:
- 654 0125 6C6F6E67 		.ascii	"long int\000"
- 654      20696E74 
- 654      00
-ARM GAS  C:\Users\Piimps\AppData\Local\Temp\cc7gaNMe.s 			page 14
+ 633 00ef 00       		.byte	0
+ 634 00f0 03       		.uleb128 0x3
+ 635 00f1 0E       		.uleb128 0xe
+ 636 00f2 3A       		.uleb128 0x3a
+ 637 00f3 0B       		.uleb128 0xb
+ 638 00f4 3B       		.uleb128 0x3b
+ 639 00f5 05       		.uleb128 0x5
+ 640 00f6 49       		.uleb128 0x49
+ 641 00f7 13       		.uleb128 0x13
+ 642 00f8 3F       		.uleb128 0x3f
+ 643 00f9 19       		.uleb128 0x19
+ 644 00fa 3C       		.uleb128 0x3c
+ 645 00fb 19       		.uleb128 0x19
+ 646 00fc 00       		.byte	0
+ 647 00fd 00       		.byte	0
+ 648 00fe 13       		.uleb128 0x13
+ 649 00ff 35       		.uleb128 0x35
+ 650 0100 00       		.byte	0
+ 651 0101 49       		.uleb128 0x49
+ 652 0102 13       		.uleb128 0x13
+ 653 0103 00       		.byte	0
+ 654 0104 00       		.byte	0
+ 655 0105 00       		.byte	0
+ 656              		.section	.debug_loc,"",%progbits
+ 657              	.Ldebug_loc0:
+ 658              	.LLST0:
+ 659 0000 02000000 		.4byte	.LVL0
+ 660 0004 06000000 		.4byte	.LVL1
+ 661 0008 0200     		.2byte	0x2
+ 662 000a 30       		.byte	0x30
+ 663 000b 9F       		.byte	0x9f
+ 664 000c 06000000 		.4byte	.LVL1
+ 665 0010 32000000 		.4byte	.LVL7
+ 666 0014 0100     		.2byte	0x1
+ 667 0016 54       		.byte	0x54
+ 668 0017 00000000 		.4byte	0
+ 669 001b 00000000 		.4byte	0
+ 670              	.LLST1:
+ 671 001f 34000000 		.4byte	.LVL8
+ 672 0023 62000000 		.4byte	.LVL14
+ 673 0027 0100     		.2byte	0x1
+ 674 0029 54       		.byte	0x54
+ 675 002a 00000000 		.4byte	0
+ 676 002e 00000000 		.4byte	0
+ 677              	.LLST2:
+ 678 0032 00000000 		.4byte	.LVL15
+ 679 0036 12000000 		.4byte	.LVL18
+ 680 003a 0100     		.2byte	0x1
+ 681 003c 50       		.byte	0x50
+ 682 003d 12000000 		.4byte	.LVL18
+ 683 0041 14000000 		.4byte	.LVL19
+ 684 0045 0400     		.2byte	0x4
+ 685 0047 F3       		.byte	0xf3
+ 686 0048 01       		.uleb128 0x1
+ 687 0049 50       		.byte	0x50
+ 688 004a 9F       		.byte	0x9f
+ 689 004b 14000000 		.4byte	.LVL19
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccXwjrLg.s 			page 14
 
 
- 655              	.LASF14:
- 656 012e 616C7068 		.ascii	"alpha\000"
- 656      6100
- 657              	.LASF18:
- 658 0134 433A5C55 		.ascii	"C:\\Users\\Piimps\\Documents\\PSoC Creator\\Project"
- 658      73657273 
- 658      5C506969 
- 658      6D70735C 
- 658      446F6375 
- 659 0162 5F456C65 		.ascii	"_Elec\\Project_Final.cydsn\000"
- 659      635C5072 
- 659      6F6A6563 
- 659      745F4669 
- 659      6E616C2E 
- 660              	.LASF0:
- 661 017c 7369676E 		.ascii	"signed char\000"
- 661      65642063 
- 661      68617200 
- 662              	.LASF21:
- 663 0188 746F6C6F 		.ascii	"tolower\000"
- 663      77657200 
- 664              	.LASF12:
- 665 0190 706F7369 		.ascii	"position\000"
- 665      74696F6E 
- 665      00
- 666              	.LASF9:
- 667 0199 6C6F6E67 		.ascii	"long double\000"
- 667      20646F75 
- 667      626C6500 
- 668              	.LASF2:
- 669 01a5 73686F72 		.ascii	"short int\000"
- 669      7420696E 
- 669      7400
- 670              	.LASF17:
- 671 01af 73656D61 		.ascii	"semaphore.c\000"
- 671      70686F72 
- 671      652E6300 
- 672              	.LASF10:
- 673 01bb 73697A65 		.ascii	"sizetype\000"
- 673      74797065 
- 673      00
- 674              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 690 004f 30000000 		.4byte	.LVL22
+ 691 0053 0100     		.2byte	0x1
+ 692 0055 50       		.byte	0x50
+ 693 0056 30000000 		.4byte	.LVL22
+ 694 005a 3C000000 		.4byte	.LFE65
+ 695 005e 0400     		.2byte	0x4
+ 696 0060 F3       		.byte	0xf3
+ 697 0061 01       		.uleb128 0x1
+ 698 0062 50       		.byte	0x50
+ 699 0063 9F       		.byte	0x9f
+ 700 0064 00000000 		.4byte	0
+ 701 0068 00000000 		.4byte	0
+ 702              	.LLST3:
+ 703 006c 06000000 		.4byte	.LVL16
+ 704 0070 10000000 		.4byte	.LVL17
+ 705 0074 0100     		.2byte	0x1
+ 706 0076 52       		.byte	0x52
+ 707 0077 10000000 		.4byte	.LVL17
+ 708 007b 12000000 		.4byte	.LVL18
+ 709 007f 0300     		.2byte	0x3
+ 710 0081 70       		.byte	0x70
+ 711 0082 50       		.sleb128 -48
+ 712 0083 9F       		.byte	0x9f
+ 713 0084 14000000 		.4byte	.LVL19
+ 714 0088 16000000 		.4byte	.LVL20
+ 715 008c 0100     		.2byte	0x1
+ 716 008e 52       		.byte	0x52
+ 717 008f 16000000 		.4byte	.LVL20
+ 718 0093 2A000000 		.4byte	.LVL21
+ 719 0097 0300     		.2byte	0x3
+ 720 0099 70       		.byte	0x70
+ 721 009a 50       		.sleb128 -48
+ 722 009b 9F       		.byte	0x9f
+ 723 009c 2A000000 		.4byte	.LVL21
+ 724 00a0 3C000000 		.4byte	.LFE65
+ 725 00a4 0100     		.2byte	0x1
+ 726 00a6 53       		.byte	0x53
+ 727 00a7 00000000 		.4byte	0
+ 728 00ab 00000000 		.4byte	0
+ 729              	.LLST4:
+ 730 00af 14000000 		.4byte	.LVL19
+ 731 00b3 30000000 		.4byte	.LVL22
+ 732 00b7 0100     		.2byte	0x1
+ 733 00b9 50       		.byte	0x50
+ 734 00ba 30000000 		.4byte	.LVL22
+ 735 00be 3C000000 		.4byte	.LFE65
+ 736 00c2 0400     		.2byte	0x4
+ 737 00c4 F3       		.byte	0xf3
+ 738 00c5 01       		.uleb128 0x1
+ 739 00c6 50       		.byte	0x50
+ 740 00c7 9F       		.byte	0x9f
+ 741 00c8 00000000 		.4byte	0
+ 742 00cc 00000000 		.4byte	0
+ 743              		.section	.debug_aranges,"",%progbits
+ 744 0000 24000000 		.4byte	0x24
+ 745 0004 0200     		.2byte	0x2
+ 746 0006 00000000 		.4byte	.Ldebug_info0
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccXwjrLg.s 			page 15
+
+
+ 747 000a 04       		.byte	0x4
+ 748 000b 00       		.byte	0
+ 749 000c 0000     		.2byte	0
+ 750 000e 0000     		.2byte	0
+ 751 0010 00000000 		.4byte	.LFB64
+ 752 0014 84000000 		.4byte	.LFE64-.LFB64
+ 753 0018 00000000 		.4byte	.LFB65
+ 754 001c 3C000000 		.4byte	.LFE65-.LFB65
+ 755 0020 00000000 		.4byte	0
+ 756 0024 00000000 		.4byte	0
+ 757              		.section	.debug_ranges,"",%progbits
+ 758              	.Ldebug_ranges0:
+ 759 0000 00000000 		.4byte	.LFB64
+ 760 0004 84000000 		.4byte	.LFE64
+ 761 0008 00000000 		.4byte	.LFB65
+ 762 000c 3C000000 		.4byte	.LFE65
+ 763 0010 00000000 		.4byte	0
+ 764 0014 00000000 		.4byte	0
+ 765              		.section	.debug_line,"",%progbits
+ 766              	.Ldebug_line0:
+ 767 0000 1B020000 		.section	.debug_str,"MS",%progbits,1
+ 767      0200B701 
+ 767      00000201 
+ 767      FB0E0D00 
+ 767      01010101 
+ 768              	.LASF12:
+ 769 0000 5F5F696E 		.ascii	"__int32_t\000"
+ 769      7433325F 
+ 769      7400
+ 770              	.LASF18:
+ 771 000a 6E756D62 		.ascii	"numbers\000"
+ 771      65727300 
+ 772              	.LASF14:
+ 773 0012 666C6F61 		.ascii	"float\000"
+ 773      7400
+ 774              	.LASF1:
+ 775 0018 756E7369 		.ascii	"unsigned char\000"
+ 775      676E6564 
+ 775      20636861 
+ 775      7200
+ 776              	.LASF21:
+ 777 0026 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 777      43313120 
+ 777      352E342E 
+ 777      31203230 
+ 777      31363036 
+ 778 0059 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 778      20726576 
+ 778      6973696F 
+ 778      6E203233 
+ 778      37373135 
+ 779 008c 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 779      66756E63 
+ 779      74696F6E 
+ 779      2D736563 
+ 779      74696F6E 
+ 780              	.LASF5:
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccXwjrLg.s 			page 16
+
+
+ 781 00b4 6C6F6E67 		.ascii	"long unsigned int\000"
+ 781      20756E73 
+ 781      69676E65 
+ 781      6420696E 
+ 781      7400
+ 782              	.LASF19:
+ 783 00c6 5F5F6374 		.ascii	"__ctype_ptr__\000"
+ 783      7970655F 
+ 783      7074725F 
+ 783      5F00
+ 784              	.LASF3:
+ 785 00d4 73686F72 		.ascii	"short unsigned int\000"
+ 785      7420756E 
+ 785      7369676E 
+ 785      65642069 
+ 785      6E7400
+ 786              	.LASF20:
+ 787 00e7 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 787      52784275 
+ 787      66666572 
+ 787      00
+ 788              	.LASF15:
+ 789 00f4 646F7562 		.ascii	"double\000"
+ 789      6C6500
+ 790              	.LASF26:
+ 791 00fb 6C657474 		.ascii	"lettertoTranslate\000"
+ 791      6572746F 
+ 791      5472616E 
+ 791      736C6174 
+ 791      6500
+ 792              	.LASF8:
+ 793 010d 756E7369 		.ascii	"unsigned int\000"
+ 793      676E6564 
+ 793      20696E74 
+ 793      00
+ 794              	.LASF7:
+ 795 011a 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 795      206C6F6E 
+ 795      6720756E 
+ 795      7369676E 
+ 795      65642069 
+ 796              	.LASF24:
+ 797 0131 63726561 		.ascii	"createArray\000"
+ 797      74654172 
+ 797      72617900 
+ 798              	.LASF13:
+ 799 013d 696E7433 		.ascii	"int32_t\000"
+ 799      325F7400 
+ 800              	.LASF10:
+ 801 0145 73697A65 		.ascii	"sizetype\000"
+ 801      74797065 
+ 801      00
+ 802              	.LASF6:
+ 803 014e 6C6F6E67 		.ascii	"long long int\000"
+ 803      206C6F6E 
+ 803      6720696E 
+ 803      7400
+ARM GAS  C:\Users\Piimps\AppData\Local\Temp\ccXwjrLg.s 			page 17
+
+
+ 804              	.LASF11:
+ 805 015c 63686172 		.ascii	"char\000"
+ 805      00
+ 806              	.LASF25:
+ 807 0161 67657453 		.ascii	"getSemaphore\000"
+ 807      656D6170 
+ 807      686F7265 
+ 807      00
+ 808              	.LASF2:
+ 809 016e 73686F72 		.ascii	"short int\000"
+ 809      7420696E 
+ 809      7400
+ 810              	.LASF22:
+ 811 0178 73656D61 		.ascii	"semaphore.c\000"
+ 811      70686F72 
+ 811      652E6300 
+ 812              	.LASF16:
+ 813 0184 706F7369 		.ascii	"position\000"
+ 813      74696F6E 
+ 813      00
+ 814              	.LASF4:
+ 815 018d 6C6F6E67 		.ascii	"long int\000"
+ 815      20696E74 
+ 815      00
+ 816              	.LASF9:
+ 817 0196 6C6F6E67 		.ascii	"long double\000"
+ 817      20646F75 
+ 817      626C6500 
+ 818              	.LASF0:
+ 819 01a2 7369676E 		.ascii	"signed char\000"
+ 819      65642063 
+ 819      68617200 
+ 820              	.LASF23:
+ 821 01ae 433A5C55 		.ascii	"C:\\Users\\Piimps\\Documents\\PSoC Creator\\Project"
+ 821      73657273 
+ 821      5C506969 
+ 821      6D70735C 
+ 821      446F6375 
+ 822 01dc 5F456C65 		.ascii	"_Elec\\Project_Final.cydsn\000"
+ 822      635C5072 
+ 822      6F6A6563 
+ 822      745F4669 
+ 822      6E616C2E 
+ 823              	.LASF17:
+ 824 01f6 616C7068 		.ascii	"alpha\000"
+ 824      6100
+ 825              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

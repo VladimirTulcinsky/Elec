@@ -12,6 +12,7 @@
 
 #include "project.h"
 float getSemaphore(char);
+void createArray(void);
 
 
 /* [] END OF FILE */

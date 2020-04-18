@@ -12,6 +12,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
+#include "project.h"
 
 char *alpha[] = { ". -",   //A
 		"- . . .", //B
