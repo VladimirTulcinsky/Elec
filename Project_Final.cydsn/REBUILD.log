@@ -1,3 +1,26 @@
---------------- Rebuild Started: 04/17/2020 20:26:02 Project: main.c, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/main.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c main.c -o .\CortexM3\ARM_GCC_541\Debug\main.o
---------------- Rebuild Succeeded: 04/17/2020 20:26:03 ---------------
+--------------- Rebuild Started: 04/18/2020 12:02:25 Project: semaphore.c, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/semaphore.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c semaphore.c -o .\CortexM3\ARM_GCC_541\Debug\semaphore.o
+semaphore.c:19:1: error: expected identifier or '(' before 'for'
+ for(int x = 0; x < 26; x++) {
+ ^
+semaphore.c:19:18: error: expected '=', ',', ';', 'asm' or '__attribute__' before '<' token
+ for(int x = 0; x < 26; x++) {
+                  ^
+semaphore.c:19:25: error: expected '=', ',', ';', 'asm' or '__attribute__' before '++' token
+ for(int x = 0; x < 26; x++) {
+                         ^
+semaphore.c:22:1: error: expected identifier or '(' before 'for'
+ for(int y = 0; y < 10; y++) {
+ ^
+semaphore.c:22:18: error: expected '=', ',', ';', 'asm' or '__attribute__' before '<' token
+ for(int y = 0; y < 10; y++) {
+                  ^
+semaphore.c:22:25: error: expected '=', ',', ';', 'asm' or '__attribute__' before '++' token
+ for(int y = 0; y < 10; y++) {
+                         ^
+semaphore.c: In function 'getSemaphore':
+semaphore.c:33:14: warning: implicit declaration of function 'tolower' [-Wimplicit-function-declaration]
+   position = tolower(lettertoTranslate) - 'a';
+              ^
+The command 'arm-none-eabi-gcc.exe' failed with exit code '1'.
+--------------- Rebuild Failed: 04/18/2020 12:02:26 ---------------

@@ -43,7 +43,7 @@ char *alpha[] = { ". -",   //A
 
 char *numbers[] = { "- - - - -", ". - - - -", ". . - - -", ". . . - -",
 		". . . . -", ". . . . .", "- . . . .", "- - . . .", "- - - . .",
-		"- - - - .", };
+		"- - - - .", }; // 0 -> 9
 
 char* getMorse(char lettertoTranslate) {
 	int position = lettertoTranslate - '0';

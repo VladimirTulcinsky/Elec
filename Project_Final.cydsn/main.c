@@ -20,6 +20,7 @@
 #include "project.h"
 #include "keypad.h"
 #include "morse.h"
+#include "semaphore.h"
 
 /*========================================
 *
@@ -38,7 +39,6 @@ _Bool flag = 0;
 _Bool pushSW4 = 0;
 _Bool lightOn;
 int clock = 0;
-int clock2 = 0;
 int i;
 int32 adc_value;
 float signal[100];
@@ -53,17 +53,14 @@ char rxData;
 */
 
 /*
-* Interruption for Timer 1
-* TODO
+* Interruption for Timer
+* The sine wave is processed every 50 µs
 */
 CY_ISR(Timer_Handler)  {
-    float val = signal[i] * (float)adc_value / 3311 + 128;
+    float val = signal[i];
     VDAC_SetValue(val);
-    VDAC_SetValue(signal[i] * 50 + 128);
     i++;
-    
     if (i == 100) i = 0;
-    
     Timer_ReadStatusRegister();
 }
 
@@ -103,7 +100,7 @@ void ledsState(int state) {
 /*
 * Get time length and the state to start/stop sound and light on/off LEDs
 */
-void activateLightAndLEDS(int time, _Bool state) { 
+void activateSoundAndLEDS(int time, _Bool state) { 
     int actualClock = clock;
     if (state == 1) { // Start sound and light on LEDs
         Timer_Start();
@@ -157,22 +154,22 @@ void UART_WriteChar(char symbol) {
 void switchMorseCode(char value) { 
     switch (value) {
         case _SHORT_SIGNAL_: 
-        	activateLightAndLEDS(250,1);
+        	activateSoundAndLEDS(250,1);
             UART_WriteChar(_SHORT_SIGNAL_);
             break;
             
         case _LONG_SIGNAL_:
-            activateLightAndLEDS(750,1);
+            activateSoundAndLEDS(750,1);
             UART_WriteChar(_LONG_SIGNAL_);
             break;
             
         case _ELEMENT_SPACE_:
-            activateLightAndLEDS(250,0);   
+            activateSoundAndLEDS(250,0);   
             UART_WriteChar(_ELEMENT_SPACE_);
             break;
             
         case _LETTER_SPACE_:
-            activateLightAndLEDS(750,0);
+            activateSoundAndLEDS(750,0);
             UART_WriteChar(_LETTER_SPACE_);
             break;
     }
@@ -187,7 +184,7 @@ void sendMorseToComputer(char value) {
     checkTimerStatus();
     
     char* morseCode = getMorse(value); // Get the signal duration for the given character
-    UART_WriteChar(_NEW_LINE_);
+   UART_WriteChar(_NEW_LINE_);
     
     for (int x = 0; x < (int)strlen(morseCode); x++) { // Loop for the number of morse signal
         switchMorseCode(morseCode[x]); 
@@ -200,7 +197,7 @@ void sendMorseToComputer(char value) {
 
 /*
 * Get the letter or word to translate in ASCII 
-* TODO
+* @param word : word to translate in morse code
 */
 void sendSignal(char* word) {
 	Timer_1_Start();
@@ -208,18 +205,35 @@ void sendSignal(char* word) {
 	checkTimerStatus();
 
    	char *str = word;
-	int len = strlen(str);
-	char *morse[len];
-	char dest[20];
-	for (int i = 0; i < len; ++i) {
-		morse[i] = getMorse(str[i]);
-		strcpy(dest, morse[i]);
-		for (int var = 0; var < (int) strlen(dest); ++var) {
+	int len = strlen(str); // get length of word
+	char *morse[len]; // variable to store complete morse translation (eg: sos => ...---...)
+	//char dest[20];  // variable to store translation of one letter (eg: s => ...)
+    char *dest;
+    float value[len];
+    for (int h = 0; h < len; ++h) { // for each letter of the word (eg: sos) get corresponding morse translation
+        // morse[0] holds ...
+        // morse[1] holds --- etc ...
+        morse[h] = getMorse(str[h]);
+        if (h == 0) 
+        { dest = malloc(sizeof(char*) * strlen(morse[h]));}
+        else{
+          dest = realloc(dest, sizeof(char*) * strlen(morse[h]));
+        }// malloc else // idem mais avec realloc
+		
+		strcpy(dest, morse[h]); // copy translation of one letter (eg s => ...) in dest variable for looping through individual symbols of morse string
+		for (int var = 0; var < (int) strlen(dest); ++var) { // for each symbol (. or -) activate leds and write to UART
 			switchMorseCode(dest[var]);
 		}
-		switchMorseCode(_LETTER_SPACE_);
-
+		switchMorseCode(_LETTER_SPACE_); // between each letter we add 3 spaces
 	}
+	
+    for (int j = 0; j < len; j++) {
+            value[j] = getSemaphore(str[j]);
+            uint16 value2 = value[j];
+            PWM_WriteCompare1(value2);
+            CyDelay(500);
+                
+    } 
     ledsState(0);
 	clock = 0;
 }
@@ -247,7 +261,7 @@ void pushSW2() {
 
         checkTimerStatus();
 
-        activateLightAndLEDS(250,1);
+        activateSoundAndLEDS(250,1);
         ledsState(0);
         clock = 0;
     }
@@ -262,7 +276,7 @@ void pushSW3() {
 
         checkTimerStatus();
 
-        activateLightAndLEDS(750,1);
+        activateSoundAndLEDS(750,1);
         ledsState(0);
         clock = 0;
     }
@@ -303,7 +317,6 @@ void keyboard() {
             displayMessage(&message);
             sendSignal("sos");
             LCD_ClearDisplay(); 
-            AMux_FastSelect(1); // Use potentiometer value
             break;
         }
         
@@ -313,10 +326,10 @@ void keyboard() {
             displayMessage(&message);
             sendSignal("beams");
             LCD_ClearDisplay();
-            AMux_FastSelect(1);
             break;
         }
     }
+    AMux_FastSelect(1); // Use potentiometer value
 }
 
 /*
@@ -374,7 +387,6 @@ int main(void) {
     isr_StartEx(Timer_Handler); 
     pin_SW4_int_StartEx(SW4_Handler);
     isr1_StartEx(UART_Handler);
-    UART_SetRxInterruptMode(UART_RX_STS_FIFO_NOTEMPTY); //use?
 	/*
 	* Start components
 	*/
@@ -396,7 +408,7 @@ int main(void) {
     Timer_Stop();
     UART_PutString("Start \n");
     /*
-	* TODO
+	* Fill a vector with a sound wave
 	*/
     for (i = 0; i < 100; i++) {
         signal[i] = sin((i * 2 * M_PI) / 100);

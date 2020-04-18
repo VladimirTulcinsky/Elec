@@ -18,7 +18,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Project_Final-000\Project_Final\Source Files\main.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Project_Final-000\Project_Final\Header Files\semaphore.h">
 <ExpandedNodeIds>
 <v>Project_Final-000</v>
 <v>Project_Final-000\Project_Final</v>
@@ -36,10 +36,12 @@
 <v>Project_Final-000\Project_Final\Header Files</v>
 <v>Project_Final-000\Project_Final\Header Files\keypad.h</v>
 <v>Project_Final-000\Project_Final\Header Files\morse.h</v>
+<v>Project_Final-000\Project_Final\Header Files\semaphore.h</v>
 <v>Project_Final-000\Project_Final\Source Files</v>
 <v>Project_Final-000\Project_Final\Source Files\keypad.c</v>
 <v>Project_Final-000\Project_Final\Source Files\main.c</v>
 <v>Project_Final-000\Project_Final\Source Files\morse.c</v>
+<v>Project_Final-000\Project_Final\Source Files\semaphore.c</v>
 <v>Project_Final-000\Project_Final\Generated_Source</v>
 <v>Project_Final-000\Project_Final\Generated_Source\PSoC5</v>
 </ExpandedNodeIds>
@@ -60,10 +62,12 @@
 <v>Project_Final-000\Project_Final\Header Files</v>
 <v>Project_Final-000\Project_Final\Header Files\keypad.h</v>
 <v>Project_Final-000\Project_Final\Header Files\morse.h</v>
+<v>Project_Final-000\Project_Final\Header Files\semaphore.h</v>
 <v>Project_Final-000\Project_Final\Source Files</v>
 <v>Project_Final-000\Project_Final\Source Files\keypad.c</v>
 <v>Project_Final-000\Project_Final\Source Files\main.c</v>
 <v>Project_Final-000\Project_Final\Source Files\morse.c</v>
+<v>Project_Final-000\Project_Final\Source Files\semaphore.c</v>
 <v>Project_Final-000\Project_Final\Generated_Source</v>
 <v>Project_Final-000\Project_Final\Generated_Source\PSoC5</v>
 <v>Project_Final-000\Project_Final\Generated_Source\PSoC5\ADC</v>
@@ -90,9 +94,6 @@
 <v>Project_Final-000\Project_Final\Generated_Source\PSoC5\pin_SW4_int</v>
 <v>Project_Final-000\Project_Final\Generated_Source\PSoC5\Potentiometer</v>
 <v>Project_Final-000\Project_Final\Generated_Source\PSoC5\PWM</v>
-<v>Project_Final-000\Project_Final\Generated_Source\PSoC5\ROW0</v>
-<v>Project_Final-000\Project_Final\Generated_Source\PSoC5\ROW1</v>
-<v>Project_Final-000\Project_Final\Generated_Source\PSoC5\ROW2</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -161,6 +162,7 @@
 <v>Project_Final-000\Project_Final\CortexM3\ARM_GCC_541\Debug\Listing Files\ROW1.lst</v>
 <v>Project_Final-000\Project_Final\CortexM3\ARM_GCC_541\Debug\Listing Files\ROW2.lst</v>
 <v>Project_Final-000\Project_Final\CortexM3\ARM_GCC_541\Debug\Listing Files\ROW3.lst</v>
+<v>Project_Final-000\Project_Final\CortexM3\ARM_GCC_541\Debug\Listing Files\semaphore.lst</v>
 <v>Project_Final-000\Project_Final\CortexM3\ARM_GCC_541\Debug\Listing Files\Servo1.lst</v>
 <v>Project_Final-000\Project_Final\CortexM3\ARM_GCC_541\Debug\Listing Files\Servo2.lst</v>
 <v>Project_Final-000\Project_Final\CortexM3\ARM_GCC_541\Debug\Listing Files\SW1.lst</v>
@@ -235,7 +237,6 @@
 <v>Project_Final-000\Project_Final\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_PM.lst</v>
 <v>Project_Final-000\Project_Final\CortexM3\ARM_GCC_541\Debug\Listing Files\ROW0.lst</v>
 <v>Project_Final-000\Project_Final\CortexM3\ARM_GCC_541\Debug\Listing Files\ROW1.lst</v>
-<v>Project_Final-000\Project_Final\CortexM3\ARM_GCC_541\Debug\Listing Files\ROW2.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -313,7 +314,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1287, 672" SelectedTabbedMdiWindow="e7225cef-3a38-4b84-9363-e18881e28ee8"><DocumentWindow Key="C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\TopDesign\TopDesign.cysch" Guid="d583f0b5-7ebf-445a-a1b5-cbf3abae197e" /><DocumentWindow Key="C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\keypad.h" Guid="3a3d56ce-587c-48ba-aa0e-c4c9c53e7e78" /><DocumentWindow Key="C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\morse.h" Guid="7792acb1-ee22-447a-9d0b-9fbf7c9cb48a" /><DocumentWindow Key="C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\morse.c" Guid="8855fdaf-c3f8-4b80-b7fa-2a7dbe2e455e" /><DocumentWindow Key="C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\main.c" Guid="e7225cef-3a38-4b84-9363-e18881e28ee8" /><DocumentWindow Key="C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\keypad.c" Guid="13cf561c-7562-4720-aa70-8886f73b5bd0" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1287, 672" SelectedTabbedMdiWindow="e7225cef-3a38-4b84-9363-e18881e28ee8"><DocumentWindow Key="C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\TopDesign\TopDesign.cysch" Guid="d583f0b5-7ebf-445a-a1b5-cbf3abae197e" /><DocumentWindow Key="C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\keypad.h" Guid="3a3d56ce-587c-48ba-aa0e-c4c9c53e7e78" /><DocumentWindow Key="C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\morse.h" Guid="7792acb1-ee22-447a-9d0b-9fbf7c9cb48a" /><DocumentWindow Key="C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\morse.c" Guid="8855fdaf-c3f8-4b80-b7fa-2a7dbe2e455e" /><DocumentWindow Key="C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\main.c" Guid="e7225cef-3a38-4b84-9363-e18881e28ee8" /><DocumentWindow Key="C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\keypad.c" Guid="13cf561c-7562-4720-aa70-8886f73b5bd0" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="1a1cae6a-5947-4d28-a788-ca0cab7cd0c6" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
