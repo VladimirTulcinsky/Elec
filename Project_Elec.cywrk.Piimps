@@ -31,12 +31,12 @@
 <v>Project_Elec\Project_Final\Header Files</v>
 <v>Project_Elec\Project_Final\Header Files\keypad.h</v>
 <v>Project_Elec\Project_Final\Header Files\morse.h</v>
-<v>Project_Elec\Project_Final\Header Files\sw1.h</v>
+<v>Project_Elec\Project_Final\Header Files\semaphore.h</v>
 <v>Project_Elec\Project_Final\Source Files</v>
 <v>Project_Elec\Project_Final\Source Files\keypad.c</v>
 <v>Project_Elec\Project_Final\Source Files\main.c</v>
 <v>Project_Elec\Project_Final\Source Files\morse.c</v>
-<v>Project_Elec\Project_Final\Source Files\sw1.c</v>
+<v>Project_Elec\Project_Final\Source Files\semaphore.c</v>
 <v>Project_Elec\Project_Final\Generated_Source</v>
 <v>Project_Elec\Project_Final\Generated_Source\PSoC5</v>
 </ExpandedNodeIds>
@@ -57,12 +57,12 @@
 <v>Project_Elec\Project_Final\Header Files</v>
 <v>Project_Elec\Project_Final\Header Files\keypad.h</v>
 <v>Project_Elec\Project_Final\Header Files\morse.h</v>
-<v>Project_Elec\Project_Final\Header Files\sw1.h</v>
+<v>Project_Elec\Project_Final\Header Files\semaphore.h</v>
 <v>Project_Elec\Project_Final\Source Files</v>
 <v>Project_Elec\Project_Final\Source Files\keypad.c</v>
 <v>Project_Elec\Project_Final\Source Files\main.c</v>
 <v>Project_Elec\Project_Final\Source Files\morse.c</v>
-<v>Project_Elec\Project_Final\Source Files\sw1.c</v>
+<v>Project_Elec\Project_Final\Source Files\semaphore.c</v>
 <v>Project_Elec\Project_Final\Generated_Source</v>
 <v>Project_Elec\Project_Final\Generated_Source\PSoC5</v>
 <v>Project_Elec\Project_Final\Generated_Source\PSoC5\ADC</v>
@@ -89,6 +89,7 @@
 <v>Project_Elec\Project_Final\Generated_Source\PSoC5\pin_SW4_int</v>
 <v>Project_Elec\Project_Final\Generated_Source\PSoC5\Potentiometer</v>
 <v>Project_Elec\Project_Final\Generated_Source\PSoC5\PWM</v>
+<v>Project_Elec\Project_Final\Generated_Source\PSoC5\ROW0</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -157,6 +158,7 @@
 <v>Project_Elec\Project_Final\CortexM3\ARM_GCC_541\Debug\Listing Files\ROW1.lst</v>
 <v>Project_Elec\Project_Final\CortexM3\ARM_GCC_541\Debug\Listing Files\ROW2.lst</v>
 <v>Project_Elec\Project_Final\CortexM3\ARM_GCC_541\Debug\Listing Files\ROW3.lst</v>
+<v>Project_Elec\Project_Final\CortexM3\ARM_GCC_541\Debug\Listing Files\semaphore.lst</v>
 <v>Project_Elec\Project_Final\CortexM3\ARM_GCC_541\Debug\Listing Files\Servo1.lst</v>
 <v>Project_Elec\Project_Final\CortexM3\ARM_GCC_541\Debug\Listing Files\Servo2.lst</v>
 <v>Project_Elec\Project_Final\CortexM3\ARM_GCC_541\Debug\Listing Files\SW1.lst</v>
@@ -231,6 +233,7 @@
 <v>Project_Elec\Project_Final\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_PM.lst</v>
 <v>Project_Elec\Project_Final\CortexM3\ARM_GCC_541\Debug\Listing Files\ROW0.lst</v>
 <v>Project_Elec\Project_Final\CortexM3\ARM_GCC_541\Debug\Listing Files\ROW1.lst</v>
+<v>Project_Elec\Project_Final\CortexM3\ARM_GCC_541\Debug\Listing Files\ROW2.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -297,10 +300,6 @@
 <OpenDocs>
 <name v=".\Project_Final.cydsn\TopDesign\TopDesign.cysch" />
 <name v=".\Project_Final.cydsn\main.c" />
-<name v=".\Project_Final.cydsn\morse.c" />
-<name v=".\Project_Final.cydsn\morse.h" />
-<name v=".\Project_Final.cydsn\sw1.h" />
-<name v=".\Project_Final.cydsn\sw1.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -308,7 +307,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1309, 711" SelectedTabbedMdiWindow="507e9810-38f1-42ee-bb8e-55eb714f5ee3"><DocumentWindow Key="C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\TopDesign\TopDesign.cysch" Guid="950d9872-5b64-418a-9f52-f0f1f5c5fda2" /><DocumentWindow Key="C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\main.c" Guid="507e9810-38f1-42ee-bb8e-55eb714f5ee3" /><DocumentWindow Key="C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\morse.c" Guid="245e476c-0ec2-407d-b87f-0417639402c8" /><DocumentWindow Key="C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\morse.h" Guid="1061ec7f-8311-462a-9a6c-d4c05775bbc1" /><DocumentWindow Key="C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\sw1.h" Guid="de47b73c-8516-4840-b382-a1f5b2f646d1" /><DocumentWindow Key="C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\sw1.c" Guid="ec44c6bd-7d75-4eae-aec2-a40ed3cc97c4" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1287, 672" SelectedTabbedMdiWindow="507e9810-38f1-42ee-bb8e-55eb714f5ee3"><DocumentWindow Key="C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\TopDesign\TopDesign.cysch" Guid="950d9872-5b64-418a-9f52-f0f1f5c5fda2" /><DocumentWindow Key="C:\Users\Piimps\Documents\PSoC Creator\Project_Elec\Project_Final.cydsn\main.c" Guid="507e9810-38f1-42ee-bb8e-55eb714f5ee3" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="1a1cae6a-5947-4d28-a788-ca0cab7cd0c6" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
